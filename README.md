@@ -128,6 +128,25 @@ The strongest public claim is therefore narrow and reproducible: PMP can preserv
 
 See the [live demo runbook](examples/chatgpt-codex-handoff/LIVE_DEMO_RUNBOOK.md) for the public verification procedure and [release notes](docs/RELEASE_NOTES_0.2.1.md) for the stable `v0.2.1` scope.
 
+## Public verified replay
+
+The separate
+[`pmp-public-replay-01`](https://github.com/Mad-Max8063/pmp-public-replay-01)
+repository provides an anonymously accessible blind replay with a four-commit
+Human -> ChatGPT -> Codex -> ChatGPT chain:
+
+1. [human baseline](https://github.com/Mad-Max8063/pmp-public-replay-01/commit/69573d2350327400d4c894ffd253beb10644174a);
+2. [ChatGPT decision](https://github.com/Mad-Max8063/pmp-public-replay-01/commit/4d35d087eb8dd32e33b81754ff497e5adc8957ff);
+3. [Codex implementation](https://github.com/Mad-Max8063/pmp-public-replay-01/commit/7cf171277fd33f7e7d24207b356cbb3210132f5c);
+4. [fresh ChatGPT verification](https://github.com/Mad-Max8063/pmp-public-replay-01/commit/a4e6469a4257f32809b9405946b07fd2ef3e8416).
+
+The [final GitHub Actions run](https://github.com/Mad-Max8063/pmp-public-replay-01/actions/runs/32791128976)
+reports seven passing acceptance tests and
+`REPLAY STAGE VERIFIED: chatgpt-verification`. The replay demonstrates
+repository-mediated operational continuity. In accordance with PMP's evidence
+boundaries, Git history alone does not prove hidden model identity, reasoning,
+or session freshness.
+
 ## Stable protocol line
 
 The stable protocol line integrates the accepted real-pilot findings into two
