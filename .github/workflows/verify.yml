@@ -1,0 +1,60 @@
+name: Verify PMP
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+
+      - name: Set up Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+
+      - name: Compile Python sources
+        run: python -m compileall -q scripts examples tests
+
+      - name: Validate canonical and fixture memories
+        run: |
+          python scripts/validate_memory.py PROJECT_MEMORY.md
+          python scripts/validate_memory.py templates/PROJECT_MEMORY.md
+          python scripts/validate_memory.py examples/chatgpt-codex-handoff/fixtures/before/PROJECT_MEMORY.md
+          python scripts/validate_memory.py examples/chatgpt-codex-handoff/fixtures/after/PROJECT_MEMORY.md
+          python scripts/validate_memory.py examples/chatgpt-codex-handoff/workspace/PROJECT_MEMORY.md
+          python scripts/validate_memory.py examples/chatgpt-codex-handoff/seed/PROJECT_MEMORY.md
+
+      - name: Validate evidence profile templates
+        run: |
+          python scripts/validate_profile_record.py authority profiles/evidence-backed-handoff/templates/AUTHORITY.md
+          python scripts/validate_profile_record.py evidence profiles/evidence-backed-handoff/templates/EVIDENCE_MANIFEST.md
+
+      - name: Test evidence profile validator
+        run: python -m unittest -v tests/test_validate_profile_record.py
+
+      - name: Validate release consistency and repository hygiene
+        run: |
+          python -m unittest -v tests/test_validate_release_candidate.py
+          python scripts/validate_release_candidate.py
+
+      - name: Verify packaged handoff demo
+        run: python examples/chatgpt-codex-handoff/verify_demo.py
+
+      - name: Confirm answer-free seed is incomplete
+        run: |
+          if python examples/chatgpt-codex-handoff/seed/verify_demo.py; then
+            echo "Seed verifier unexpectedly passed before either handoff"
+            exit 1
+          fi
