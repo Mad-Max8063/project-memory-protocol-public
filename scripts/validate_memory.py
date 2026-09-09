@@ -7,6 +7,11 @@ import re
 import sys
 from pathlib import Path
 
+if __package__:
+    from .markdown_sections import parse_sections
+else:
+    from markdown_sections import parse_sections
+
 
 REQUIRED_HEADINGS = [
     "## Identity",
@@ -37,29 +42,23 @@ def validate(path: Path) -> list[str]:
     if not text.startswith("# "):
         errors.append("file must start with a level-one project title")
 
+    sections = parse_sections(text)
+    headings = ["## " + section.name for section in sections]
     positions: list[int] = []
     for heading in REQUIRED_HEADINGS:
-        count = text.count(heading)
+        count = headings.count(heading)
         if count != 1:
             errors.append(f"required heading {heading!r} must appear exactly once (found {count})")
-        positions.append(text.find(heading))
+        positions.append(headings.index(heading) if count else -1)
 
     present_positions = [position for position in positions if position >= 0]
     if present_positions != sorted(present_positions):
         errors.append("required headings are out of order")
 
-    current_start = text.find("## Current state")
-    decisions_start = text.find("## Active decisions")
-    if current_start >= 0 and decisions_start > current_start:
-        current_state = text[current_start:decisions_start]
-        if not EVIDENCE_LABEL.search(current_state):
+    for section in sections:
+        if section.name == "Current state" and not EVIDENCE_LABEL.search(section.prose):
             errors.append("Current state must include at least one PMP evidence label")
-
-    next_start = text.find("## Next action")
-    evidence_start = text.find("## Evidence")
-    if next_start >= 0 and evidence_start > next_start:
-        body = text[next_start + len("## Next action"):evidence_start].strip()
-        if not body:
+        if section.name == "Next action" and not section.body:
             errors.append("Next action must not be empty")
 
     if SECRET_ASSIGNMENT.search(text):

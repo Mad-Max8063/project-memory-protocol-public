@@ -44,6 +44,9 @@ jobs:
       - name: Test evidence profile validator
         run: python -m unittest -v tests/test_validate_profile_record.py
 
+      - name: Test Markdown section regressions
+        run: python -m unittest -v tests/test_markdown_sections.py
+
       - name: Validate release consistency and repository hygiene
         run: |
           python -m unittest -v tests/test_validate_release_candidate.py

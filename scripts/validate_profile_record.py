@@ -7,6 +7,11 @@ import re
 import sys
 from pathlib import Path
 
+if __package__:
+    from .markdown_sections import parse_sections
+else:
+    from markdown_sections import parse_sections
+
 
 REQUIRED_HEADINGS = {
     "authority": (
@@ -75,13 +80,7 @@ SECRET_ASSIGNMENT = re.compile(
 
 
 def split_sections(text: str) -> dict[str, str]:
-    matches = list(re.finditer(r"^## (.+?)\s*$", text, flags=re.MULTILINE))
-    sections: dict[str, str] = {}
-    for index, match in enumerate(matches):
-        start = match.end()
-        end = matches[index + 1].start() if index + 1 < len(matches) else len(text)
-        sections[match.group(1)] = text[start:end].strip()
-    return sections
+    return {section.name: section.prose for section in parse_sections(text)}
 
 
 def field_value(section: str, label: str) -> str | None:
@@ -150,7 +149,7 @@ def validate(kind: str, path: Path) -> list[str]:
         return [f"file not found: {path}"]
 
     text = path.read_text(encoding="utf-8")
-    headings = re.findall(r"^## (.+?)\s*$", text, flags=re.MULTILINE)
+    headings = [section.name for section in parse_sections(text)]
     expected = list(REQUIRED_HEADINGS[kind])
     sections = split_sections(text)
 
