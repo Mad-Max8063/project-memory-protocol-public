@@ -10,12 +10,12 @@
 - Repository: `https://github.com/Mad-Max8063/project-memory-protocol-public` (`PUBLIC`)
 - Human authority: `Matías Maximiliano Bernal / Max Devs Solutions`
 - Default branch: `main`
-- Last updated: `2026-08-24`
+- Last updated: `2026-09-09`
 - Last actor: `Codex`
 
 ## Current state
 
-- [VERIFIED] This local candidate contains only allowlisted protocol,
+- [VERIFIED] This public distribution contains only allowlisted protocol,
   validation, documentation, profile-template, and packaged-demo artifacts.
 - [VERIFIED] Private operational history, pilot evidence, internal phase
   records, private tag plans, and unrelated repository identifiers are absent.
@@ -38,8 +38,8 @@
   human authorization. This update resolves the resulting stale `PRIVATE`
   metadata and records the current public state.
 - [VERIFIED] The repository and its README, LICENSE, specification, history,
-  and CI are anonymously accessible. No tag, GitHub Release, artifact, or
-  deployment exists.
+  and CI are anonymously accessible. A post-merge read-only check on
+  `2026-09-09` found no tag, GitHub Release, artifact, or deployment.
 - [VERIFIED] The public blind replay at
   `Mad-Max8063/pmp-public-replay-01` completed its four-commit
   Human -> ChatGPT -> Codex -> ChatGPT chain at
@@ -57,6 +57,25 @@
 - [VERIFIED] Byte comparison preserved every copied artifact except the
   explicitly reviewed public surfaces: workflow, README, changelog, upgrade
   and release notes, demo script, profile guidance, and release validation.
+- [VERIFIED] PR #1 merged the reviewed Core R3 hardening into `main` through
+  Rebase and merge. The resulting commit is
+  `c32c4d9cbf5cb239eebcdfad2c184f525bfee61b`; its sole parent is
+  `0c9b84a28a73b414b0ae8326ad4f4c43cda02ec2`.
+- [VERIFIED] The merged commit and reviewed branch commit
+  `930082a0be3be1c6b2ab1346d625b8afb4dd7471` share the exact tree
+  `8061adf527bfc9cd60bca406327b57d991cc028e`. Both contain the same five-file
+  change: 332 insertions and 21 deletions.
+- [VERIFIED] GitHub Actions push run `34418092764` and job `verify`
+  `102687351177` completed successfully for the exact merged `main` SHA, with
+  every reported step passing.
+- [VERIFIED] Branch `codex/core-r3-integration` remains preserved at the
+  reviewed commit. Repository visibility remains public; no existing branch,
+  protection setting, tag, Release, artifact, deployment, or replay history
+  was changed by the merge closure.
+- [DOCUMENTED] Six known validation limits remain: empty authority content,
+  multiple actions, invented `[VERIFIED]` claims, two secret-scanner evasions,
+  and placeholder evidence. Core R3 does not claim to validate truth, identity,
+  authorization, or complete CommonMark semantics.
 
 ## Active decisions
 
@@ -68,6 +87,9 @@
 4. Do not present Git metadata as proof of human or model identity.
 5. Treat the public replay as reproducible repository and CI evidence while
    preserving the documented limits around hidden identity and session state.
+6. Keep Core `0.2.1` as the current declared version until the human separately
+   decides whether to prepare PMP `0.2.2`. This closure is not a version bump,
+   tag, GitHub Release, deployment, or promotional publication.
 
 ## Constraints
 
@@ -86,12 +108,12 @@
    external state aligned.
 2. Require exact-SHA local gates, CI, and read-only audit evidence for each
    authorized lifecycle transition.
-3. Review branch-protection policy and stable-tag readiness before a GitHub
-   Release or promotional launch.
+3. Let the human decide whether the merged Core R3 hardening should become PMP
+   `0.2.2`; perform release preparation only under separate authorization.
 
 ## Next action
 
-`Human authority: review the exact public-evidence closure commit, its CI, and final read-only audit; then separately approve or reject a branch-protection policy, stable v0.2.1 tag, GitHub Release, and promotional publication. No tag, Release, deployment, or promotional post is implied by this documentation update.`
+`Human authority: after this post-merge closure PR and its exact-SHA CI are verified, decide whether to authorize preparation of PMP 0.2.2. No merge of this closure PR, version change, tag, GitHub Release, deployment, branch deletion, protection change, replay change, or promotional publication is implied.`
 
 ## Evidence
 
@@ -100,6 +122,11 @@
 - `docs/PROVENANCE.md`
 - `docs/RELEASE_NOTES_0.2.1.md`
 - `examples/chatgpt-codex-handoff/README.md`
+- PR #1 `https://github.com/Mad-Max8063/project-memory-protocol-public/pull/1`
+- Core R3 merge commit `c32c4d9cbf5cb239eebcdfad2c184f525bfee61b`
+- Core R3 reviewed commit `930082a0be3be1c6b2ab1346d625b8afb4dd7471`
+- Core R3 `main` CI run `34418092764`
+- Core R3 `main` CI job `102687351177`
 - root commit `e56aa540ea91d1bb7fd9ed61d3bda8321badea95`
 - GitHub Actions run `32764540923`
 - bootstrap closure commit `365e48c7b8480f339b622b1f22eb30c8f93a6da8`
