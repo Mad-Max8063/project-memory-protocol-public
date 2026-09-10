@@ -1,6 +1,7 @@
-# PMP v0.2.1 — 90-second demo script
+# PMP 0.2.2 — 90-second demo script
 
-> Draft recording script. Do not publish until the human approves the final cut and repository visibility change.
+> Draft recording script. Do not publish until the human approves the final cut
+> and any promotional publication.
 
 ## Recording setup
 
@@ -58,11 +59,11 @@ reading `PROJECT_MEMORY.md`, and commit `<CODEX_IMPLEMENTATION_SHA>`.
 
 ### 82–90 seconds — Claim and call to action
 
-**Screen:** Return to the PMP README and show `PROJECT_MEMORY.md`, `SPEC.md`, the Evidence-backed Handoff profile, and the `v0.2.1` tag.
+**Screen:** Return to the PMP README and show `PROJECT_MEMORY.md`, `SPEC.md`, the Evidence-backed Handoff profile, and the `0.2.2` release notes.
 
 **Narration:**
 
-> PMP is an open, model-agnostic protocol for shared operational project state. Core 0.2.1, the optional Evidence-backed Handoff profile, templates, adapters, demo, and evidence are available in the repository.
+> PMP is an open, model-agnostic protocol for shared operational project state. Core 0.2.2, the optional Evidence-backed Handoff profile, templates, adapters, demo, and evidence are available in the repository.
 
 ## Required on-screen disclosures
 

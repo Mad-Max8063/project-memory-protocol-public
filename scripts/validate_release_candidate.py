@@ -9,7 +9,7 @@ from pathlib import Path
 from urllib.parse import unquote
 
 
-CORE_VERSION = "0.2.1"
+CORE_VERSION = "0.2.2"
 PROFILE_VERSION = "0.1.1"
 MAX_FILE_SIZE = 1024 * 1024
 
@@ -20,8 +20,8 @@ REQUIRED_TEXT = {
     ),
     "README.md": (
         f"stable protocol line: Core `{CORE_VERSION}`; Evidence-backed Handoff profile `{PROFILE_VERSION}`",
-        "docs/UPGRADING_0.1.1_TO_0.2.1.md",
-        "docs/RELEASE_NOTES_0.2.1.md",
+        "docs/UPGRADING_0.2.1_TO_0.2.2.md",
+        "docs/RELEASE_NOTES_0.2.2.md",
         "docs/PROVENANCE.md",
     ),
     "templates/PROJECT_MEMORY.md": (f"> Protocol: PMP `{CORE_VERSION}`",),
@@ -36,13 +36,17 @@ REQUIRED_TEXT = {
     "adapters/CHATGPT.md": (f"PMP {CORE_VERSION}",),
     "profiles/evidence-backed-handoff/PROFILE.md": (
         f"- Profile version: `{PROFILE_VERSION}`",
-        f"- Compatible base: PMP `0.1.1` or `{CORE_VERSION}`",
+        f"- Compatible base: PMP `0.1.1`, `0.2.1`, or `{CORE_VERSION}`",
         "- Status: stable profile; repository lifecycle state is non-normative",
     ),
-    "CHANGELOG.md": (f"## {CORE_VERSION} — metadata correction",),
-    "docs/RELEASE_NOTES_0.2.1.md": (
+    "CHANGELOG.md": (f"## {CORE_VERSION} — Core R3 validation hardening",),
+    "docs/UPGRADING_0.2.1_TO_0.2.2.md": (
+        f"# Upgrading from PMP 0.2.1 to {CORE_VERSION}",
+        "No canonical heading or data migration is required.",
+    ),
+    "docs/RELEASE_NOTES_0.2.2.md": (
         f"# Project Memory Protocol {CORE_VERSION}",
-        "Status: stable metadata-correction notes",
+        "Status: Core R3 hardening notes; repository lifecycle state is non-normative",
     ),
     "docs/PROVENANCE.md": (
         "# Clean distribution provenance",

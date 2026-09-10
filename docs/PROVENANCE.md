@@ -1,7 +1,7 @@
 # Clean distribution provenance
 
 This repository is a clean, self-contained distribution of Project Memory
-Protocol Core `0.2.1` and the optional Evidence-backed Handoff profile `0.1.1`.
+Protocol Core `0.2.2` and the optional Evidence-backed Handoff profile `0.1.1`.
 
 The distribution preserves the protocol specification, reusable templates,
 adapters, validators, tests, and reproducible packaged handoff example. It does

@@ -1,4 +1,4 @@
-# Project instruction — Project Memory Protocol (PMP 0.2.1)
+# Project instruction — Project Memory Protocol (PMP 0.2.2)
 
 When repository access is available, use the repository-root `PROJECT_MEMORY.md` as the canonical operational state for this project.
 

@@ -1,7 +1,7 @@
 # <Project name> — Project Memory
 
 > Canonical operational memory shared by humans and compatible agents.
-> Protocol: PMP `0.2.1`
+> Protocol: PMP `0.2.2`
 > Canonical path: `PROJECT_MEMORY.md`
 
 ## Identity

@@ -1,4 +1,4 @@
-## Project Memory Protocol (PMP 0.2.1)
+## Project Memory Protocol (PMP 0.2.2)
 
 Canonical memory: `PROJECT_MEMORY.md` in the repository root
 

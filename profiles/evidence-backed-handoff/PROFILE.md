@@ -1,7 +1,7 @@
 # PMP Evidence-backed Handoff profile
 
 - Profile version: `0.1.1`
-- Compatible base: PMP `0.1.1` or `0.2.1`
+- Compatible base: PMP `0.1.1`, `0.2.1`, or `0.2.2`
 - Status: stable profile; repository lifecycle state is non-normative
 - Profile name: `PMP Evidence-backed Handoff`
 
@@ -113,7 +113,7 @@ published. Therefore:
 
 A project using the stable Core MAY claim:
 
-> `PMP 0.2.1 Reader/Writer + Evidence-backed Handoff profile 0.1.1`
+> `PMP 0.2.2 Reader/Writer + Evidence-backed Handoff profile 0.1.1`
 
 A project retaining the frozen `0.1.1` Core MAY instead claim:
 
