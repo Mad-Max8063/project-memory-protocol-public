@@ -38,9 +38,9 @@ class ValidateReleaseCandidateTests(unittest.TestCase):
         self.assertEqual(validate(ROOT), [])
 
     def test_stable_versions_are_explicit(self) -> None:
-        self.assertEqual(CORE_VERSION, "0.2.1")
+        self.assertEqual(CORE_VERSION, "0.2.2")
         self.assertEqual(PROFILE_VERSION, "0.1.1")
-        self.assertIn("docs/RELEASE_NOTES_0.2.1.md", REQUIRED_TEXT)
+        self.assertIn("docs/RELEASE_NOTES_0.2.2.md", REQUIRED_TEXT)
         self.assertIn("docs/PROVENANCE.md", REQUIRED_TEXT)
 
     def test_version_contract_rejects_a_missing_token(self) -> None:

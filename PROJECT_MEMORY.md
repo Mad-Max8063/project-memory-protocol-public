@@ -1,7 +1,7 @@
 # Project Memory Protocol — Public Distribution Memory
 
 > Canonical operational memory shared by humans and compatible agents.
-> Protocol: PMP `0.2.1`
+> Protocol: PMP `0.2.2`
 > Canonical path: `PROJECT_MEMORY.md`
 
 ## Identity
@@ -19,8 +19,10 @@
   validation, documentation, profile-template, and packaged-demo artifacts.
 - [VERIFIED] Private operational history, pilot evidence, internal phase
   records, private tag plans, and unrelated repository identifiers are absent.
-- [DOCUMENTED] Core `0.2.1` and Evidence-backed Handoff profile `0.1.1` preserve
-  the accepted protocol behavior while using lifecycle-neutral metadata.
+- [DOCUMENTED] The local Core `0.2.2` release preparation preserves the
+  normative Reader, Writer, and Adapter behavior of `0.2.1` while presenting
+  the merged Core R3 validator hardening through lifecycle-neutral metadata.
+  The Evidence-backed Handoff profile remains at `0.1.1`.
 - [VERIFIED] The clean remote was bootstrapped on `main` from the exact
   clean-history root commit `e56aa540ea91d1bb7fd9ed61d3bda8321badea95`.
 - [VERIFIED] GitHub Actions run `32764540923` executed for that exact root
@@ -72,6 +74,36 @@
   reviewed commit. Repository visibility remains public; no existing branch,
   protection setting, tag, Release, artifact, deployment, or replay history
   was changed by the merge closure.
+- [VERIFIED] PR #2 merged the documentation-only Core R3 post-merge closure
+  into `main` through Rebase and merge. The resulting commit is
+  `28dfa20970d92ec0b9fb4f129eb31b3e34fb54c5`; its sole parent is
+  `c32c4d9cbf5cb239eebcdfad2c184f525bfee61b`.
+- [VERIFIED] The PR #2 merge commit and reviewed branch commit
+  `1cb86b93f2bad617f8344a5eae542f0bfd93588e` share the exact tree
+  `85b3a3a16ee468effff59239cacf35918c4bf3ca` and the same
+  `PROJECT_MEMORY.md` blob `91b8e762bf18dbff68f45ee5c701655c15a3e5a6`.
+- [VERIFIED] GitHub Actions push run `34420701574` and job `verify`
+  `102695248865` completed successfully for the exact PR #2 merge SHA, with
+  every reported step passing.
+- [VERIFIED] Branch `docs/core-r3-post-merge-closure` remains preserved at
+  `1cb86b93f2bad617f8344a5eae542f0bfd93588e`.
+- [VERIFIED] Local branch `release/0.2.2` was created from exact `main`
+  `28dfa20970d92ec0b9fb4f129eb31b3e34fb54c5`. Its complete release
+  preparation is recorded in one local child commit; the branch has not been
+  pushed or opened as a pull request.
+- [VERIFIED] All 15 applicable local gates passed for the uncommitted Core
+  `0.2.2` preparation: compilation; six memory validations; two profile
+  template validations; 17 profile tests; 33 Markdown parser regressions;
+  seven release tests; release metadata, link, size, and secret validation;
+  the packaged demo; and the expected-incomplete seed with exit `1`.
+- [VERIFIED] The prepared diff contains exactly 18 allowlisted paths: 16
+  modified metadata, documentation, memory, adapter, or release-consistency
+  files plus two new release documents. Core R3 implementation, memory/profile
+  validators, Markdown regression suite, workflow, fixtures, and replay
+  history remain unchanged by this preparation.
+- [VERIFIED] A read-only external audit found the repository public with
+  `main` as default, no tags, GitHub Releases, artifacts, or deployments, and
+  no remote `release/0.2.2` branch.
 - [DOCUMENTED] Six known validation limits remain: empty authority content,
   multiple actions, invented `[VERIFIED]` claims, two secret-scanner evasions,
   and placeholder evidence. Core R3 does not claim to validate truth, identity,
@@ -87,9 +119,11 @@
 4. Do not present Git metadata as proof of human or model identity.
 5. Treat the public replay as reproducible repository and CI evidence while
    preserving the documented limits around hidden identity and session state.
-6. Keep Core `0.2.1` as the current declared version until the human separately
-   decides whether to prepare PMP `0.2.2`. This closure is not a version bump,
-   tag, GitHub Release, deployment, or promotional publication.
+6. Record Core `0.2.2` as one local release commit for the merged Core R3
+   validator hardening. Keep its normative contract unchanged, retain profile
+   `0.1.1`, and treat push, pull request, merge, tag, GitHub Release, deployment,
+   visibility, protection, replay, and promotional publication as separate
+   human decisions.
 
 ## Constraints
 
@@ -99,6 +133,8 @@
 - Do not add or change remotes, push additional commits, tag, create a GitHub
   Release, publish, deploy, or change visibility without separate explicit
   human authorization.
+- Do not push the local `release/0.2.2` commit, open a pull request, or alter
+  any existing remote branch until separately authorized.
 - Do not claim that a recording or public companion demo exists until its URL
   and anonymous accessibility have been verified.
 
@@ -108,12 +144,12 @@
    external state aligned.
 2. Require exact-SHA local gates, CI, and read-only audit evidence for each
    authorized lifecycle transition.
-3. Let the human decide whether the merged Core R3 hardening should become PMP
-   `0.2.2`; perform release preparation only under separate authorization.
+3. Preserve the verified local Core `0.2.2` release commit and let the human
+   decide whether to push its branch for exact-SHA CI and review.
 
 ## Next action
 
-`Human authority: after this post-merge closure PR and its exact-SHA CI are verified, decide whether to authorize preparation of PMP 0.2.2. No merge of this closure PR, version change, tag, GitHub Release, deployment, branch deletion, protection change, replay change, or promotional publication is implied.`
+`Human authority: review the exact local release/0.2.2 commit, its complete local gates, and its read-only diff audit; then authorize either corrections or pushing only that branch for exact-SHA CI. No pull request, merge, tag, GitHub Release, deployment, branch deletion, visibility change, protection change, replay change, or promotional publication is implied.`
 
 ## Evidence
 
@@ -121,12 +157,19 @@
 - `README.md`
 - `docs/PROVENANCE.md`
 - `docs/RELEASE_NOTES_0.2.1.md`
+- `docs/RELEASE_NOTES_0.2.2.md`
+- `docs/UPGRADING_0.2.1_TO_0.2.2.md`
 - `examples/chatgpt-codex-handoff/README.md`
 - PR #1 `https://github.com/Mad-Max8063/project-memory-protocol-public/pull/1`
 - Core R3 merge commit `c32c4d9cbf5cb239eebcdfad2c184f525bfee61b`
 - Core R3 reviewed commit `930082a0be3be1c6b2ab1346d625b8afb4dd7471`
 - Core R3 `main` CI run `34418092764`
 - Core R3 `main` CI job `102687351177`
+- PR #2 `https://github.com/Mad-Max8063/project-memory-protocol-public/pull/2`
+- PR #2 merge commit `28dfa20970d92ec0b9fb4f129eb31b3e34fb54c5`
+- PR #2 reviewed commit `1cb86b93f2bad617f8344a5eae542f0bfd93588e`
+- PR #2 merge CI run `34420701574`
+- PR #2 merge CI job `102695248865`
 - root commit `e56aa540ea91d1bb7fd9ed61d3bda8321badea95`
 - GitHub Actions run `32764540923`
 - bootstrap closure commit `365e48c7b8480f339b622b1f22eb30c8f93a6da8`

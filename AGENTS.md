@@ -1,6 +1,6 @@
 # Repository instructions
 
-This repository conforms to PMP `0.2.1` as both Reader and Writer.
+This repository conforms to PMP `0.2.2` as both Reader and Writer.
 Operational tag, release, publication, and visibility state is recorded only
 in canonical memory.
 

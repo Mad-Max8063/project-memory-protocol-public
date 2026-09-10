@@ -6,13 +6,13 @@ Project Memory Protocol (PMP) is a small, Git-native convention for preserving t
 
 > Human decisions -> Git -> canonical project memory <- any compatible agent
 
-Status: **stable protocol line: Core `0.2.1`; Evidence-backed Handoff profile `0.1.1`**
+Status: **stable protocol line: Core `0.2.2`; Evidence-backed Handoff profile `0.1.1`**
 
 Repository tag, GitHub Release, publication, deployment, and visibility state
 is tracked in [canonical memory](PROJECT_MEMORY.md), not encoded as a timeless
 protocol status.
 
-[Stable specification](SPEC.md) · [Quick start](#five-minute-setup) · [Upgrade guide](docs/UPGRADING_0.1.1_TO_0.2.1.md) · [Evidence profile](profiles/evidence-backed-handoff/PROFILE.md) · [Verified handoff example](examples/chatgpt-codex-handoff/README.md) · [Release notes](docs/RELEASE_NOTES_0.2.1.md) · [Distribution provenance](docs/PROVENANCE.md)
+[Stable specification](SPEC.md) · [Quick start](#five-minute-setup) · [Upgrade guide](docs/UPGRADING_0.2.1_TO_0.2.2.md) · [Evidence profile](profiles/evidence-backed-handoff/PROFILE.md) · [Verified handoff example](examples/chatgpt-codex-handoff/README.md) · [Release notes](docs/RELEASE_NOTES_0.2.2.md) · [Distribution provenance](docs/PROVENANCE.md)
 
 ## The problem in one minute
 
@@ -77,8 +77,8 @@ project-memory-protocol/
 |-- profiles/
 |   `-- evidence-backed-handoff/
 |-- docs/
-|   |-- UPGRADING_0.1.1_TO_0.2.1.md
-|   |-- RELEASE_NOTES_0.2.1.md
+|   |-- UPGRADING_0.2.1_TO_0.2.2.md
+|   |-- RELEASE_NOTES_0.2.2.md
 |   |-- DEMO_SCRIPT.md
 |   `-- PROVENANCE.md
 |-- CONTRIBUTING.md
@@ -126,7 +126,7 @@ The included artifact provides three evidence layers:
 
 The strongest public claim is therefore narrow and reproducible: PMP can preserve explicit operational state across independent agent sessions through repository context. External agent identity and session freshness require separate recording or platform evidence; the protocol does not infer them from Git authorship.
 
-See the [live demo runbook](examples/chatgpt-codex-handoff/LIVE_DEMO_RUNBOOK.md) for the public verification procedure and [release notes](docs/RELEASE_NOTES_0.2.1.md) for the stable `v0.2.1` scope.
+See the [live demo runbook](examples/chatgpt-codex-handoff/LIVE_DEMO_RUNBOOK.md) for the public verification procedure and [release notes](docs/RELEASE_NOTES_0.2.2.md) for the Core `0.2.2` scope. Actual tag and release state remains in canonical memory.
 
 ## Public verified replay
 
@@ -152,17 +152,18 @@ or session freshness.
 The stable protocol line integrates the accepted real-pilot findings into two
 layers:
 
-- [PMP Core 0.2.1](SPEC.md) is a self-contained specification for
+- [PMP Core 0.2.2](SPEC.md) is a self-contained specification for
   ordinary Reader and Writer workflows.
 - [Evidence-backed Handoff profile](profiles/evidence-backed-handoff/PROFILE.md)
   adds authority records, persisted external verification, artifact metadata,
   claim separation, and asynchronous evidence closure for higher-assurance
   handoffs.
 
-Core `0.2.1` and profile `0.1.1` preserve the normative behavior of the
-accepted `0.2.0` line while correcting lifecycle metadata. The
+Core `0.2.2` preserves the normative Reader, Writer, and Adapter behavior of
+`0.2.1` while hardening the executable Markdown-section validation. Profile
+`0.1.1` remains unchanged. The
 [canonical memory](PROJECT_MEMORY.md) records current repository state. See the
-[upgrade guide](docs/UPGRADING_0.1.1_TO_0.2.1.md) for compatibility and
+[upgrade guide](docs/UPGRADING_0.2.1_TO_0.2.2.md) for compatibility and
 [distribution provenance](docs/PROVENANCE.md) for the clean-history boundary.
 
 ## Design boundaries

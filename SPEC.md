@@ -1,6 +1,6 @@
 # Project Memory Protocol Specification
 
-- Version: `0.2.1`
+- Version: `0.2.2`
 - Status: Stable specification; repository lifecycle state is non-normative
 - Canonical default path: `PROJECT_MEMORY.md` in the repository root
 
@@ -218,26 +218,26 @@ Sensitive external state SHOULD be referenced by stable identifier, not reproduc
 
 ## 12. Compatibility and optional profiles
 
-PMP `0.2.1` retains the canonical headings, default paths, evidence
+PMP `0.2.2` retains the canonical headings, default paths, evidence
 labels, source precedence, and basic Reader/Writer/Adapter model from PMP
-`0.1.1`. Existing `0.1.1` projects remain valid and are not required to adopt
-this stable version.
+`0.2.1`. Existing `0.2.1` and `0.1.1` projects remain valid and are not
+required to adopt this stable version.
 
 The optional `PMP Evidence-backed Handoff` profile adds authority records,
 independent review, persisted external verification, artifact metadata, claim
 separation, and asynchronous evidence closure for higher-assurance work. Core
 does not require that profile for routine handoffs.
 
-Projects MUST NOT claim released PMP `0.2.1` conformance until a corresponding
+Projects MUST NOT claim released PMP `0.2.2` conformance until a corresponding
 final tag is separately human-authorized and created.
 
 ## 13. Conformance claims
 
 A project MAY claim:
 
-- `PMP 0.2.1 Reader` if START and precedence requirements are implemented;
-- `PMP 0.2.1 Writer` if Reader requirements and END/update requirements are implemented;
-- `PMP 0.2.1 Adapter` if Section 9 is implemented.
+- `PMP 0.2.2 Reader` if START and precedence requirements are implemented;
+- `PMP 0.2.2 Writer` if Reader requirements and END/update requirements are implemented;
+- `PMP 0.2.2 Adapter` if Section 9 is implemented.
 
 A conformance claim SHOULD identify the canonical path. A released conformance
 claim additionally requires the separately authorized stable tag.

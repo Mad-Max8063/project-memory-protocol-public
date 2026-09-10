@@ -2,6 +2,18 @@
 
 All notable protocol changes are documented here.
 
+## 0.2.2 — Core R3 validation hardening
+
+- Added one shared Markdown-section parser for the Core and profile validators.
+- Correctly distinguish escaped backticks from code-span delimiters and retain
+  valid multiline code spans across LF and CRLF line endings.
+- Stop multiline code-span searches at CommonMark paragraph boundaries used by
+  thematic breaks and setext headings.
+- Added focused regression coverage and an explicit CI gate for the shared
+  parser.
+- Preserved the normative Reader, Writer, Adapter, and Evidence-backed Handoff
+  requirements from `0.2.1`.
+
 ## 0.2.1 — metadata correction
 
 - Separated stable protocol and profile status from mutable repository state.

@@ -1,4 +1,4 @@
-## Project Memory Protocol (PMP 0.2.1)
+## Project Memory Protocol (PMP 0.2.2)
 
 Canonical operational memory lives at the repository-root `PROJECT_MEMORY.md`.
 

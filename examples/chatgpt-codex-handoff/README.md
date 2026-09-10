@@ -2,9 +2,9 @@
 
 This example demonstrates the protocol boundary without depending on private chat memory.
 
-It remains a PMP `0.1.1` compatibility fixture with preserved evidence. Core `0.2.1`
+It remains a PMP `0.1.1` compatibility fixture with preserved evidence. Core `0.2.2`
 does not change its canonical headings or executable slugify contract, so the
-continues to verify it without rewriting history.
+verifier continues to verify it without rewriting history.
 
 ## Scenario
 
