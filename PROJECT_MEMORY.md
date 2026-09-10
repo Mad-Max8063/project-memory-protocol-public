@@ -87,10 +87,10 @@
   every reported step passing.
 - [VERIFIED] Branch `docs/core-r3-post-merge-closure` remains preserved at
   `1cb86b93f2bad617f8344a5eae542f0bfd93588e`.
-- [VERIFIED] Local branch `release/0.2.2` was created from exact `main`
-  `28dfa20970d92ec0b9fb4f129eb31b3e34fb54c5`. Its complete release
-  preparation is recorded in one local child commit; the branch has not been
-  pushed or opened as a pull request.
+- [VERIFIED] Core `0.2.2` release content commit
+  `54f95b9ec5e67ab5ad63a54c3532286503f57cb0` is the single child of exact
+  `main` `28dfa20970d92ec0b9fb4f129eb31b3e34fb54c5`. It contains exactly 18
+  allowlisted paths and tree `ef9343dde4d4423cf6e06eaf601ef035f8f35905`.
 - [VERIFIED] All 15 applicable local gates passed for the uncommitted Core
   `0.2.2` preparation: compilation; six memory validations; two profile
   template validations; 17 profile tests; 33 Markdown parser regressions;
@@ -101,9 +101,18 @@
   files plus two new release documents. Core R3 implementation, memory/profile
   validators, Markdown regression suite, workflow, fixtures, and replay
   history remain unchanged by this preparation.
-- [VERIFIED] A read-only external audit found the repository public with
-  `main` as default, no tags, GitHub Releases, artifacts, or deployments, and
-  no remote `release/0.2.2` branch.
+- [VERIFIED] Branch `release/0.2.2` was published at the exact release content
+  commit. Manual GitHub Actions run `34427049413` and job `verify`
+  `102714408763` completed successfully for that exact SHA, with every
+  reported step passing.
+- [VERIFIED] A read-only post-push audit found the repository public with
+  `main` unchanged at `28dfa20970d92ec0b9fb4f129eb31b3e34fb54c5`, the
+  release branch at the expected content commit, and no pull request, tag,
+  GitHub Release, artifact, or deployment.
+- [VERIFIED] The current branch head adds only this lifecycle-neutral canonical
+  memory closure. The release content commit remains its exact parent; current
+  remote-head and exact-SHA CI evidence MUST be verified in GitHub before a
+  pull request decision.
 - [DOCUMENTED] Six known validation limits remain: empty authority content,
   multiple actions, invented `[VERIFIED]` claims, two secret-scanner evasions,
   and placeholder evidence. Core R3 does not claim to validate truth, identity,
@@ -119,9 +128,10 @@
 4. Do not present Git metadata as proof of human or model identity.
 5. Treat the public replay as reproducible repository and CI evidence while
    preserving the documented limits around hidden identity and session state.
-6. Record Core `0.2.2` as one local release commit for the merged Core R3
-   validator hardening. Keep its normative contract unchanged, retain profile
-   `0.1.1`, and treat push, pull request, merge, tag, GitHub Release, deployment,
+6. Preserve Core `0.2.2` release content commit
+   `54f95b9ec5e67ab5ad63a54c3532286503f57cb0` and its verified CI as the
+   reviewed candidate. Keep its normative contract unchanged, retain profile
+   `0.1.1`, and treat pull request, merge, tag, GitHub Release, deployment,
    visibility, protection, replay, and promotional publication as separate
    human decisions.
 
@@ -133,8 +143,9 @@
 - Do not add or change remotes, push additional commits, tag, create a GitHub
   Release, publish, deploy, or change visibility without separate explicit
   human authorization.
-- Do not push the local `release/0.2.2` commit, open a pull request, or alter
-  any existing remote branch until separately authorized.
+- Do not open or merge a pull request, alter any branch other than the
+  authorized fast-forward of `release/0.2.2`, or perform any later lifecycle
+  transition until separately authorized.
 - Do not claim that a recording or public companion demo exists until its URL
   and anonymous accessibility have been verified.
 
@@ -144,12 +155,12 @@
    external state aligned.
 2. Require exact-SHA local gates, CI, and read-only audit evidence for each
    authorized lifecycle transition.
-3. Preserve the verified local Core `0.2.2` release commit and let the human
-   decide whether to push its branch for exact-SHA CI and review.
+3. Verify the documentation-only branch head and its exact-SHA CI, then let the
+   human decide whether to open a pull request toward `main`.
 
 ## Next action
 
-`Human authority: review the exact local release/0.2.2 commit, its complete local gates, and its read-only diff audit; then authorize either corrections or pushing only that branch for exact-SHA CI. No pull request, merge, tag, GitHub Release, deployment, branch deletion, visibility change, protection change, replay change, or promotional publication is implied.`
+`Human authority: review the current remote release/0.2.2 head, its documentation-only diff from 54f95b9ec5e67ab5ad63a54c3532286503f57cb0, and its exact-SHA CI; then decide whether to authorize opening a pull request toward main. No merge, tag, GitHub Release, deployment, branch deletion, visibility change, protection change, replay change, or promotional publication is implied.`
 
 ## Evidence
 
@@ -170,6 +181,9 @@
 - PR #2 reviewed commit `1cb86b93f2bad617f8344a5eae542f0bfd93588e`
 - PR #2 merge CI run `34420701574`
 - PR #2 merge CI job `102695248865`
+- Core `0.2.2` release content commit `54f95b9ec5e67ab5ad63a54c3532286503f57cb0`
+- Core `0.2.2` release content CI run `34427049413`
+- Core `0.2.2` release content CI job `102714408763`
 - root commit `e56aa540ea91d1bb7fd9ed61d3bda8321badea95`
 - GitHub Actions run `32764540923`
 - bootstrap closure commit `365e48c7b8480f339b622b1f22eb30c8f93a6da8`
