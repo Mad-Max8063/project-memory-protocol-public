@@ -126,6 +126,25 @@
 - [VERIFIED] Branch `release/0.2.2` remains preserved at reviewed head
   `6e1f8d430248713cf52773618ce0b3974b217908`. The post-merge audit found the
   repository public with no tag, GitHub Release, artifact, or deployment.
+- [VERIFIED] PR #4 merged the one-file Core `0.2.2` post-merge closure through
+  Rebase and merge. Resulting commit
+  `53f3daac4da79e5e1ed8a581a1108f7940c49a83` has exact parent
+  `4cb77f1081138780972147c220852a1164c02bf0` and tree
+  `c01668ecd1451ea5bb88f1a7092790fc649e3808`, identical to reviewed head
+  `18b804c0258d7775c24d633e4a2c2df7c263a0e9`.
+- [VERIFIED] GitHub Actions push run `34555094139` and job `verify`
+  `103125951065` completed successfully for exact PR #4 merge commit
+  `53f3daac4da79e5e1ed8a581a1108f7940c49a83`, with every reported step
+  passing. Branch `docs/pmp-0.2.2-post-merge-closure` remains preserved at its
+  reviewed head.
+- [VERIFIED] A strict read-only tag-readiness audit of that exact merge commit
+  passed lineage, tree, version metadata, CI, branch protection, anonymous
+  access, visibility, branch preservation, and zero-tag, zero-Release,
+  zero-artifact, zero-deployment, and zero-open-PR checks.
+- [DOCUMENTED] The same audit found one blocking documentation inconsistency:
+  canonical memory still described PR #4 as pending and treated its parent as
+  current `main`. This lifecycle-neutral closure resolves that inconsistency
+  without predicting the SHA that a future protected merge may create.
 - [DOCUMENTED] Six known validation limits remain: empty authority content,
   multiple actions, invented `[VERIFIED]` claims, two secret-scanner evasions,
   and placeholder evidence. Core R3 does not claim to validate truth, identity,
@@ -141,11 +160,13 @@
 4. Do not present Git metadata as proof of human or model identity.
 5. Treat the public replay as reproducible repository and CI evidence while
    preserving the documented limits around hidden identity and session state.
-6. Preserve the merged Core `0.2.2` lineage ending at exact `main`
-   `4cb77f1081138780972147c220852a1164c02bf0`. Keep its normative contract
-   unchanged, retain profile `0.1.1`, and treat post-merge closure, tag, GitHub
-   Release, deployment, visibility, protection, replay, and promotional
-   publication as separate human decisions.
+6. Preserve the merged Core `0.2.2` lineage through verified PR #4 merge
+   `53f3daac4da79e5e1ed8a581a1108f7940c49a83` and any later one-file
+   lifecycle-neutral memory closure. Keep its normative contract unchanged,
+   retain profile `0.1.1`, resolve the exact current default-branch SHA from
+   GitHub immediately before a tag decision, and treat tag, GitHub Release,
+   deployment, visibility, protection, replay, and promotional publication as
+   separate human decisions.
 
 ## Constraints
 
@@ -155,9 +176,10 @@
 - Do not add or change remotes, push additional commits, tag, create a GitHub
   Release, publish, deploy, or change visibility without separate explicit
   human authorization.
-- Do not merge the post-merge closure pull request once opened, alter an
-  existing branch, or perform any later lifecycle transition until separately
-  authorized.
+- Each remaining lifecycle transition MUST be separately and explicitly
+  human-authorized. In particular, this documentation closure does not imply
+  merge, tag, GitHub Release, deployment, branch deletion, visibility change,
+  protection change, replay change, or promotional publication authority.
 - Do not claim that a recording or public companion demo exists until its URL
   and anonymous accessibility have been verified.
 
@@ -167,13 +189,14 @@
    external state aligned.
 2. Require exact-SHA local gates, CI, and read-only audit evidence for each
    authorized lifecycle transition.
-3. Verify the post-merge closure pull request head, exact-SHA CI,
-   conversations, and one-file diff, then let the human decide whether to
-   merge it toward `main`.
+3. Resolve the exact current `main` SHA externally, verify its parent, tree,
+   exact-SHA CI, tag absence, branch protection, external state, and proposed
+   tagger identity, then let the human decide whether to create annotated tag
+   `v0.2.2`.
 
 ## Next action
 
-`Human authority: verify externally that the post-merge closure pull request is open and clean, its current head and exact-SHA verify check are successful, main remains 4cb77f1081138780972147c220852a1164c02bf0, no conversations are unresolved, and its diff changes only PROJECT_MEMORY.md; then decide whether to authorize Rebase and merge. No merge, tag, GitHub Release, deployment, branch deletion, visibility change, protection change, replay change, or promotional publication is implied.`
+`Human authority: resolve the exact current main SHA from GitHub; verify its single-parent linear lineage, tree equality with the reviewed lifecycle-neutral closure head, exact-SHA verify check, branch protection, absence of v0.2.2, Releases, artifacts, deployments, and open pull requests, public visibility, preserved branches, and proposed tagger identity; then decide whether to authorize only the annotated v0.2.2 tag. If this memory is not yet on main, first use the protected pull-request flow under separate authorization. No merge, tag, GitHub Release, deployment, branch deletion, visibility change, protection change, replay change, or promotional publication is implied by this record.`
 
 ## Evidence
 
@@ -207,6 +230,13 @@
 - PR #3 merged `main` commit `4cb77f1081138780972147c220852a1164c02bf0`
 - PR #3 merged `main` CI run `34553817534`
 - PR #3 merged `main` CI job `103122086694`
+- PR #4 `https://github.com/Mad-Max8063/project-memory-protocol-public/pull/4`
+- PR #4 reviewed head `18b804c0258d7775c24d633e4a2c2df7c263a0e9`
+- PR #4 pull-request CI run `34554752425`
+- PR #4 pull-request CI job `103124919674`
+- PR #4 merged commit `53f3daac4da79e5e1ed8a581a1108f7940c49a83`
+- PR #4 merged `main` CI run `34555094139`
+- PR #4 merged `main` CI job `103125951065`
 - root commit `e56aa540ea91d1bb7fd9ed61d3bda8321badea95`
 - GitHub Actions run `32764540923`
 - bootstrap closure commit `365e48c7b8480f339b622b1f22eb30c8f93a6da8`
