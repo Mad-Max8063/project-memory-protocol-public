@@ -10,7 +10,7 @@
 - Repository: `https://github.com/Mad-Max8063/project-memory-protocol-public` (`PUBLIC`)
 - Human authority: `Matías Maximiliano Bernal / Max Devs Solutions`
 - Default branch: `main`
-- Last updated: `2026-09-10`
+- Last updated: `2026-09-11`
 - Last actor: `Codex`
 
 ## Current state
@@ -149,6 +149,27 @@
   multiple actions, invented `[VERIFIED]` claims, two secret-scanner evasions,
   and placeholder evidence. Core R3 does not claim to validate truth, identity,
   authorization, or complete CommonMark semantics.
+- [VERIFIED] PR #5 merged the one-file lifecycle-neutral tag-readiness closure
+  through Rebase and merge. Resulting `main` commit
+  `0597ac7fd428e5c693d50caffb8686f8319b9fa4` has exact parent
+  `53f3daac4da79e5e1ed8a581a1108f7940c49a83` and tree
+  `6ea52ffdc714b8fd3952a66ae1ed8b8504db3a2b`, identical to reviewed head
+  `2395f617acf9145711f1e4fc777072651140109a`.
+- [VERIFIED] GitHub Actions push run `34556398091` and job `verify`
+  `103129875345` completed successfully for that exact `main` commit.
+- [VERIFIED] Annotated tag `v0.2.2` has tag-object
+  `1bda566198a1e5c6cc4564c0984b42b7744575e7` and peels to exact commit
+  `0597ac7fd428e5c693d50caffb8686f8319b9fa4`. Its approved tagger is
+  `Matías Maximiliano Bernal <179927943+Mad-Max8063@users.noreply.github.com>`;
+  the tag is unsigned as explicitly accepted by the human authority.
+- [VERIFIED] GitHub Release `386759221`, titled
+  `Project Memory Protocol v0.2.2`, is public, stable, non-draft,
+  non-prerelease, and marked `Latest`. Its published body matches
+  `docs/RELEASE_NOTES_0.2.2.md`; anonymous access to the Release and automatic
+  ZIP/TAR source archives returned HTTP `200`.
+- [VERIFIED] The post-Release audit on `2026-09-11` found the repository public
+  with all six branches preserved, one tag, one Release, no uploaded Release
+  assets, no Actions artifacts, no deployments, and no open pull requests.
 
 ## Active decisions
 
@@ -160,21 +181,20 @@
 4. Do not present Git metadata as proof of human or model identity.
 5. Treat the public replay as reproducible repository and CI evidence while
    preserving the documented limits around hidden identity and session state.
-6. Preserve the merged Core `0.2.2` lineage through verified PR #4 merge
-   `53f3daac4da79e5e1ed8a581a1108f7940c49a83` and any later one-file
-   lifecycle-neutral memory closure. Keep its normative contract unchanged,
-   retain profile `0.1.1`, resolve the exact current default-branch SHA from
-   GitHub immediately before a tag decision, and treat tag, GitHub Release,
-   deployment, visibility, protection, replay, and promotional publication as
-   separate human decisions.
+6. Preserve published Core `0.2.2`, its normative contract, profile `0.1.1`,
+   annotated tag-object `1bda566198a1e5c6cc4564c0984b42b7744575e7`, exact
+   target `0597ac7fd428e5c693d50caffb8686f8319b9fa4`, and stable GitHub Release.
+   Treat any tag or Release modification, deployment, visibility or protection
+   change, replay change, and promotional publication as separate human
+   decisions.
 
 ## Constraints
 
 - Do not copy private archive repository names, branches, commits, URLs,
   operational sessions, credentials, local paths, or product-specific details
   here.
-- Do not add or change remotes, push additional commits, tag, create a GitHub
-  Release, publish, deploy, or change visibility without separate explicit
+- Do not add or change remotes, modify tags or GitHub Releases, publish
+  promotional material, deploy, or change visibility without separate explicit
   human authorization.
 - Each remaining lifecycle transition MUST be separately and explicitly
   human-authorized. In particular, this documentation closure does not imply
@@ -189,14 +209,13 @@
    external state aligned.
 2. Require exact-SHA local gates, CI, and read-only audit evidence for each
    authorized lifecycle transition.
-3. Resolve the exact current `main` SHA externally, verify its parent, tree,
-   exact-SHA CI, tag absence, branch protection, external state, and proposed
-   tagger identity, then let the human decide whether to create annotated tag
-   `v0.2.2`.
+3. Keep the published `v0.2.2` tag, Release notes, canonical memory, and actual
+   external state aligned; let the human decide whether to authorize
+   promotional publication.
 
 ## Next action
 
-`Human authority: resolve the exact current main SHA from GitHub; verify its single-parent linear lineage, tree equality with the reviewed lifecycle-neutral closure head, exact-SHA verify check, branch protection, absence of v0.2.2, Releases, artifacts, deployments, and open pull requests, public visibility, preserved branches, and proposed tagger identity; then decide whether to authorize only the annotated v0.2.2 tag. If this memory is not yet on main, first use the protected pull-request flow under separate authorization. No merge, tag, GitHub Release, deployment, branch deletion, visibility change, protection change, replay change, or promotional publication is implied by this record.`
+`Human authority: treat this record as the final repository-internal alignment for the already published v0.2.2 Release. Resolve its containing commit, pull request, and exact-SHA CI externally when consequential. Once this record is present on main with verify success, decide whether to authorize promotional publication. No additional post-merge memory closure is required solely to record the merge SHA, and no tag or GitHub Release modification, deployment, branch deletion, visibility change, protection change, replay change, or promotional publication is implied by this record.`
 
 ## Evidence
 
@@ -237,6 +256,13 @@
 - PR #4 merged commit `53f3daac4da79e5e1ed8a581a1108f7940c49a83`
 - PR #4 merged `main` CI run `34555094139`
 - PR #4 merged `main` CI job `103125951065`
+- PR #5 `https://github.com/Mad-Max8063/project-memory-protocol-public/pull/5`
+- PR #5 reviewed head `2395f617acf9145711f1e4fc777072651140109a`
+- PR #5 merged `main` commit `0597ac7fd428e5c693d50caffb8686f8319b9fa4`
+- PR #5 merged `main` CI run `34556398091`
+- PR #5 merged `main` CI job `103129875345`
+- annotated tag `v0.2.2` object `1bda566198a1e5c6cc4564c0984b42b7744575e7`
+- GitHub Release `https://github.com/Mad-Max8063/project-memory-protocol-public/releases/tag/v0.2.2`
 - root commit `e56aa540ea91d1bb7fd9ed61d3bda8321badea95`
 - GitHub Actions run `32764540923`
 - bootstrap closure commit `365e48c7b8480f339b622b1f22eb30c8f93a6da8`
