@@ -109,18 +109,23 @@
   `main` unchanged at `28dfa20970d92ec0b9fb4f129eb31b3e34fb54c5`, the
   release branch at the expected content commit, and no pull request, tag,
   GitHub Release, artifact, or deployment.
-- [VERIFIED] PR #3 was opened from `release/0.2.2` toward exact `main`
-  `28dfa20970d92ec0b9fb4f129eb31b3e34fb54c5` with initial head
-  `a341d3c8482ff32e52702cca6c41454dc55aa60a`. It contains the expected two
-  linear commits and 18-file release diff, is open, clean, mergeable, has no
-  unresolved conversations or auto-merge, and changes no replay artifact.
-- [VERIFIED] Pull-request GitHub Actions run `34428284113` and job `verify`
-  `102718094144` completed successfully for that exact initial PR head, with
-  every reported step passing.
-- [VERIFIED] Commits after the release content SHA add only lifecycle-neutral
-  canonical-memory closures. The release content commit remains unchanged;
-  the current PR head and its exact-SHA CI MUST be verified in GitHub before a
-  merge decision.
+- [VERIFIED] PR #3 merged the reviewed Core `0.2.2` release scope into `main`
+  through Rebase and merge. The resulting linear commits are release content
+  `6b98f5d8938707a98d96ce83c1d406c6c2d1edb0`, branch-CI closure
+  `9c7a91e367ec4b94e20ab914654b77dcc95edaff`, and final PR closure
+  `4cb77f1081138780972147c220852a1164c02bf0`.
+- [VERIFIED] The first rebased commit has exact parent
+  `28dfa20970d92ec0b9fb4f129eb31b3e34fb54c5` and retains release-content tree
+  `ef9343dde4d4423cf6e06eaf601ef035f8f35905`. The final `main` tree
+  `e2c2957d976e427a9a110e699126c0899b8d2e87` exactly matches reviewed PR head
+  `6e1f8d430248713cf52773618ce0b3974b217908`.
+- [VERIFIED] GitHub Actions push run `34553817534` and job `verify`
+  `103122086694` completed successfully for exact merged `main`
+  `4cb77f1081138780972147c220852a1164c02bf0`, with every reported step
+  passing.
+- [VERIFIED] Branch `release/0.2.2` remains preserved at reviewed head
+  `6e1f8d430248713cf52773618ce0b3974b217908`. The post-merge audit found the
+  repository public with no tag, GitHub Release, artifact, or deployment.
 - [DOCUMENTED] Six known validation limits remain: empty authority content,
   multiple actions, invented `[VERIFIED]` claims, two secret-scanner evasions,
   and placeholder evidence. Core R3 does not claim to validate truth, identity,
@@ -136,12 +141,11 @@
 4. Do not present Git metadata as proof of human or model identity.
 5. Treat the public replay as reproducible repository and CI evidence while
    preserving the documented limits around hidden identity and session state.
-6. Preserve Core `0.2.2` release content commit
-   `54f95b9ec5e67ab5ad63a54c3532286503f57cb0` and its verified CI as the
-   reviewed candidate. Keep its normative contract unchanged, retain profile
-   `0.1.1`, and treat pull request, merge, tag, GitHub Release, deployment,
-   visibility, protection, replay, and promotional publication as separate
-   human decisions.
+6. Preserve the merged Core `0.2.2` lineage ending at exact `main`
+   `4cb77f1081138780972147c220852a1164c02bf0`. Keep its normative contract
+   unchanged, retain profile `0.1.1`, and treat post-merge closure, tag, GitHub
+   Release, deployment, visibility, protection, replay, and promotional
+   publication as separate human decisions.
 
 ## Constraints
 
@@ -151,9 +155,9 @@
 - Do not add or change remotes, push additional commits, tag, create a GitHub
   Release, publish, deploy, or change visibility without separate explicit
   human authorization.
-- Do not merge PR #3, open another pull request, alter any branch other than
-  the authorized fast-forward of `release/0.2.2`, or perform any later
-  lifecycle transition until separately authorized.
+- Do not merge the post-merge closure pull request once opened, alter an
+  existing branch, or perform any later lifecycle transition until separately
+  authorized.
 - Do not claim that a recording or public companion demo exists until its URL
   and anonymous accessibility have been verified.
 
@@ -163,12 +167,13 @@
    external state aligned.
 2. Require exact-SHA local gates, CI, and read-only audit evidence for each
    authorized lifecycle transition.
-3. Verify the current PR #3 head, exact-SHA CI, conversations, and diff, then
-   let the human decide whether to merge it toward `main`.
+3. Verify the post-merge closure pull request head, exact-SHA CI,
+   conversations, and one-file diff, then let the human decide whether to
+   merge it toward `main`.
 
 ## Next action
 
-`Human authority: verify externally that PR #3 is open and clean, its current head and exact-SHA verify check are successful, main remains the expected base, no conversations are unresolved, and its diff remains the reviewed 18-file Core 0.2.2 release scope; then decide whether to authorize Rebase and merge. No merge, tag, GitHub Release, deployment, branch deletion, visibility change, protection change, replay change, or promotional publication is implied.`
+`Human authority: verify externally that the post-merge closure pull request is open and clean, its current head and exact-SHA verify check are successful, main remains 4cb77f1081138780972147c220852a1164c02bf0, no conversations are unresolved, and its diff changes only PROJECT_MEMORY.md; then decide whether to authorize Rebase and merge. No merge, tag, GitHub Release, deployment, branch deletion, visibility change, protection change, replay change, or promotional publication is implied.`
 
 ## Evidence
 
@@ -196,6 +201,12 @@
 - PR #3 initial head `a341d3c8482ff32e52702cca6c41454dc55aa60a`
 - PR #3 initial CI run `34428284113`
 - PR #3 initial CI job `102718094144`
+- PR #3 reviewed head `6e1f8d430248713cf52773618ce0b3974b217908`
+- PR #3 reviewed-head CI run `34552366066`
+- PR #3 reviewed-head CI job `103117747308`
+- PR #3 merged `main` commit `4cb77f1081138780972147c220852a1164c02bf0`
+- PR #3 merged `main` CI run `34553817534`
+- PR #3 merged `main` CI job `103122086694`
 - root commit `e56aa540ea91d1bb7fd9ed61d3bda8321badea95`
 - GitHub Actions run `32764540923`
 - bootstrap closure commit `365e48c7b8480f339b622b1f22eb30c8f93a6da8`
