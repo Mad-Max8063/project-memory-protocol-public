@@ -10,7 +10,7 @@
 - Repository: `https://github.com/Mad-Max8063/project-memory-protocol-public` (`PUBLIC`)
 - Human authority: `Matías Maximiliano Bernal / Max Devs Solutions`
 - Default branch: `main`
-- Last updated: `2026-09-09`
+- Last updated: `2026-09-10`
 - Last actor: `Codex`
 
 ## Current state
@@ -91,8 +91,8 @@
   `54f95b9ec5e67ab5ad63a54c3532286503f57cb0` is the single child of exact
   `main` `28dfa20970d92ec0b9fb4f129eb31b3e34fb54c5`. It contains exactly 18
   allowlisted paths and tree `ef9343dde4d4423cf6e06eaf601ef035f8f35905`.
-- [VERIFIED] All 15 applicable local gates passed for the uncommitted Core
-  `0.2.2` preparation: compilation; six memory validations; two profile
+- [VERIFIED] All 15 applicable local gates passed for the Core `0.2.2`
+  release-content preparation: compilation; six memory validations; two profile
   template validations; 17 profile tests; 33 Markdown parser regressions;
   seven release tests; release metadata, link, size, and secret validation;
   the packaged demo; and the expected-incomplete seed with exit `1`.
@@ -105,14 +105,22 @@
   commit. Manual GitHub Actions run `34427049413` and job `verify`
   `102714408763` completed successfully for that exact SHA, with every
   reported step passing.
-- [VERIFIED] A read-only post-push audit found the repository public with
+- [VERIFIED] A read-only post-push, pre-PR audit found the repository public with
   `main` unchanged at `28dfa20970d92ec0b9fb4f129eb31b3e34fb54c5`, the
   release branch at the expected content commit, and no pull request, tag,
   GitHub Release, artifact, or deployment.
-- [VERIFIED] The current branch head adds only this lifecycle-neutral canonical
-  memory closure. The release content commit remains its exact parent; current
-  remote-head and exact-SHA CI evidence MUST be verified in GitHub before a
-  pull request decision.
+- [VERIFIED] PR #3 was opened from `release/0.2.2` toward exact `main`
+  `28dfa20970d92ec0b9fb4f129eb31b3e34fb54c5` with initial head
+  `a341d3c8482ff32e52702cca6c41454dc55aa60a`. It contains the expected two
+  linear commits and 18-file release diff, is open, clean, mergeable, has no
+  unresolved conversations or auto-merge, and changes no replay artifact.
+- [VERIFIED] Pull-request GitHub Actions run `34428284113` and job `verify`
+  `102718094144` completed successfully for that exact initial PR head, with
+  every reported step passing.
+- [VERIFIED] Commits after the release content SHA add only lifecycle-neutral
+  canonical-memory closures. The release content commit remains unchanged;
+  the current PR head and its exact-SHA CI MUST be verified in GitHub before a
+  merge decision.
 - [DOCUMENTED] Six known validation limits remain: empty authority content,
   multiple actions, invented `[VERIFIED]` claims, two secret-scanner evasions,
   and placeholder evidence. Core R3 does not claim to validate truth, identity,
@@ -143,9 +151,9 @@
 - Do not add or change remotes, push additional commits, tag, create a GitHub
   Release, publish, deploy, or change visibility without separate explicit
   human authorization.
-- Do not open or merge a pull request, alter any branch other than the
-  authorized fast-forward of `release/0.2.2`, or perform any later lifecycle
-  transition until separately authorized.
+- Do not merge PR #3, open another pull request, alter any branch other than
+  the authorized fast-forward of `release/0.2.2`, or perform any later
+  lifecycle transition until separately authorized.
 - Do not claim that a recording or public companion demo exists until its URL
   and anonymous accessibility have been verified.
 
@@ -155,12 +163,12 @@
    external state aligned.
 2. Require exact-SHA local gates, CI, and read-only audit evidence for each
    authorized lifecycle transition.
-3. Verify the documentation-only branch head and its exact-SHA CI, then let the
-   human decide whether to open a pull request toward `main`.
+3. Verify the current PR #3 head, exact-SHA CI, conversations, and diff, then
+   let the human decide whether to merge it toward `main`.
 
 ## Next action
 
-`Human authority: review the current remote release/0.2.2 head, its documentation-only diff from 54f95b9ec5e67ab5ad63a54c3532286503f57cb0, and its exact-SHA CI; then decide whether to authorize opening a pull request toward main. No merge, tag, GitHub Release, deployment, branch deletion, visibility change, protection change, replay change, or promotional publication is implied.`
+`Human authority: verify externally that PR #3 is open and clean, its current head and exact-SHA verify check are successful, main remains the expected base, no conversations are unresolved, and its diff remains the reviewed 18-file Core 0.2.2 release scope; then decide whether to authorize Rebase and merge. No merge, tag, GitHub Release, deployment, branch deletion, visibility change, protection change, replay change, or promotional publication is implied.`
 
 ## Evidence
 
@@ -184,6 +192,10 @@
 - Core `0.2.2` release content commit `54f95b9ec5e67ab5ad63a54c3532286503f57cb0`
 - Core `0.2.2` release content CI run `34427049413`
 - Core `0.2.2` release content CI job `102714408763`
+- PR #3 `https://github.com/Mad-Max8063/project-memory-protocol-public/pull/3`
+- PR #3 initial head `a341d3c8482ff32e52702cca6c41454dc55aa60a`
+- PR #3 initial CI run `34428284113`
+- PR #3 initial CI job `102718094144`
 - root commit `e56aa540ea91d1bb7fd9ed61d3bda8321badea95`
 - GitHub Actions run `32764540923`
 - bootstrap closure commit `365e48c7b8480f339b622b1f22eb30c8f93a6da8`
