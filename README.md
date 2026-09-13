@@ -166,6 +166,14 @@ Core `0.2.2` preserves the normative Reader, Writer, and Adapter behavior of
 [upgrade guide](docs/UPGRADING_0.2.1_TO_0.2.2.md) for compatibility and
 [distribution provenance](docs/PROVENANCE.md) for the clean-history boundary.
 
+## Exploratory proposals
+
+- [Capability-Aware Handoff](docs/proposals/CAPABILITY_AWARE_HANDOFF.md)
+  explores how a participant can record an execution-environment mismatch,
+  preserve artifact and authority boundaries, and hand work to a compatible
+  environment. It is non-normative, unversioned, and does not change Core
+  `0.2.2` or the stable Evidence-backed Handoff profile.
+
 ## Design boundaries
 
 PMP intentionally does not define a hosted service, database, vector store, agent framework, or hidden-memory synchronization mechanism. Git remains the transport and audit trail.

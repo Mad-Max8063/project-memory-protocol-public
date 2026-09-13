@@ -10,7 +10,7 @@
 - Repository: `https://github.com/Mad-Max8063/project-memory-protocol-public` (`PUBLIC`)
 - Human authority: `Matías Maximiliano Bernal / Max Devs Solutions`
 - Default branch: `main`
-- Last updated: `2026-09-11`
+- Last updated: `2026-09-12`
 - Last actor: `Codex`
 
 ## Current state
@@ -170,6 +170,10 @@
 - [VERIFIED] The post-Release audit on `2026-09-11` found the repository public
   with all six branches preserved, one tag, one Release, no uploaded Release
   assets, no Actions artifacts, no deployments, and no open pull requests.
+- [DOCUMENTED] A new `Capability-Aware Handoff` document records an exploratory,
+  non-normative design for transferring bounded work between environments with
+  different observable capabilities. It does not change Core `0.2.2`, profile
+  `0.1.1`, the published tag, or the stable GitHub Release.
 
 ## Active decisions
 
@@ -187,6 +191,9 @@
    Treat any tag or Release modification, deployment, visibility or protection
    change, replay change, and promotional publication as separate human
    decisions.
+7. Treat `Capability-Aware Handoff` only as an exploratory optional-profile
+   proposal until a disposable cross-environment pilot and adversarial review
+   provide evidence for a separate human decision.
 
 ## Constraints
 
@@ -202,6 +209,8 @@
   protection change, replay change, or promotional publication authority.
 - Do not claim that a recording or public companion demo exists until its URL
   and anonymous accessibility have been verified.
+- Do not place private paths, credentials, signed artifact URLs, or unnecessary
+  personal data in public capability records or fixtures.
 
 ## Priorities
 
@@ -212,10 +221,12 @@
 3. Keep the published `v0.2.2` tag, Release notes, canonical memory, and actual
    external state aligned; let the human decide whether to authorize
    promotional publication.
+4. Review the `Capability-Aware Handoff` proposal and decide whether to prepare
+   a disposable, non-production cross-environment prototype.
 
 ## Next action
 
-`Human authority: treat this record as the final repository-internal alignment for the already published v0.2.2 Release. Resolve its containing commit, pull request, and exact-SHA CI externally when consequential. Once this record is present on main with verify success, decide whether to authorize promotional publication. No additional post-merge memory closure is required solely to record the merge SHA, and no tag or GitHub Release modification, deployment, branch deletion, visibility change, protection change, replay change, or promotional publication is implied by this record.`
+`Human authority: review the non-normative Capability-Aware Handoff proposal and decide whether to authorize an isolated, disposable cross-environment prototype and adversarial test matrix. No Core or stable-profile change, commit, push, pull request, tag or GitHub Release modification, deployment, branch deletion, visibility or protection change, replay change, artifact transfer, credential access, or promotional publication is implied by this proposal.`
 
 ## Evidence
 
@@ -225,6 +236,7 @@
 - `docs/RELEASE_NOTES_0.2.1.md`
 - `docs/RELEASE_NOTES_0.2.2.md`
 - `docs/UPGRADING_0.2.1_TO_0.2.2.md`
+- `docs/proposals/CAPABILITY_AWARE_HANDOFF.md`
 - `examples/chatgpt-codex-handoff/README.md`
 - PR #1 `https://github.com/Mad-Max8063/project-memory-protocol-public/pull/1`
 - Core R3 merge commit `c32c4d9cbf5cb239eebcdfad2c184f525bfee61b`
