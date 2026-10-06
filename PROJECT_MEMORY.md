@@ -43,8 +43,10 @@
   SDK 2.24.0; CLI tool summary shows 0/28 enabled. No prior track was accessed.
   See experiments/hermes-pmp/evidence/runtime-gate.md for installation failures,
   successful PM-only dependency selection and observed profile/launcher hashes.
-- [VERIFIED] Restricted profile has no OAuth credential yet, no custom hooks,
-  memories or skills, and automatic installs are disabled. Windows USERPROFILE
+- [VERIFIED] Restricted profile received its own openai-codex OAuth credential
+  on 2026-10-06; the login command exited 0. Credential contents were not inspected
+  or recorded. The post-login wrapper check exited 0 with CLI 0/28 tools enabled.
+  No custom hooks, memories or skills; automatic installs are disabled. Windows USERPROFILE
   is preserved only to make Path.home() work. Wrapper check and 71 tests pass
   (14 bridge tests). No Hermes inference, purchase, deployment or global PATH
   change occurred; incremental paid cost remains USD 0.
@@ -84,8 +86,8 @@
 
 ## Priorities
 
-1. Complete human subscription OAuth in the prepared isolated profile and verify
-   coverage without incremental paid charges.
+1. Obtain the human model selection and verify the subscription route without
+   incremental paid charges. OAuth succeeded; it does not prove model coverage.
 2. After repeating that version's tool restrictions, run one bounded live
    attempt with the dedicated home, no provider fallback and no chat history.
 3. If the route is unavailable, retain this honest partial result; do not expand
@@ -93,11 +95,10 @@
 
 ## Next action
 
-Max: from this experiment checkout run
-`& ./experiments/hermes-pmp/windows-runtime.ps1 -Action login` and complete OAuth
-using the existing ChatGPT/Codex subscription; do not share credentials.
-Afterward Codex repeats the restriction check, verifies the covered model and
-runs one bounded live replay. Stop if coverage or restrictions cannot be verified;
+Max: select the model for ONE bounded live Hermes replay through the authenticated
+openai-codex subscription route. Codex then verifies the actual available model
+and restriction gates before running the replay. Do not repeat successful OAuth.
+Stop if coverage or restrictions cannot be verified;
 no previous Hermes/Argon runtime, purchase or automatic paid fallback.
 
 ## Evidence

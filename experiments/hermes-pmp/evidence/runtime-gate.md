@@ -120,3 +120,19 @@ run ONE bounded live replay, following the guide. If OAuth/coverage fails, stop.
 Official references: [Windows installation](https://hermes-agent.nousresearch.com/docs/user-guide/windows-native/),
 [PM API](https://hermes-agent.nousresearch.com/docs/reference/package-management/),
 [subscription provider](https://hermes-agent.nousresearch.com/docs/integrations/providers/).
+
+## OAuth checkpoint — 2026-10-06
+
+The human completed device authorization remotely. The isolated runtime's
+`auth add openai-codex --no-browser --timeout 180` command reported an added
+OAuth credential and exited 0. No credential contents, device codes or account
+identifiers are included here; credentials were not read by the verifier.
+
+After authorization, `windows-runtime.ps1 -Action check` exited 0 and again
+reported the pinned upstream version, matching restriction config, empty
+customization directories and `CLI (0/28)` / `(none enabled)`.
+
+This supersedes the earlier pending-OAuth next action, not the historical
+installation observations. Model selection and actual subscription coverage
+remain pending. No model inference, new live replay, purchase or paid API
+fallback occurred. Conclusion remains B. PARTIALLY VALIDATED.
