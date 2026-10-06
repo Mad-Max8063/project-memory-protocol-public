@@ -1,0 +1,17 @@
+{
+  "timestamp": "2026-10-06",
+  "context_delivery": "Codex subagent spawned with fork_turns=none; only result repository path and PMP continuation instruction supplied",
+  "context_boundary": "Reported files and checks in committed receipt; no proof of hidden model state or identity",
+  "producer_mode": "mock",
+  "handoff_commit": "9be68212880c48724228e50879ae2def65326654",
+  "continuation_commit": "25e3b504bbc66b64904297a95acc5b27d2623379",
+  "receipt": ".project-memory/sessions/codex-continuation.md",
+  "bundle_file": "fresh-codex.bundle",
+  "bundle_sha256": "c76cd1f0100916802ae66af9d7f83dd265c824af67f92ea97ee0ed7d55aa2c57",
+  "acceptance_tests": 3,
+  "exit_code": 0,
+  "protected_file_diff_exit_code": 0,
+  "untracked_pycache_not_committed": true,
+  "real_hermes_executed": false,
+  "incremental_paid_cost_usd": 0
+}
