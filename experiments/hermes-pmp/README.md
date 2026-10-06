@@ -4,6 +4,10 @@ Read the full experiment guide at docs/experiments/hermes-pmp-adapter.md in the
 protocol repository. `adapter.py` imports existing Core code without modifying
 it. `PROJECT_MEMORY.md` is always the canonical state in each target repository.
 
+For the English external-review introduction, offline reproduction commands
+and evidence boundaries, start with
+[the review brief](../../docs/experiments/hermes-review-brief.md).
+
 Local mock replay, from the protocol repo root:
 
 ```powershell

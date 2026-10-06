@@ -16,6 +16,12 @@
 
 ## Current state
 
+- [PREPARED] Max authorized an English external-review delivery: a concise
+  experiment brief, reproduction instructions and a draft PR. Files are
+  docs/experiments/hermes-review-brief.md and hermes-review-pr-draft.md.
+  A local Git-bundle/ZIP delivery may be assembled from this committed branch;
+  its exact source SHA and local smoke result are recorded in the package
+  manifest/LOCAL_VERIFICATION.json, separate from external reproduction.
 - [COMPLETE] Max authorized a bounded useful follow-up: one offline command
   verifying the archived Hermes/Claude/Codex chain. Scope and acceptance are in
   experiments/hermes-pmp/CHAIN_TASK.md. Claude proposes implementation, the host
@@ -141,6 +147,9 @@
 8. The single Claude attempt timed out. Keep that outcome explicit; local Codex
    implementation and host-verified review corrections supply the useful tool.
    The planned Claude implementation handoff remains unvalidated.
+9. Prepare English review materials and a local portable delivery only. Describe
+   the earlier successful fixture chain separately from the later timeout.
+   External-machine reproduction, publication and PR submission are pending.
 
 ## Constraints
 
@@ -162,17 +171,21 @@
 1. Preserve the completed Hermes/Claude/Codex chain with replay bundles,
    independent receipt, tests and the local experimental commit.
 2. Preserve the completed offline verifier, independent findings and host fixes.
-   Stop this bounded task; further model calls/publication need a new scope.
+3. Deliver the English review brief, draft PR and a locally tested portable
+   package. The next success criterion is reproduction on another installation.
 
 ## Next action
 
-Max: review docs/experiments/replay-chain-verifier.md and the independent review
-with final-checks.json. The command is complete and saved in a local experimental
-commit. Further Claude calls, broader experiments or publication require a new
-scoped instruction; no implementation step remains in this task.
+Max: review docs/experiments/hermes-review-brief.md and hermes-review-pr-draft.md,
+plus the local package manifest and smoke report. To publish, authorize the
+experimental branch push and review PR explicitly. External reproduction remains
+pending; preparation does not authorize merge, release or promotional contact.
 
 ## Evidence
 
+- docs/experiments/hermes-review-brief.md
+- docs/experiments/hermes-review-pr-draft.md
+- .project-memory/sessions/english-review-package.md
 - experiments/hermes-pmp/CHAIN_TASK.md
 - experiments/hermes-pmp/verify_chain.py
 - experiments/hermes-pmp/evidence/chain-verifier-20261006/host-checks.json
