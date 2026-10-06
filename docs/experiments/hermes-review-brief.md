@@ -173,6 +173,10 @@ reproduction are not established by the local evidence.
 
 ## External review request
 
+For a unified copy/paste prompt for fresh Claude Code and Google Antigravity
+sessions, see
+[`hermes-cross-runtime-review-prompt.md`](hermes-cross-runtime-review-prompt.md).
+
 Can you reproduce the archived result in a new checkout without receiving the
 original chat history or configuring an AI account? Please report:
 

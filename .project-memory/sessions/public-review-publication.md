@@ -69,6 +69,20 @@ is authorization and preparation, not a claim that the push already succeeded.
   Copy is prepared only. User can share the PR URL manually after reviewing it.
 - No main ref was changed; no release/tag, model call or paid promotion occurred.
 
+## Session handoff — Max continuing from home
+
+Max could not conveniently run both reviews from his phone. The unified English
+prompt is saved at docs/experiments/hermes-cross-runtime-review-prompt.md. Use it
+in separate fresh Claude Code and Google Antigravity sessions. Each should use a
+new clone pinned to 8c96e926b0d28a182759c45c3a0141fa9a934eba and save English
+reports under experiments/hermes-pmp/evidence/reproductions/<runtime>/<run-id>/.
+Neither runtime has run the prompt. Each report folder remains local/untracked;
+do not prematurely commit or push it. The social drafts are prepared but unposted.
+
+First action next session: open the saved prompt and paste it into a new Claude
+Code session. Repeat independently in Antigravity without sharing Claude's
+report. Bring both report folders back for review before adding them to the PR.
+
 ## Exact next action
 
 Max reviews and manually posts the selected English reproduction request linking

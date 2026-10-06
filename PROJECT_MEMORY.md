@@ -29,6 +29,9 @@
   clone verified all three archived bundles, 14 inputs and six fixture tests.
   That smoke remains same-host verification; external-person reproduction is pending.
   English social copy is prepared in docs/experiments/hermes-review-social-drafts.md.
+  Unified Claude Code/Antigravity review prompt is saved at
+  docs/experiments/hermes-cross-runtime-review-prompt.md; neither runtime has
+  run it yet. Latest pushed branch HEAD may advance with this closeout update.
 - [PREPARED] Max authorized an English external-review delivery: a concise
   experiment brief, reproduction instructions and a draft PR. Files are
   docs/experiments/hermes-review-brief.md and hermes-review-pr-draft.md.
@@ -191,10 +194,13 @@
 
 ## Next action
 
-Max: review docs/experiments/hermes-review-social-drafts.md and manually share
-the reproduction request linking PR #8 when ready. The next experimental success
-criterion is an external reviewer report identifying source commit, environment,
-commands, exit code, verifier JSON and any failures. No merge/release is authorized.
+Max, from home: open docs/experiments/hermes-cross-runtime-review-prompt.md and
+paste it into a new Claude Code session and a new Antigravity session. Each uses
+its own clone of commit 8c96e926b0d28a182759c45c3a0141fa9a934eba and saves its
+English report in that clone under
+experiments/hermes-pmp/evidence/reproductions/<runtime>/<run-id>/. They have not
+run yet. Bring both folders back for review before incorporating them in the PR.
+Social posts remain optional and unposted. No merge or release is authorized.
 
 ## Evidence
 
@@ -202,6 +208,7 @@ commands, exit code, verifier JSON and any failures. No merge/release is authori
 - experiments/hermes-pmp/evidence/public-review-20261006/pre-push-scan.json
 - https://github.com/Mad-Max8063/project-memory-protocol-public/actions/runs/37495814502
 - docs/experiments/hermes-review-social-drafts.md
+- docs/experiments/hermes-cross-runtime-review-prompt.md
 - .project-memory/sessions/public-review-publication.md
 - https://github.com/Mad-Max8063/project-memory-protocol-public/pull/8
 - docs/experiments/hermes-review-brief.md
