@@ -238,7 +238,9 @@ def create_handoff(root: Path, packet: dict, proposal: dict, mode: str) -> dict:
 
 
 def clean_env() -> dict:
-    allowed = ('PATH', 'SystemRoot', 'WINDIR', 'TEMP', 'TMP', 'PATHEXT',
+    # Keep the existing Windows home path through nested replay subprocesses:
+    # the consumer needs it for Path.home() even with its dedicated HERMES_HOME.
+    allowed = ('PATH', 'SystemRoot', 'WINDIR', 'TEMP', 'TMP', 'PATHEXT', 'USERPROFILE',
                'LANG', 'LC_ALL', 'COMSPEC')
     env = {key: os.environ[key] for key in allowed if key in os.environ}
     env.update(PYTHONUTF8='1', PYTHONIOENCODING='utf-8', GIT_CONFIG_NOSYSTEM='1',

@@ -14,7 +14,7 @@ from unittest.mock import patch
 
 HERE = Path(__file__).resolve().parents[1] / 'experiments' / 'hermes-pmp'
 sys.path.insert(0, str(HERE))
-from adapter import EVIDENCE, HANDOFF, INPUT_FILES, NEXT_ACTION, create_handoff, read_state, safe_path
+from adapter import EVIDENCE, HANDOFF, INPUT_FILES, NEXT_ACTION, clean_env, create_handoff, read_state, safe_path
 from consumer import CONFIG, extract_stream, hermes_consume, proposal_template
 from continuation import verify
 from replay import replay
@@ -148,6 +148,13 @@ class HermesBridgeTests(unittest.TestCase):
         self.assertIn('fallback_providers: []', CONFIG)
         self.assertIn('cli: []', CONFIG)
         self.assertIn('allow_lazy_installs: false', CONFIG)
+
+    def test_minimized_nested_environment_preserves_windows_home_not_secrets(self):
+        with patch.dict(os.environ, {'USERPROFILE': r'C:\fixture-user',
+                                     'OPENAI_API_KEY': 'test-do-not-inherit'}):
+            child_env = clean_env()
+        self.assertEqual(child_env.get('USERPROFILE'), r'C:\fixture-user')
+        self.assertNotIn('OPENAI_API_KEY', child_env)
 
     def test_existing_compatibility_fixture_remains_valid(self):
         repo = HERE.parents[1]

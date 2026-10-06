@@ -78,4 +78,36 @@ No more mock variants or architecture are needed. Check availability of a NEW
 independent Hermes runtime and subscription-covered OAuth route. If available,
 review tool restriction on that exact version, then run one bounded live replay
 using the documented dedicated home; if unavailable, keep this partial result.
+
+## Addendum — live Hermes and Codex continuation, 2026-10-06
+
+This addendum supersedes the historical “not executed” checkpoint above; the
+original mock report and its claims remain unchanged. A new isolated Hermes
+runtime `vgit.e97923c` authenticated through the existing OpenAI Codex
+subscription. Its account-scoped catalog listed `gpt-5.6-luna`, and one bounded
+real inference replay completed with no enabled tools or provider fallback.
+The host validated and imported the fixture proposal, ran three acceptance
+tests, and archived a PMP handoff.
+
+A separate Codex continuation with no inherited turns read only the result
+clone, reran all three tests, checked the recorded hashes, and wrote a receipt.
+This validates one bounded PMP → Hermes → PMP → separate Codex continuation;
+it does not prove model identity, session freshness, general autonomy, semantic
+truth, or plan quota/no-overage terms. The historical replay report correctly
+records Python as its immediate continuation and `fresh_codex_executed=false`;
+the later Codex receipt is separate evidence.
+
+See `live-replay-20261006/replay-report.json`, `replay.bundle`,
+`codex-continuation.md`, and `../runtime-gate.md`. The report's bundle SHA-256 is
+`b729b7f2220f5e639ad9e43f205314c45055d69eab966689b0438f178398de17`.
+The direct `git bundle verify` check passed. Two pre-inference attempts failed
+at runtime preflight because nested process environment lacked `USERPROFILE`;
+the adapter now preserves it while excluding provider API keys, with a test.
+The full repository suite now has 72 passing tests. Exact subscription usage
+cost was unavailable; an existing allowance was used, no credits/API key were
+purchased or used, and no separate charge was observed.
+
+Final bounded-track category: **A. VALIDATED** under the user's defined
+criterion. This applies only to this reproducible fixture replay. Do not make
+additional model calls, or push, open a PR, merge, tag, release, or publish.
 Never reopen or repair the blocked previous Hermes/Argon experiment.

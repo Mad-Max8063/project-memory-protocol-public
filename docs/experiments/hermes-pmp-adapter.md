@@ -7,9 +7,10 @@ one fixture proposal and leave enough evidence for a context-free continuation.
 PMP stays vendor-neutral; Hermes is an optional actor/runtime, never Core state.
 This does not evaluate general autonomy, usefulness or quality of Hermes.
 
-Conclusion to date: **B. PARTIALLY VALIDATED**. The local bridge and mock replay
-work; actual Hermes/provider execution remains unverified. See recorded evidence
-in experiments/hermes-pmp/evidence/RESULT.md in the repository root.
+Conclusion: **A. VALIDATED** for one bounded, reproducible PMP → Hermes → PMP
+handoff followed by an independent Codex continuation. This does not validate
+general autonomy, model identity, session freshness, subscription guarantees,
+or the truth of model assertions. See the live replay evidence below.
 
 ## Inspection and integration point
 
@@ -102,100 +103,57 @@ continuation.py, as in experiments/hermes-pmp/README.md. A new generated run has
 new commits/timestamps; successful gates, not identical SHAs, are the invariant.
 Pass `--archive <new-empty-directory>` to retain its report and bundle elsewhere.
 
-## Optional live Hermes connection — inference NOT YET VERIFIED
+## Live Hermes replay — 2026-10-06
 
-On 2026-10-06 a NEW pinned minimal Windows CLI runtime was installed and its
-zero-tool profile checked locally. See
-[runtime gate evidence](../../experiments/hermes-pmp/evidence/runtime-gate.md).
-This is not a real model replay; subscription OAuth is the remaining human gate.
-From this experimental repository, the prepared commands are:
+A fresh device OAuth flow completed in the isolated `pmp-home`; Hermes' native
+read-only auth status confirmed the credential. The authenticated account
+catalog listed `gpt-5.6-luna`; this is evidence of one usable catalog entry, not
+a general quota/no-overage guarantee. Exactly one bounded real inference ran
+using the pinned minimal Hermes CLI `vgit.e97923c` (2026.9.24), OpenAI SDK 2.24.0,
+one turn, no enabled tools, no fallback, and the existing subscription. No API
+key, credential, device code, or account detail was stored in the repository.
 
-```powershell
-& ./experiments/hermes-pmp/windows-runtime.ps1 -Action check
-& ./experiments/hermes-pmp/windows-runtime.ps1 -Action login
-```
+The agent proposed normalized fixture labels only. The host validated scope,
+updated the fixture, ran its three acceptance tests, wrote evidence and PMP
+handoff, and committed the result. A separate Codex continuation with no
+inherited turns opened the result clone, independently reran the three tests,
+verified recorded hashes, and wrote a continuation receipt. It used the PMP
+state/evidence in that clone, not the parent conversation.
 
-`login` checks restrictions, prints the device-login instructions and waits for
-human authorization. It makes no model call and restores process environment
-afterward. Never paste credentials here. It deliberately uses the NEW standalone
-home `%TEMP%/pmp-hermes-runtime-20261006/pmp-home`, not an existing global Hermes
-runtime or a named profile. In pinned Hermes `e97923c3`, first-time
-`openai-codex` OAuth in an empty named profile can take an update-only root
-write-through path, print “Added,” and leave the credential unpersisted. The
-standalone home is its own Hermes root and avoids that named-profile fallback.
-The temporary runtime can be removed by Windows cleanup; missing runtime is a
-hard gate, not permission to reuse the blocked track. No global PATH was changed.
-After OAuth, the wrapper checks Hermes' own `auth status` and suppresses account
-details; it stops immediately if the provider is still logged out.
-For the later single live replay, after OAuth and covered-model verification:
+Replay archive: `experiments/hermes-pmp/evidence/live-replay-20261006/`.
+`replay-report.json` records baseline `4488a97dc68b7b614365d0f274edbf665e679f41`,
+handoff `d2e225b61857be0e0b79c5d28116ae6a9800f7c7`, input memory and packet hashes,
+host command and output, timestamps, changed files, and explicit non-claims.
+The bundle SHA-256 is
+`b729b7f2220f5e639ad9e43f205314c45055d69eab966689b0438f178398de17`.
+The separate Codex receipt is `codex-continuation.md`.
 
-```powershell
-$pmpSavedPath = $env:Path
-try {
-    $env:Path = (Join-Path $env:TEMP 'pmp-hermes-runtime-20261006/bin') + ';' + $pmpSavedPath
-    python experiments/hermes-pmp/replay.py --mode hermes --home (Join-Path $env:TEMP 'pmp-hermes-runtime-20261006/pmp-home') --model '<subscription-covered-model>' --archive '<new-empty-evidence-directory>'
-} finally {
-    $env:Path = $pmpSavedPath
-}
-```
+Two earlier replay invocations failed before inference because the minimized
+nested Windows environment omitted `USERPROFILE`, which Hermes needs for
+`Path.home()`. The bridge now preserves that path while excluding provider API
+keys; a regression test protects both properties. These failures consumed no
+inference. The archived successful report is not rewritten to imply that the
+later Codex continuation had already happened.
 
-The full/default source installation failed on blocked FFmpeg. The successful
-minimal runtime uses the official PM dependency API with no Python extras.
-It does not grant multimedia/tool availability or bypass Windows protection.
-The bridge preserves unchanged USERPROFILE for Windows Path.home() and otherwise
-keeps the minimized environment. Automatic dependency installation is disabled.
-
-Hermes currently documents --query-file, --oneshot, --ignore-rules,
---format stream-json and one-turn limits in its
-[CLI reference](https://hermes-agent.nousresearch.com/docs/reference/cli-commands/).
-The [provider guide](https://hermes-agent.nousresearch.com/docs/integrations/providers/)
-documents `openai-codex` subscription OAuth, but does not fully document plan
-eligibility/quota semantics. Availability and no-overage behavior need human
-confirmation. Never fall back to a paid API.
-
-After installing independently, create a new dedicated home outside this repo:
-
-```powershell
-# Replace the placeholder with a NEW local directory, not any prior Hermes home.
-python experiments/hermes-pmp/consumer.py init-home --home '<new-isolated-home>'
-$env:HERMES_HOME = '<new-isolated-home>'
-hermes auth add openai-codex
-```
-
-The human completes subscription OAuth, without copying credentials into Git or
-the model packet. Preserve generated config.yaml; no .env, plugins, hooks,
-memories or skills may be present. The config explicitly sets platform_toolsets
-cli to [], disables memory/title generation, external-login adoption and fallback.
-Do not use `--safe-mode`: it ignores this restriction config. Do not rely on
-`--toolsets ""`: the currently inspected CLI treats empty strings as defaults.
-The live launcher works from the non-code isolated home, with a minimized child
-environment, no resume flag and no transcript. This is not an OS sandbox.
-
-Choose a subscription-covered model explicitly, then run one bounded attempt:
-
-```powershell
-python experiments/hermes-pmp/replay.py --mode hermes --home '<new-isolated-home>' --model '<subscription-covered-model>'
-```
-
-The runner checks runtime/profile/auth availability first. It captures successful
-structured completion events and rejects any recorded tool call. This post-run
-check is NOT prevention if a Hermes regression enables tools. Verify current
-tool-selection semantics on the installed version before authorizing a live run.
-Unknown/mismatched CLI versions can fail; do not bypass the guard or enable tools.
-The host alone writes the fixture and runs tests. Keep a failed attempt local,
-do not retry blindly and do not treat the existence of auth.json as proof of
-entitlement. Profile auth is sensitive even though absent from repo evidence.
+The minimal runtime used the official PM API without Python extras; the default
+installation hit an FFmpeg environment blocker. The restricted profile had
+zero enabled CLI tools, disabled memory/title generation and dependency installs.
+These are runtime/profile checks, not an OS sandbox or proof of model behavior.
+The temporary runtime may be removed by Windows cleanup. No other Hermes track
+was accessed or modified.
 
 ## Fresh Codex continuation
 
-Start a separate Codex session with only the result repo and this instruction:
+The observed separate Codex continuation is recorded at
+`experiments/hermes-pmp/evidence/live-replay-20261006/codex-continuation.md`.
+It used only the result clone, whose instruction was:
 "Read AGENTS.md and PROJECT_MEMORY.md; follow the bounded Next action using only
 repository evidence. Do not read earlier conversations or other worktrees."
 
-The initial author is this Codex session, not an independently fresh baseline
-session. The automatic fresh verifier is Python, not a model. Any separately
-observed Codex continuation is recorded in RESULT.md and its own bundle; do not
-rewrite the initial report to claim a later check occurred earlier.
+The Hermes replay report correctly records that its immediate continuation was
+Python and that fresh Codex was still required at that timestamp. The later
+Codex result is a separate receipt. Git evidence cannot certify the identity of
+either model or true session freshness.
 
 ## Tests and evidence boundaries
 
@@ -204,7 +162,8 @@ demo passed six tests. Thirteen new tests cover exact state serialization,
 handback/decisions/evidence/next action, stale input, invalid scope/schema, trusted
 test boundary, rollback, append-only history/lock, path/link rejection, tamper
 rejection, fresh-process reconstruction, CLI completion/tool rejection, missing
-runtime fail-closed and backward compatibility. Total: 70 passing unit tests.
+runtime fail-closed, backward compatibility, and Windows home preservation
+without provider API key inheritance. Total after the fix: 72 passing unit tests.
 The three fixture acceptance tests are separate; before task two fail as expected,
 after host import all three pass and a fresh verifier repeats them successfully.
 
@@ -236,13 +195,16 @@ detection. All six known Core limits remain unchanged. No external CI ran.
   with separately scoped human authorization after retaining required evidence.
 - Real incremental paid cost so far: USD 0. The mock makes no model call. A Codex
   continuation consumes existing subscription allowance; no new credits purchased.
-- Live Hermes may consume subscription quota and its eligibility remains
-  unverified. No automatic model download, account activation or paid fallback.
+- The one live `gpt-5.6-luna` inference used the existing subscription. It may
+  have consumed its allowance; exact quota/cost accounting is unavailable here.
+  No API-key fallback or credit purchase occurred. Do not infer ongoing quota
+  or no-overage guarantees from this single successful call.
 
 ## Result and exact next step
 
-The bridge's transport/storage/continuation mechanism is locally verified. Do
-not claim the actual PMP → Hermes → PMP cycle until one real Hermes run and its
-runtime evidence are observed. First check whether a NEW independent runtime and
-subscription-covered OAuth route are available; if not, leave this harness as
-the result. Do not unblock or touch the older Hermes/Argon track.
+The bounded PMP → Hermes → PMP cycle and separate evidence-based Codex
+continuation were observed and archived. The success claim is limited to this
+fixture and this run: it does not establish identity, freshness, general
+interoperability, autonomy, truthfulness, or long-term provider coverage. Next,
+finish local validation and commit this scoped evidence. Do not make more model
+calls or unblock/touch the older Hermes/Argon track.

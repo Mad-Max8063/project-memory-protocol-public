@@ -220,7 +220,45 @@ without a fresh human decision to complete OAuth.
 The focused pinned-Hermes pytest checks were attempted but could not collect
 because the available `C:\Python314` environment lacks `ruamel.yaml`; the
 source-level diagnosis above is code-path analysis corroborated by the observed
-CLI/store metadata, not a passing upstream regression test. The offline check
-passed; the final authorization timed out. Luna catalog and replay remain
-unverified pending a fresh human authorization decision. No more OAuth attempts
-should be started automatically.
+CLI/store metadata, not a passing upstream regression test. The earlier offline
+check passed; its final authorization timed out. This historical checkpoint is
+superseded by the live replay checkpoint below.
+
+## Live subscription replay — 2026-10-06
+
+After Max explicitly authorized one retry, the device flow completed in the
+standalone `pmp-home`; Hermes' read-only auth status confirmed `openai-codex`.
+The provider's authenticated model catalog listed `gpt-5.6-luna`. Exactly one
+bounded inference call succeeded with the existing subscription. No account
+details, OAuth material, device codes, or API keys were read into or saved from
+the credential store. This confirms the one observed call only, not future
+eligibility, quota limits, or no-overage terms.
+
+Two replay attempts before that call failed at the runtime-version preflight,
+before model invocation: the replay's nested minimized Windows environment had
+omitted `USERPROFILE`. `hermes --version` worked when that variable was present.
+The adapter's allowlist now carries the existing `USERPROFILE` for Hermes'
+`Path.home()` resolution while excluding `OPENAI_API_KEY`. A regression test
+asserts both. After this correction the single live replay completed; the report
+shows the Hermes proposal, host verification, handoff commit, and Python
+continuation. A later separate Codex process/agent independently reran the three
+fixture tests and verified hashes; see
+`live-replay-20261006/codex-continuation.md`.
+
+Archived report: `live-replay-20261006/replay-report.json`.
+Baseline: `4488a97dc68b7b614365d0f274edbf665e679f41`.
+Handoff: `d2e225b61857be0e0b79c5d28116ae6a9800f7c7`.
+Input PMP memory SHA-256:
+`9d22adc0cd8eb1adc1f1bc83c09c8e1fc4d37e57ce6c3f29555257452e5ea199`.
+Input packet SHA-256:
+`76e6c6ce5989a96aeefb5266db704e83063fc2afb25f6b39a93c00ac64d269ff`.
+Git bundle SHA-256:
+`b729b7f2220f5e639ad9e43f205314c45055d69eab966689b0438f178398de17`.
+The report's immediate continuation field correctly says Python (not Codex) and
+`fresh_codex_executed=false`; the later Codex result is separate evidence and
+does not retroactively alter that timestamped report.
+
+The run used the already available Codex subscription and may have consumed
+allowance. Exact metering was unavailable; incremental purchase/API charges
+observed: USD 0. No further model calls are authorized or needed for this
+bounded replay. No previous Hermes/Argon track was accessed or changed.

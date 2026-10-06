@@ -35,15 +35,16 @@
 - [VERIFIED] Both saved Git bundles were cloned and independently checked by
   `python experiments/hermes-pmp/verify_archive.py`; bundle digests, lineage,
   change boundaries, host evidence, canonical state and acceptance gates pass.
-- [DOCUMENTED] Conclusion: B. PARTIALLY VALIDATED. Actual Hermes installation,
-  subscription entitlement and live inference were unverified at the initial
-  experiment commit. The earlier mock/Codex evidence remains unchanged.
+- [DOCUMENTED, HISTORICAL] Conclusion at the initial experiment commit was B.
+  PARTIALLY VALIDATED because actual Hermes/provider execution was unverified.
+  The earlier mock/Codex evidence remains unchanged; the live addendum below
+  supersedes that checkpoint without rewriting it.
 - [VERIFIED] A NEW pinned Hermes minimal Windows CLI runtime now starts locally:
   upstream `e97923c38acba2066aff9c45e35fe1584a2155b2`, Python 3.14.7,
   SDK 2.24.0; CLI tool summary shows 0/28 enabled. No prior track was accessed.
   See experiments/hermes-pmp/evidence/runtime-gate.md for installation failures,
   successful PM-only dependency selection and observed profile/launcher hashes.
-- [VERIFIED] The Hermes OAuth device flow reported success three times and printed
+- [VERIFIED, HISTORICAL] The Hermes OAuth device flow reported success three times and printed
   “Added openai-codex OAuth credential #1”. However, subsequent read-only
   `auth status openai-codex` reports logged out; `auth list openai-codex` shows
   no entry, and Hermes' read-only credential resolver reports no Codex credentials.
@@ -51,9 +52,9 @@
   inspected or recorded. The post-login wrapper check still reports CLI 0/28 tools.
   No custom hooks, memories or skills; automatic installs are disabled. Windows USERPROFILE
   is preserved only to make Path.home() work. Wrapper check and 71 tests pass
-  (14 bridge tests). No Hermes inference, purchase, deployment or global PATH
+  (14 bridge tests). At that checkpoint no Hermes inference, purchase, deployment or global PATH
   change occurred; incremental paid cost remains USD 0.
-- [DOCUMENTED] Conclusion remains B. PARTIALLY VALIDATED. The OAuth/store
+- [DOCUMENTED, HISTORICAL] The OAuth/store
   discrepancy blocks model-catalog and inference checks. Pinned-source inspection
   found a plausible no-insert path for first-time `openai-codex` auth in an empty
   named profile. The Windows wrapper now prepares a separate restricted standalone
@@ -61,12 +62,31 @@
   A read-only Hermes path probe confirms `pmp-home` is its own default root with
   no global auth fallback. The final device flow timed out after 15 minutes and
   native `auth status` confirms logged out; `pmp-home/auth.json` is absent.
-  Entitlement, quota,
-  actual zero-tool model execution and real Hermes handoff remain unverified.
+  At that historical checkpoint, entitlement/quota, live inference and real
+  Hermes handoff remained unverified.
   The minimal temporary runtime is not a complete Hermes install
   and may be removed by Windows cleanup; do not silently substitute another.
 - [DOCUMENTED] Stable release lifecycle evidence remains in baseline history
   and docs; this experiment neither changes nor re-audits the released lifecycle.
+- [VERIFIED] After the earlier failed OAuth/store attempts, one device flow in
+  the isolated `pmp-home` completed and Hermes `auth status` confirmed the
+  `openai-codex` credential without exposing account data. Its live catalog
+  listed `gpt-5.6-luna`; exactly one bounded replay then completed through the
+  pinned Hermes CLI `vgit.e97923c` using the existing subscription. No model
+  identity or entitlement/quota guarantee is inferred beyond that observed call.
+- [VERIFIED] The real replay handoff is archived at
+  `experiments/hermes-pmp/evidence/live-replay-20261006/` with report and Git
+  bundle. Hermes proposed only the two fixture labels; host ran all three
+  acceptance tests and committed the handoff. An independent Codex continuation
+  with no inherited turns inspected the fresh clone, reran all three tests,
+  checked evidence hashes, and recorded its receipt. This is observed portable
+  context recovery, not cryptographic proof of model identity/session freshness.
+- [VERIFIED] Replay initially hit two pre-inference failures because the
+  minimized nested Windows environment omitted `USERPROFILE`; the adapter now
+  preserves that home path while continuing to exclude provider API keys. A
+  regression test covers both conditions. Closure gates pass: 72 tests, PMP
+  memory validation, release metadata/links/size/secret scan, and diff checks.
+  No remote CI was run.
 
 ## Active decisions
 
@@ -76,9 +96,10 @@
    Proposal JSON is non-normative transport, not a new PMP schema.
 3. Choose the smallest low-risk task: normalize two JSON fixture labels.
    Only the bridge writes fixed paths and executes trusted fixed tests.
-4. Separate producer assertions, host verification, mock process, actual Codex
-   continuation and missing real-Hermes evidence. Do not claim profile conformance.
-5. No additional mock cases or infrastructure until the runtime gate is resolved.
+4. Separate producer assertions, mock versus live Hermes, host verification and
+   Codex continuation. Do not claim identity, freshness or profile conformance.
+5. Keep the integration experimental; no additional infrastructure or general
+   autonomy claims after this single bounded live replay.
 
 ## Constraints
 
@@ -97,19 +118,15 @@
 
 ## Priorities
 
-1. Wait for a fresh human decision to complete subscription OAuth in standalone
-   `pmp-home`; do not start another device flow automatically. Offline check
-   passed with CLI 0/28, but the attempted authorization timed out.
-2. If Hermes later confirms storage, check the actual account-scoped Luna catalog
-   and only then run one bounded replay. Otherwise retain this partial result; no
-   paid API, simulated success or Hermes/Argon access.
+1. Finish repository gates and save one coherent local commit. No push, PR,
+   merge, release, or further live model calls.
+2. Report this one bounded replay and its limits; no paid API, additional
+   subscription purchase, or Hermes/Argon access.
 
 ## Next action
 
-Codex: wait for Max to choose a time to complete the subscription OAuth in the
-new standalone home. Only after that explicit cue, start one device flow, require
-Hermes' read-only auth status to confirm it, then check Luna and consider the
-single live replay. No paid fallback or previous Hermes/Argon runtime.
+Codex: report the completed scoped local commit. Do not make more model calls or
+push, open a PR, merge, tag, release, or publish.
 
 ## Evidence
 
@@ -120,6 +137,9 @@ single live replay. No paid fallback or previous Hermes/Argon runtime.
 - experiments/hermes-pmp/evidence/fresh-codex.json
 - experiments/hermes-pmp/evidence/fresh-codex.bundle
 - experiments/hermes-pmp/evidence/runtime-gate.md
+- experiments/hermes-pmp/evidence/live-replay-20261006/replay-report.json
+- experiments/hermes-pmp/evidence/live-replay-20261006/replay.bundle
+- experiments/hermes-pmp/evidence/live-replay-20261006/codex-continuation.md
 - experiments/hermes-pmp/windows-runtime.ps1
 - experiments/hermes-pmp/verify_archive.py
 - experiments/hermes-pmp/README.md
