@@ -33,5 +33,26 @@ same-host round is complete; external-machine reproduction is still pending.
 Validation results are captured in
 experiments/hermes-pmp/evidence/reproductions/host-integration-checks.json.
 
-Exact next action is only in root PROJECT_MEMORY.md: review this local evidence
-integration, then request publication to the existing draft PR when ready.
+Exact next action is only in root PROJECT_MEMORY.md. At the incorporation
+checkpoint, publication still awaited Max's instruction.
+
+## Subsequent authorized publication
+
+Max then authorized proceeding with the proposed branch publication. The
+restricted network check failed; permitted elevated read-only GitHub checks
+confirmed the public destination, open draft PR #8 and unchanged main.
+An explicit, non-force push advanced only experiment/hermes-pmp-adapter from
+2e08ae15586955e76655f110fe424b85f1c8b121 to
+1f56483e472c518d2954d7af15cfa59f1e5cf58e. Remote ref and PR head matched.
+Main remained 2d9da5549d802c27b7a47293384d3f0d59b0ff13.
+
+CI 37536055141 completed SUCCESS for that exact source. This is the existing
+Core/profile/demo workflow, not full experiment-suite CI. Anonymous raw-file
+requests to the summary and both reviewer reports returned HTTP 200 and
+matched the local SHA-256 values; see publication-20261006.json.
+
+The next state-only commit records these observations, then receives its own
+remote/CI checks. Do not confuse the source run with that later commit's CI.
+No merge/tag/release, provider call, social posting, reviewer assignment/contact,
+purchase or access to the earlier blocked track occurred. Publication is not
+external-machine reproduction; root memory now identifies that remaining step.

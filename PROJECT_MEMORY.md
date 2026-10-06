@@ -31,9 +31,16 @@
   English social copy is prepared in docs/experiments/hermes-review-social-drafts.md.
   Unified Claude Code/Antigravity review prompt is saved at
   docs/experiments/hermes-cross-runtime-review-prompt.md. Both runtimes have
-  now completed the same-host round; reports are incorporated locally under
-  experiments/hermes-pmp/evidence/reproductions/. This integration has not been
-  pushed or added to the remote PR; no current remote HEAD or CI is inferred.
+  now completed the same-host round; reports are incorporated under
+  experiments/hermes-pmp/evidence/reproductions/. Max subsequently authorized
+  publication: commit 1f56483e472c518d2954d7af15cfa59f1e5cf58e was pushed
+  fast-forward to this branch and PR #8's observed HEAD matched it.
+  CI run 37536055141 passed for that exact source (existing Core workflow,
+  not the complete experiment suite). Anonymous requests to the summary and
+  both REVIEW.md files returned 200 and matched local SHA-256 values.
+  Main remained 2d9da5549d802c27b7a47293384d3f0d59b0ff13. These observations
+  precede the state-only publication closeout commit; its HEAD/CI must be
+  checked separately rather than inferred from the source run.
 - [VERIFIED] Max ran the saved prompt in Claude Code and Google Antigravity.
   Both separate clones remain at 8c96e926b0d28a182759c45c3a0141fa9a934eba;
   read-only host Git checks found no tracked/staged changes, only each runtime's
@@ -190,8 +197,9 @@
    experimental branch publication and a review PR, without merge or release.
 10. Preserve both same-host runtime reviews and maintainer qualifications as
     evidence, not identity attestation or proof of external reproduction.
-    Incorporate this round locally; do not push as part of this step, rerun live
-    agents or expand the experiment. Publish only within human-authorized scope.
+    The local incorporation step did not push. Max subsequently authorized
+    publishing this evidence to the existing draft PR. Do not rerun live
+    agents, expand the experiment, merge, release, post or contact reviewers.
 
 ## Constraints
 
@@ -220,17 +228,22 @@
 
 ## Next action
 
-Max: review experiments/hermes-pmp/evidence/reproductions/README.md and the
-local integration commit, then request its publication to the existing draft
-PR #8 when ready. After publication, the next experimental criterion is a
-bounded reproduction on another machine, not another same-host round.
-Do not contact reviewers, post, invoke live agents, merge or release by default.
+Max: choose an accessible machine other than this Windows host for one bounded
+offline reproduction. Clone the public experimental branch, pin source
+1f56483e472c518d2954d7af15cfa59f1e5cf58e, inspect instructions/code, then run
+verify_chain.py --json and the seven test_pmp_replay_chain.py acceptance tests.
+Return source SHA, OS/Python/Git, exact commands, outputs and exit codes for
+review. Use an external temporary root and a 15-minute budget; stop on a real
+access/tool blocker. Do not repeat this same-host round, invoke live agents,
+contact reviewers, post, merge or release by default.
 
 ## Evidence
 
 - experiments/hermes-pmp/evidence/reproductions/README.md
 - experiments/hermes-pmp/evidence/reproductions/import-manifest.json
 - experiments/hermes-pmp/evidence/reproductions/host-integration-checks.json
+- experiments/hermes-pmp/evidence/reproductions/publication-20261006.json
+- https://github.com/Mad-Max8063/project-memory-protocol-public/actions/runs/37536055141
 - experiments/hermes-pmp/evidence/reproductions/claude-code/20261006T195333Z/REVIEW.md
 - experiments/hermes-pmp/evidence/reproductions/google-antigravity/20261006T203424Z/REVIEW.md
 - .project-memory/sessions/cross-runtime-reviews.md

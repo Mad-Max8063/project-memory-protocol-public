@@ -1,0 +1,56 @@
+{
+  "experimental": true,
+  "observed_at_utc": "2026-10-06T21:46:03Z",
+  "published_source_commit": "1f56483e472c518d2954d7af15cfa59f1e5cf58e",
+  "branch": "experiment/hermes-pmp-adapter",
+  "repository": "https://github.com/Mad-Max8063/project-memory-protocol-public",
+  "publication_authority": "Max authorized proceeding with the proposed branch publication; no main merge, release, social posting or reviewer contact",
+  "pull_request": {
+    "number": 8,
+    "url": "https://github.com/Mad-Max8063/project-memory-protocol-public/pull/8",
+    "state": "OPEN",
+    "is_draft": true,
+    "base": "main",
+    "observed_head_sha": "1f56483e472c518d2954d7af15cfa59f1e5cf58e"
+  },
+  "observed_main_sha": "2d9da5549d802c27b7a47293384d3f0d59b0ff13",
+  "ci": {
+    "id": 37536055141,
+    "head_sha": "1f56483e472c518d2954d7af15cfa59f1e5cf58e",
+    "status": "completed",
+    "conclusion": "success",
+    "url": "https://github.com/Mad-Max8063/project-memory-protocol-public/actions/runs/37536055141",
+    "scope": "Existing Verify PMP workflow: Core/profile validation and packaged demo; not the full new experiment suite"
+  },
+  "anonymous_file_checks": [
+    {
+      "path": "experiments/hermes-pmp/evidence/reproductions/README.md",
+      "url": "https://raw.githubusercontent.com/Mad-Max8063/project-memory-protocol-public/1f56483e472c518d2954d7af15cfa59f1e5cf58e/experiments/hermes-pmp/evidence/reproductions/README.md",
+      "http_status": 200,
+      "remote_sha256": "53109dd9b23fc7c6a73b283bb57923f1b38fcf96f19153958226e445a27a7499",
+      "local_sha256": "53109dd9b23fc7c6a73b283bb57923f1b38fcf96f19153958226e445a27a7499",
+      "matches": true
+    },
+    {
+      "path": "experiments/hermes-pmp/evidence/reproductions/claude-code/20261006T195333Z/REVIEW.md",
+      "url": "https://raw.githubusercontent.com/Mad-Max8063/project-memory-protocol-public/1f56483e472c518d2954d7af15cfa59f1e5cf58e/experiments/hermes-pmp/evidence/reproductions/claude-code/20261006T195333Z/REVIEW.md",
+      "http_status": 200,
+      "remote_sha256": "2e2c5e44ea30728840687f1a996cb5d846b3f533acd7028e505fb0c3fd860fc5",
+      "local_sha256": "2e2c5e44ea30728840687f1a996cb5d846b3f533acd7028e505fb0c3fd860fc5",
+      "matches": true
+    },
+    {
+      "path": "experiments/hermes-pmp/evidence/reproductions/google-antigravity/20261006T203424Z/REVIEW.md",
+      "url": "https://raw.githubusercontent.com/Mad-Max8063/project-memory-protocol-public/1f56483e472c518d2954d7af15cfa59f1e5cf58e/experiments/hermes-pmp/evidence/reproductions/google-antigravity/20261006T203424Z/REVIEW.md",
+      "http_status": 200,
+      "remote_sha256": "d9cb2403cca92d4e1738c819d27f22f44753fc8a5b2f5d50c8f756c00a35466c",
+      "local_sha256": "d9cb2403cca92d4e1738c819d27f22f44753fc8a5b2f5d50c8f756c00a35466c",
+      "matches": true
+    }
+  ],
+  "limits": [
+    "Public artifact availability and matching bytes do not establish external-machine reproduction",
+    "No new live agent chain or identity/freshness attestation",
+    "This receipt precedes its own state-only closeout commit; final closeout HEAD/CI require separate current remote checks"
+  ]
+}
