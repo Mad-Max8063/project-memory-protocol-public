@@ -16,12 +16,19 @@
 
 ## Current state
 
-- [AUTHORIZED] Max authorized publishing this experimental branch and opening
+- [PUBLISHED] Max authorized publishing this experimental branch and opening
   its external-review PR. Scope includes public clone instructions and prepared
   English X/LinkedIn copy, not posting to social networks or contacting reviewers.
   Public repo visibility and gh authentication are confirmed. Refreshed main is
-  2d9da5549d802c27b7a47293384d3f0d59b0ff13; no remote experiment branch or PR exists
-  at this pre-push checkpoint. Publish after checks and record actual results.
+  2d9da5549d802c27b7a47293384d3f0d59b0ff13. Initial pushed source is
+  6ae8b85178dc670acd261cfaa8a67cc8cb24c204. Draft review PR #8 is OPEN against main:
+  https://github.com/Mad-Max8063/project-memory-protocol-public/pull/8.
+  Local full suite passed 83 tests in 39.752 s. CI run 37495814502 passed for
+  the initial pushed source, testing existing Core checks (not the full new suite).
+  Anonymous PR/brief requests returned HTTP 200; a credential-free new public
+  clone verified all three archived bundles, 14 inputs and six fixture tests.
+  That smoke remains same-host verification; external-person reproduction is pending.
+  English social copy is prepared in docs/experiments/hermes-review-social-drafts.md.
 - [PREPARED] Max authorized an English external-review delivery: a concise
   experiment brief, reproduction instructions and a draft PR. Files are
   docs/experiments/hermes-review-brief.md and hermes-review-pr-draft.md.
@@ -184,13 +191,19 @@
 
 ## Next action
 
-Codex: complete publication checks, push experiment/hermes-pmp-adapter, open and
-attach its external-review PR, verify the remote head and report CI separately.
-Prepare English social copy with the actual public link; do not post it.
-External reproduction remains pending; no merge, release or outreach is authorized.
+Max: review docs/experiments/hermes-review-social-drafts.md and manually share
+the reproduction request linking PR #8 when ready. The next experimental success
+criterion is an external reviewer report identifying source commit, environment,
+commands, exit code, verifier JSON and any failures. No merge/release is authorized.
 
 ## Evidence
 
+- experiments/hermes-pmp/evidence/public-review-20261006/anonymous-smoke.json
+- experiments/hermes-pmp/evidence/public-review-20261006/pre-push-scan.json
+- https://github.com/Mad-Max8063/project-memory-protocol-public/actions/runs/37495814502
+- docs/experiments/hermes-review-social-drafts.md
+- .project-memory/sessions/public-review-publication.md
+- https://github.com/Mad-Max8063/project-memory-protocol-public/pull/8
 - docs/experiments/hermes-review-brief.md
 - docs/experiments/hermes-review-pr-draft.md
 - .project-memory/sessions/english-review-package.md

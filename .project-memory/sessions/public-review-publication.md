@@ -35,3 +35,43 @@ is authorization and preparation, not a claim that the push already succeeded.
   security audit. Local detailed scan: work/pmp-english-review-package-20261006/
   publication-scan.json in the host workspace, outside this checkout.
 - No model calls or subscription changes were made for publication preparation.
+
+## Initial publication observations
+
+- Explicit branch push succeeded; remote head matched
+  6ae8b85178dc670acd261cfaa8a67cc8cb24c204.
+- Connected GitHub integration refused PR creation (403). The existing
+  authenticated gh CLI created the same authorized draft PR; no login change.
+- PR #8 is OPEN/DRAFT, base main, head experiment/hermes-pmp-adapter.
+- URL: https://github.com/Mad-Max8063/project-memory-protocol-public/pull/8
+- The PR was attached to this Codex task. No reviewers assigned or contacted.
+- The web retrieval service reported cache misses for the new URLs, not a
+  verified visibility failure. Direct anonymous transport is checked separately.
+- English X and LinkedIn copy is prepared; not posted.
+- Existing GitHub workflow does not execute the complete new experiment suite.
+  Its status must not replace the explicit local 83-test result or offline verifier.
+
+## Verified public entry point
+
+- Anonymous HTTP requests to the PR and raw English brief returned 200 and
+  contained the expected review content.
+- A credential-free clone from the public HTTPS remote resolved to the initial
+  pushed source 6ae8b85178dc670acd261cfaa8a67cc8cb24c204. Its offline verifier
+  passed: three bundles, fourteen historical inputs and six fixture tests.
+- Report: experiments/hermes-pmp/evidence/public-review-20261006/anonymous-smoke.json.
+  This is a new checkout on the same host, not an external person's reproduction.
+- Initial PR CI run 37495814502 completed SUCCESS for that source:
+  https://github.com/Mad-Max8063/project-memory-protocol-public/actions/runs/37495814502.
+- The earlier bounded scan at source 0094d5b is retained as pre-push-scan.json
+  in the same evidence directory; final documentation was additionally covered
+  by the release hygiene validator.
+- English X draft: 276 raw Unicode code points; LinkedIn draft: 1433.
+  Copy is prepared only. User can share the PR URL manually after reviewing it.
+- No main ref was changed; no release/tag, model call or paid promotion occurred.
+
+## Exact next action
+
+Max reviews and manually posts the selected English reproduction request linking
+PR #8. A reviewer should return source commit, OS/Python/Git, commands, exit code,
+JSON and issues in the PR conversation. Preserve their report before describing
+external reproduction as achieved. Merge and release remain outside scope.
