@@ -43,16 +43,20 @@
   SDK 2.24.0; CLI tool summary shows 0/28 enabled. No prior track was accessed.
   See experiments/hermes-pmp/evidence/runtime-gate.md for installation failures,
   successful PM-only dependency selection and observed profile/launcher hashes.
-- [VERIFIED] Restricted profile received its own openai-codex OAuth credential
-  on 2026-10-06; the login command exited 0. Credential contents were not inspected
-  or recorded. The post-login wrapper check exited 0 with CLI 0/28 tools enabled.
+- [VERIFIED] The Hermes OAuth device flow returned exit 0 twice and printed
+  “Added openai-codex OAuth credential #1”. However, subsequent read-only
+  `auth status openai-codex` reports logged out; `auth list openai-codex` shows
+  no entry, and Hermes' read-only credential resolver reports no Codex credentials.
+  Only the existing Copilot CLI source is listed. Credential contents were never
+  inspected or recorded. The post-login wrapper check still reports CLI 0/28 tools.
   No custom hooks, memories or skills; automatic installs are disabled. Windows USERPROFILE
   is preserved only to make Path.home() work. Wrapper check and 71 tests pass
   (14 bridge tests). No Hermes inference, purchase, deployment or global PATH
   change occurred; incremental paid cost remains USD 0.
-- [DOCUMENTED] Conclusion remains B. PARTIALLY VALIDATED. Entitlement, quota,
-  actual zero-tool model execution and real Hermes handoff still require live
-  verification. The minimal temporary runtime is not a complete Hermes install
+- [DOCUMENTED] Conclusion remains B. PARTIALLY VALIDATED. The OAuth/store
+  discrepancy blocks model-catalog and inference checks. Entitlement, quota,
+  actual zero-tool model execution and real Hermes handoff remain unverified.
+  The minimal temporary runtime is not a complete Hermes install
   and may be removed by Windows cleanup; do not silently substitute another.
 - [DOCUMENTED] Stable release lifecycle evidence remains in baseline history
   and docs; this experiment neither changes nor re-audits the released lifecycle.
@@ -86,20 +90,20 @@
 
 ## Priorities
 
-1. Obtain the human model selection and verify the subscription route without
-   incremental paid charges. OAuth succeeded; it does not prove model coverage.
-2. After repeating that version's tool restrictions, run one bounded live
-   attempt with the dedicated home, no provider fallback and no chat history.
-3. If the route is unavailable, retain this honest partial result; do not expand
-   architecture, simulate success or repair the blocked previous track.
+1. Diagnose why OAuth login reports success but the isolated profile's read-only
+   auth status, credential list, and credential resolver show no OpenAI entry.
+2. Once storage is confirmed by Hermes itself, check the actual account-scoped
+   model catalog for the selected Luna model; only then run one bounded replay.
+3. If either gate cannot be verified, retain this partial result; do not add
+   another OAuth attempt, use a paid API, simulate success or touch Hermes/Argon.
 
 ## Next action
 
-Max: select the model for ONE bounded live Hermes replay through the authenticated
-openai-codex subscription route. Codex then verifies the actual available model
-and restriction gates before running the replay. Do not repeat successful OAuth.
-Stop if coverage or restrictions cannot be verified;
-no previous Hermes/Argon runtime, purchase or automatic paid fallback.
+Codex: resolve the mismatch between the successful device-flow message and the
+profile's read-only auth status/list before asking Max to authenticate again.
+Then verify the actual account-scoped Luna catalog entry and rerun the already
+passing restriction gate before the single bounded replay. No paid fallback or
+previous Hermes/Argon runtime.
 
 ## Evidence
 

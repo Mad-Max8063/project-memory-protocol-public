@@ -136,3 +136,23 @@ This supersedes the earlier pending-OAuth next action, not the historical
 installation observations. Model selection and actual subscription coverage
 remain pending. No model inference, new live replay, purchase or paid API
 fallback occurred. Conclusion remains B. PARTIALLY VALIDATED.
+
+## OAuth store discrepancy — 2026-10-06
+
+After the above checkpoint, a read-only account-catalog probe using Hermes'
+credential resolver returned `No Codex credentials stored`. The first Hermes
+`auth status openai-codex` call also reported logged out; `auth list` showed only
+the pre-existing Copilot CLI source and no OpenAI Codex entry.
+
+A second device authorization completed and the CLI printed
+`Added openai-codex OAuth credential #1`. Immediately afterward, the CLI again
+reported `logged out`, and `auth list openai-codex` listed no credential. These
+commands did not display or read token contents. The auth file's path/size/time
+were checked as filesystem metadata only. No account catalog became available;
+no model call or replay was attempted.
+
+**Blocker:** Hermes' login-success message does not match the read-only provider
+status and pool listing for the isolated profile. The next step is to diagnose
+profile/auth-store resolution in the pinned Hermes source before requesting any
+further human authorization. Do not run another login, infer, refresh tokens,
+read auth-store contents or change the incomplete install in the meantime.
