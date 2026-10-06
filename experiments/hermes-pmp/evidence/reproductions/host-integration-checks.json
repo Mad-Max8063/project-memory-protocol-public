@@ -1,0 +1,173 @@
+{
+  "experimental": true,
+  "scope": "Local incorporation checks; no provider calls, push, remote CI or external-host reproduction",
+  "host_actor": "Codex (logical participant, not identity attestation)",
+  "starting_head": "2e08ae15586955e76655f110fe424b85f1c8b121",
+  "reviewed_commit": "8c96e926b0d28a182759c45c3a0141fa9a934eba",
+  "checked_at_utc": "2026-10-06T21:35:37.0687533Z",
+  "source_and_import_checks": [
+    {
+      "path": "experiments/hermes-pmp/evidence/reproductions/claude-code/20261006T195333Z/REVIEW.md",
+      "source_unchanged": true,
+      "imported_hash_matches": true,
+      "only_documented_transformations": true,
+      "personal_home_path_absent": true
+    },
+    {
+      "path": "experiments/hermes-pmp/evidence/reproductions/claude-code/20261006T195333Z/execution.log",
+      "source_unchanged": true,
+      "imported_hash_matches": true,
+      "only_documented_transformations": true,
+      "personal_home_path_absent": true
+    },
+    {
+      "path": "experiments/hermes-pmp/evidence/reproductions/claude-code/20261006T195333Z/verifier.json",
+      "source_unchanged": true,
+      "imported_hash_matches": true,
+      "only_documented_transformations": true,
+      "personal_home_path_absent": true
+    },
+    {
+      "path": "experiments/hermes-pmp/evidence/reproductions/claude-code/20261006T195333Z/initial-reconstruction.md",
+      "source_unchanged": true,
+      "imported_hash_matches": true,
+      "only_documented_transformations": true,
+      "personal_home_path_absent": true
+    },
+    {
+      "path": "experiments/hermes-pmp/evidence/reproductions/google-antigravity/20261006T203424Z/REVIEW.md",
+      "source_unchanged": true,
+      "imported_hash_matches": true,
+      "only_documented_transformations": true,
+      "personal_home_path_absent": true
+    },
+    {
+      "path": "experiments/hermes-pmp/evidence/reproductions/google-antigravity/20261006T203424Z/execution.log",
+      "source_unchanged": true,
+      "imported_hash_matches": true,
+      "only_documented_transformations": true,
+      "personal_home_path_absent": true
+    },
+    {
+      "path": "experiments/hermes-pmp/evidence/reproductions/google-antigravity/20261006T203424Z/verifier.json",
+      "source_unchanged": true,
+      "imported_hash_matches": true,
+      "only_documented_transformations": true,
+      "personal_home_path_absent": true
+    },
+    {
+      "path": "experiments/hermes-pmp/evidence/reproductions/google-antigravity/20261006T203424Z/initial-reconstruction.md",
+      "source_unchanged": true,
+      "imported_hash_matches": true,
+      "only_documented_transformations": true,
+      "personal_home_path_absent": true
+    }
+  ],
+  "reviewer_record_checks": [
+    {
+      "runtime": "claude-code",
+      "recorded_verifier_valid": true,
+      "logged_acceptance_tests_ok": 7
+    },
+    {
+      "runtime": "google-antigravity",
+      "recorded_verifier_valid": true,
+      "logged_acceptance_tests_ok": 7
+    }
+  ],
+  "validation": [
+    {
+      "command": "python -B scripts/validate_memory.py PROJECT_MEMORY.md",
+      "exit_code": 0,
+      "output": [
+        "Failed to find real location of C:\\Python314\\python.exe",
+        "VALID: PROJECT_MEMORY.md"
+      ]
+    },
+    {
+      "command": "python -B scripts/validate_release_candidate.py",
+      "exit_code": 1,
+      "output": [
+        "Failed to find real location of C:\\Python314\\python.exe",
+        "INVALID: missing release file: SPEC.md",
+        "INVALID: missing release file: README.md",
+        "INVALID: missing release file: templates/PROJECT_MEMORY.md",
+        "INVALID: missing release file: examples/chatgpt-codex-handoff/README.md",
+        "INVALID: missing release file: AGENTS.md",
+        "INVALID: missing release file: adapters/AGENTS.md",
+        "INVALID: missing release file: adapters/CLAUDE.md",
+        "INVALID: missing release file: adapters/GEMINI.md",
+        "INVALID: missing release file: adapters/CHATGPT.md",
+        "INVALID: missing release file: profiles/evidence-backed-handoff/PROFILE.md",
+        "INVALID: missing release file: CHANGELOG.md",
+        "INVALID: missing release file: docs/UPGRADING_0.2.1_TO_0.2.2.md",
+        "INVALID: missing release file: docs/RELEASE_NOTES_0.2.2.md",
+        "INVALID: missing release file: docs/PROVENANCE.md"
+      ]
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0,
+      "output": [
+        "warning: in the working copy of 'PROJECT_MEMORY.md', LF will be replaced by CRLF the next time Git touches it",
+        "warning: in the working copy of 'docs/experiments/hermes-cross-runtime-review-prompt.md', LF will be replaced by CRLF the next time Git touches it",
+        "warning: in the working copy of 'docs/experiments/hermes-review-brief.md', LF will be replaced by CRLF the next time Git touches it",
+        "warning: in the working copy of 'docs/experiments/replay-chain-verifier.md', LF will be replaced by CRLF the next time Git touches it"
+      ]
+    },
+    {
+      "command": "python -B scripts/validate_release_candidate.py <ABSOLUTE_REPOSITORY_ROOT>",
+      "exit_code": 0,
+      "output": [
+        "Failed to find real location of C:\\Python314\\python.exe",
+        "VALID release metadata: Core 0.2.2; profile 0.1.1; links, size, and secrets passed"
+      ],
+      "basis": "Observed explicit-root retry after relative-root resolution failed in this Windows sandbox; SPEC.md exists and was inspected."
+    },
+    {
+      "command": "Parse Windows PowerShell example in docs/experiments/hermes-review-brief.md",
+      "parse_errors": 0
+    },
+    {
+      "command": "Known GitHub/OpenAI token and private-key marker scan of reproductions, including .log files",
+      "rg_exit_code": 1,
+      "findings": [],
+      "limit": "Bounded pattern scan, not an exhaustive secret/security audit"
+    },
+    {
+      "command": "Final memory and explicit-root release validator after adding this receipt",
+      "exit_code": 0,
+      "output": [
+        "VALID: PROJECT_MEMORY.md",
+        "VALID release metadata: Core 0.2.2; profile 0.1.1; links, size, and secrets passed"
+      ],
+      "note": "Same interpreter-location warning; no validation failure"
+    }
+  ],
+  "protected_paths_diff": [],
+  "verifier_sha256": "5a4f25d054f468c9e51fc8c858787df0407b5cf3cc6c28cc013c369d5587f044",
+  "test_source_sha256": "72c70f7d8134b269c3d220c3b192f44df9d56aec27e1390ead99b990cb8b6c18",
+  "preceding_host_verification": {
+    "scope": "Prior verification turn, not rerun during this documentation-only integration",
+    "verifier_command": "python -B experiments/hermes-pmp/verify_chain.py --json",
+    "verifier_exit_code": 0,
+    "verified": true,
+    "historical_inputs": 14,
+    "fixture_tests": 6,
+    "archived_final_commit": "5e717267e23e39a854347ade7e9efa545269c227",
+    "acceptance_command": "python -B -m unittest discover -s tests -p test_pmp_replay_chain.py -v",
+    "acceptance_exit_code": 0,
+    "tests": 7,
+    "seconds": 37.954,
+    "interpreter_warning": "Failed to find real location of C:\\Python314\\python.exe"
+  },
+  "limits": [
+    "Reviewer command logs are self-recorded, not signed execution attestations",
+    "No hidden-context or model identity certification",
+    "No same-host rerun promoted to external-machine reproduction",
+    "All reviewer originals preserved and checked against pre-import SHA-256",
+    "No Core/code/tests/workflow/archive changes in this integration",
+    "Full 83-test suite not rerun for documentation-only edits"
+  ],
+  "remote_actions_taken": []
+}

@@ -30,8 +30,28 @@
   That smoke remains same-host verification; external-person reproduction is pending.
   English social copy is prepared in docs/experiments/hermes-review-social-drafts.md.
   Unified Claude Code/Antigravity review prompt is saved at
-  docs/experiments/hermes-cross-runtime-review-prompt.md; neither runtime has
-  run it yet. Latest pushed branch HEAD may advance with this closeout update.
+  docs/experiments/hermes-cross-runtime-review-prompt.md. Both runtimes have
+  now completed the same-host round; reports are incorporated locally under
+  experiments/hermes-pmp/evidence/reproductions/. This integration has not been
+  pushed or added to the remote PR; no current remote HEAD or CI is inferred.
+- [VERIFIED] Max ran the saved prompt in Claude Code and Google Antigravity.
+  Both separate clones remain at 8c96e926b0d28a182759c45c3a0141fa9a934eba;
+  read-only host Git checks found no tracked/staged changes, only each runtime's
+  three reports. Code/test and six archive-file SHA-256 values match the host.
+  Reports record exit 0, three bundles, fourteen historical inputs, six fixture
+  tests and seven acceptance tests. Host reran the verifier (exit 0) and seven
+  acceptance tests (37.954 s, exit 0). This is same-host reproduction, not
+  external-human review, hidden-context attestation or a new live agent chain.
+- [VERIFIED] Max authorized local report incorporation and documentation fixes.
+  Imported reports/provisional reconstructions retain reviewer claims, with LF
+  normalization and personal-path redaction documented by an import manifest.
+  Original reviewer files are untouched. The brief now distinguishes archived
+  next_action, uses external temporary roots and recommends short Windows paths.
+  The maintainer assessment records the Claude provisional timestamp mismatch
+  and qualifies Antigravity's broad context/model/atomicity claims.
+  Integration checks pass for all eight imports, recorded JSON/log outputs,
+  PMP memory, explicit-root release/link/size/secret validation, and the Windows
+  example syntax. Core/code/tests/workflows/archive paths have no diff.
 - [PREPARED] Max authorized an English external-review delivery: a concise
   experiment brief, reproduction instructions and a draft PR. Files are
   docs/experiments/hermes-review-brief.md and hermes-review-pr-draft.md.
@@ -56,7 +76,8 @@
   The host fixed both, added a nonexecution regression and focused ancestor
   coverage, and passed seven acceptance tests/full discovery (83). Final CLI
   bytecode flag check passed. Initial review and post-fix host evidence remain
-  distinct; no second independent review or provider invocation occurred.
+  distinct; no second independent review or provider invocation occurred at
+  that checkpoint. The later same-host runtime reports are separate evidence.
 - [VERIFIED] Separate branch/worktree starts from remote-confirmed main.
   Existing Jev, MCP and Artifacts worktrees were not reused or modified.
 - [VERIFIED] Core 0.2.2, profile 0.1.1, validators, published replay and existing
@@ -167,6 +188,10 @@
    the earlier successful fixture chain separately from the later timeout.
    External-machine reproduction remains pending. Max subsequently authorized
    experimental branch publication and a review PR, without merge or release.
+10. Preserve both same-host runtime reviews and maintainer qualifications as
+    evidence, not identity attestation or proof of external reproduction.
+    Incorporate this round locally; do not push as part of this step, rerun live
+    agents or expand the experiment. Publish only within human-authorized scope.
 
 ## Constraints
 
@@ -189,21 +214,26 @@
 1. Preserve the completed Hermes/Claude/Codex chain with replay bundles,
    independent receipt, tests and the local experimental commit.
 2. Preserve the completed offline verifier, independent findings and host fixes.
-3. Deliver the English review brief, draft PR and a locally tested portable
-   package. The next success criterion is reproduction on another installation.
+3. Preserve the completed same-host review round and corrected review docs.
+   Reproduction on another machine remains pending; do not repeat the same
+   local round or enlarge the experiment by default.
 
 ## Next action
 
-Max, from home: open docs/experiments/hermes-cross-runtime-review-prompt.md and
-paste it into a new Claude Code session and a new Antigravity session. Each uses
-its own clone of commit 8c96e926b0d28a182759c45c3a0141fa9a934eba and saves its
-English report in that clone under
-experiments/hermes-pmp/evidence/reproductions/<runtime>/<run-id>/. They have not
-run yet. Bring both folders back for review before incorporating them in the PR.
-Social posts remain optional and unposted. No merge or release is authorized.
+Max: review experiments/hermes-pmp/evidence/reproductions/README.md and the
+local integration commit, then request its publication to the existing draft
+PR #8 when ready. After publication, the next experimental criterion is a
+bounded reproduction on another machine, not another same-host round.
+Do not contact reviewers, post, invoke live agents, merge or release by default.
 
 ## Evidence
 
+- experiments/hermes-pmp/evidence/reproductions/README.md
+- experiments/hermes-pmp/evidence/reproductions/import-manifest.json
+- experiments/hermes-pmp/evidence/reproductions/host-integration-checks.json
+- experiments/hermes-pmp/evidence/reproductions/claude-code/20261006T195333Z/REVIEW.md
+- experiments/hermes-pmp/evidence/reproductions/google-antigravity/20261006T203424Z/REVIEW.md
+- .project-memory/sessions/cross-runtime-reviews.md
 - experiments/hermes-pmp/evidence/public-review-20261006/anonymous-smoke.json
 - experiments/hermes-pmp/evidence/public-review-20261006/pre-push-scan.json
 - https://github.com/Mad-Max8063/project-memory-protocol-public/actions/runs/37495814502

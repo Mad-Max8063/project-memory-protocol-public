@@ -3,6 +3,10 @@
 Use this same prompt in a new Claude Code session and a new Google Antigravity
 session. Each runtime should work from its own fresh clone. Do not give either
 reviewer this conversation or the other reviewer's report.
+The 2026-10-06 same-host round is complete; see
+[reports and assessment](../../experiments/hermes-pmp/evidence/reproductions/README.md).
+This prompt remains the historical pinned procedure, not an instruction to
+repeat that round automatically. A new evaluation needs its own bounded scope.
 
 ```text
 Act as a reproducibility reviewer for Project Memory Protocol (PMP).
@@ -57,6 +61,10 @@ PROCEDURE
    runtime name and UTC run ID, for example
    pmp-review-claude-code-20261006T170000Z:
 
+   On Windows use a short parent path; MSIX/AppData scratch paths can fail
+   with Filename too long. Retry only in a new short destination, never by
+   deleting existing work or changing global Git configuration.
+
    git clone --config core.autocrlf=false --single-branch --branch experiment/hermes-pmp-adapter https://github.com/Mad-Max8063/project-memory-protocol-public.git <NEW_DIRECTORY>
 
 3. In the clone, confirm it starts clean; pin the exact commit:
@@ -96,6 +104,8 @@ PROCEDURE
    bundle_sha256 entries, historical_inputs=14, acceptance_tests=6 and a
    nonempty next_action. Distinguish the outer repository HEAD from the
    archived replay's final_commit.
+   JSON next_action also belongs to that archived fixture repository; the
+   outer checkout's root PROJECT_MEMORY.md defines the current project task.
 
 8. Run once:
 

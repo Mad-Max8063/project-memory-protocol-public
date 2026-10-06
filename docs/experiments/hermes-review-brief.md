@@ -62,6 +62,10 @@ ancestor-link regression coverage uses controlled predicates.
 Requirements: Git and Python 3.12+. No dependencies to install. Local verification
 was performed on Windows with Python 3.14; other environments need external
 confirmation. Use a normal directory with no symlink/junction ancestors.
+On Windows, use a short parent path and a short clone name; Claude desktop's
+MSIX/AppData scratch paths can exceed Git's path-length limit. If cloning fails
+with `Filename too long`, retry in a new short destination, preserving any
+existing files. Do not change global Git settings or discard changes.
 
 ### Public branch: recommended entry point
 
@@ -103,7 +107,8 @@ On Windows PowerShell:
 ```powershell
 git --version
 python --version
-$pmpReviewTemp = Join-Path (Get-Location).Path '.review-tmp'
+$pmpReviewParent = Split-Path -Parent (Get-Location).Path
+$pmpReviewTemp = Join-Path $pmpReviewParent ('pmp-review-tmp-' + [guid]::NewGuid().ToString('N').Substring(0,8))
 New-Item -ItemType Directory -Path $pmpReviewTemp | Out-Null
 $env:TEMP = $pmpReviewTemp
 $env:TMP = $pmpReviewTemp
@@ -115,22 +120,27 @@ On a POSIX shell (instructions supplied for external validation):
 ```sh
 git --version
 python3 --version
-mkdir .review-tmp
-export TMPDIR="$PWD/.review-tmp"
+pmp_review_parent=$(cd .. && pwd -P)
+export TMPDIR=$(mktemp -d "$pmp_review_parent/pmp-review-tmp.XXXXXX")
 export TEMP="$TMPDIR"
 export TMP="$TMPDIR"
 python3 -B experiments/hermes-pmp/verify_chain.py --json
 ```
 
-The temporary-directory settings apply to that shell. The verifier cleans its
-temporary clones; the empty `.review-tmp` directory may remain. These explicit
-settings avoid inaccessible or linked system-temp paths. For a repeat run,
-reuse the existing directory instead of recreating it.
+The temporary-directory settings apply to that shell. Keep this temporary root
+outside the clone, with no symlink/junction ancestors, consistent with the
+cross-runtime review prompt. The verifier cleans its temporary clones; the
+empty external root may remain. These settings avoid inaccessible or linked
+system-temp paths. For a repeat run, reuse the same external directory.
 
 Success: exit code 0 and JSON with `verified: true`, `historical_inputs: 14`,
 `acceptance_tests: 6`, three `bundle_sha256` entries and a nonempty `next_action`.
 `final_commit` is `5e717267e23e39a854347ade7e9efa545269c227`: the archived fixture
 continuation, distinct from the outer review package's source commit.
+Likewise, JSON `next_action` belongs to that archived fixture repository at
+`final_commit`, not to the current protocol repository. For today's task,
+read the outer checkout's root `PROJECT_MEMORY.md`; do not apply the archived
+action to it or treat a historical snapshot as current state.
 
 The verifier checks three pinned bundle/report pairs, Git lineage and change
 scope, historical inputs, proposals, host receipts, PMP decisions and handoffs.
@@ -156,6 +166,7 @@ Do not run live replay/provider commands to reproduce the archived evidence.
 - [Independent verifier review](../../experiments/hermes-pmp/evidence/chain-verifier-20261006/independent-review.md)
 - [Post-review host checks](../../experiments/hermes-pmp/evidence/chain-verifier-20261006/final-checks.json)
 - [Later Claude timeout](../../experiments/hermes-pmp/evidence/chain-verifier-20261006/claude-timeout.json)
+- [Same-host runtime reproductions and maintainer assessment](../../experiments/hermes-pmp/evidence/reproductions/README.md)
 
 The three archived bundles retain actual commits, snapshots, proposals and
 receipts. Current state stays in each repository's `PROJECT_MEMORY.md`;
@@ -187,5 +198,11 @@ original chat history or configuring an AI account? Please report:
    it, and what the next action is.
 5. Any failure, confusing instruction or security finding.
 
-External reproduction is the next success criterion. This preparation package
-does not claim that an external reviewer has already run it.
+Claude Code and Google Antigravity subsequently reported PASS from separate
+clones of `8c96e926b0d28a182759c45c3a0141fa9a934eba` on the maintainer's Windows
+machine. Both recorded exit 0, three bundles, fourteen inputs, six fixture tests
+and seven verifier acceptance tests. The maintainer checked the clones and
+digests and separately reran the bounded commands. Their original reports and
+the assessment above retain the scope limits and documentation findings.
+Reproduction on another machine remains the next success criterion; these
+reports are not external-human review or certification of hidden freshness.
