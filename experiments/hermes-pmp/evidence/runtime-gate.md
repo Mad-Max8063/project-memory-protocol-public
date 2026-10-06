@@ -197,14 +197,30 @@ directory ACLs; it is superseded by the successful 14/14 run above. The focused
 upstream Hermes auth tests remain unrun because the base Python lacks `ruamel.yaml`.
 
 One final device authorization was started in this standalone home after those
-checks passed. It is currently awaiting human completion; the temporary device
-code is intentionally not recorded. No model catalog request or inference has
-occurred yet.
+checks passed. Hermes timed out after 15 minutes with exit 1; the wrapper stopped
+without retrying. A follow-up native `auth status openai-codex` reports logged
+out and no Codex credentials. The device code is intentionally not recorded. No
+model catalog request or inference has occurred.
+
+### Current Hermes store resolution — read-only probe
+
+Using the pinned `hermes_constants` path resolvers with `HERMES_HOME` switched
+in-process (no auth files opened), the old and corrected paths resolve as:
+
+| Mode | `HERMES_HOME` / default root | Active `auth.json` | Global fallback |
+| --- | --- | --- | --- |
+| Old named profile | `<runtime-root>/profiles/pmp` / `<runtime-root>` | `<runtime-root>/profiles/pmp/auth.json` | `<runtime-root>/auth.json` |
+| New standalone home | `<runtime-root>/pmp-home` / `<runtime-root>/pmp-home` | `<runtime-root>/pmp-home/auth.json` | none |
+
+A separate filesystem metadata check found `pmp-home/auth.json` absent after
+the flow timed out. This confirms no credential persisted to the new home; it
+does not invalidate the path-resolution fix. Do not start another device flow
+without a fresh human decision to complete OAuth.
 
 The focused pinned-Hermes pytest checks were attempted but could not collect
 because the available `C:\Python314` environment lacks `ruamel.yaml`; the
 source-level diagnosis above is code-path analysis corroborated by the observed
 CLI/store metadata, not a passing upstream regression test. The offline check
-passed and the one final authorization is in progress. If Hermes again reports
-logged out, stop OAuth attempts. If it confirms the credential, inspect the real
-account-scoped catalog for Luna and run at most one bounded replay.
+passed; the final authorization timed out. Luna catalog and replay remain
+unverified pending a fresh human authorization decision. No more OAuth attempts
+should be started automatically.

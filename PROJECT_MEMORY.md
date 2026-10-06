@@ -58,6 +58,9 @@
   found a plausible no-insert path for first-time `openai-codex` auth in an empty
   named profile. The Windows wrapper now prepares a separate restricted standalone
   home and verifies Hermes' own auth status after login; see runtime-gate evidence.
+  A read-only Hermes path probe confirms `pmp-home` is its own default root with
+  no global auth fallback. The final device flow timed out after 15 minutes and
+  native `auth status` confirms logged out; `pmp-home/auth.json` is absent.
   Entitlement, quota,
   actual zero-tool model execution and real Hermes handoff remain unverified.
   The minimal temporary runtime is not a complete Hermes install
@@ -94,19 +97,19 @@
 
 ## Priorities
 
-1. Complete the one final subscription OAuth currently pending in the new
-   standalone `pmp-home`; the wrapper checks Hermes `auth status` and stops if it
-   is still logged out. Offline check passed with CLI 0/28.
-2. If Hermes confirms storage, check the actual account-scoped Luna catalog and
-   only then run one bounded replay. Otherwise retain this partial result; no more
-   OAuth, paid API, simulated success or Hermes/Argon access.
+1. Wait for a fresh human decision to complete subscription OAuth in standalone
+   `pmp-home`; do not start another device flow automatically. Offline check
+   passed with CLI 0/28, but the attempted authorization timed out.
+2. If Hermes later confirms storage, check the actual account-scoped Luna catalog
+   and only then run one bounded replay. Otherwise retain this partial result; no
+   paid API, simulated success or Hermes/Argon access.
 
 ## Next action
 
-Codex: finish the one pending device authorization in the new standalone home.
-Require Hermes' read-only auth status to confirm it before checking Luna or
-attempting the single live replay. If that gate fails, stop and retain the partial
-validation. No paid fallback or previous Hermes/Argon runtime.
+Codex: wait for Max to choose a time to complete the subscription OAuth in the
+new standalone home. Only after that explicit cue, start one device flow, require
+Hermes' read-only auth status to confirm it, then check Luna and consider the
+single live replay. No paid fallback or previous Hermes/Argon runtime.
 
 ## Evidence
 
