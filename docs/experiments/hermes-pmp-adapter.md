@@ -117,17 +117,23 @@ From this experimental repository, the prepared commands are:
 
 `login` checks restrictions, prints the device-login instructions and waits for
 human authorization. It makes no model call and restores process environment
-afterward. Never paste credentials here. It deliberately uses the NEW runtime
-under `%TEMP%/pmp-hermes-runtime-20261006`, not an existing global Hermes runtime.
+afterward. Never paste credentials here. It deliberately uses the NEW standalone
+home `%TEMP%/pmp-hermes-runtime-20261006/pmp-home`, not an existing global Hermes
+runtime or a named profile. In pinned Hermes `e97923c3`, first-time
+`openai-codex` OAuth in an empty named profile can take an update-only root
+write-through path, print “Added,” and leave the credential unpersisted. The
+standalone home is its own Hermes root and avoids that named-profile fallback.
 The temporary runtime can be removed by Windows cleanup; missing runtime is a
 hard gate, not permission to reuse the blocked track. No global PATH was changed.
+After OAuth, the wrapper checks Hermes' own `auth status` and suppresses account
+details; it stops immediately if the provider is still logged out.
 For the later single live replay, after OAuth and covered-model verification:
 
 ```powershell
 $pmpSavedPath = $env:Path
 try {
     $env:Path = (Join-Path $env:TEMP 'pmp-hermes-runtime-20261006/bin') + ';' + $pmpSavedPath
-    python experiments/hermes-pmp/replay.py --mode hermes --home (Join-Path $env:TEMP 'pmp-hermes-runtime-20261006/profiles/pmp') --model '<subscription-covered-model>' --archive '<new-empty-evidence-directory>'
+    python experiments/hermes-pmp/replay.py --mode hermes --home (Join-Path $env:TEMP 'pmp-hermes-runtime-20261006/pmp-home') --model '<subscription-covered-model>' --archive '<new-empty-evidence-directory>'
 } finally {
     $env:Path = $pmpSavedPath
 }

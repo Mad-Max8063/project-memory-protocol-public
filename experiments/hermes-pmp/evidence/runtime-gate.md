@@ -151,8 +151,60 @@ commands did not display or read token contents. The auth file's path/size/time
 were checked as filesystem metadata only. No account catalog became available;
 no model call or replay was attempted.
 
-**Blocker:** Hermes' login-success message does not match the read-only provider
-status and pool listing for the isolated profile. The next step is to diagnose
-profile/auth-store resolution in the pinned Hermes source before requesting any
-further human authorization. Do not run another login, infer, refresh tokens,
-read auth-store contents or change the incomplete install in the meantime.
+### Pinned-source diagnosis and isolated-home workaround
+
+Three OAuth device authorizations reported success in total. The latest used
+both the runtime root in `HERMES_HOME` and explicit `-p pmp`; Hermes still
+reported logged out. The profile `auth.json` metadata remained 698 bytes with
+its earlier modification time; its contents were never opened. Focused source
+inspection of pinned upstream `e97923c38acba2066aff9c45e35fe1584a2155b2`
+identified a path consistent with these observations:
+
+1. The launcher set `HERMES_HOME` to the named path `<runtime-root>/profiles/pmp`.
+   `get_default_hermes_root()` consequently treats `<runtime-root>` as the
+   global root, while the profile's `auth.json` has no locally owned Codex pool
+   rows.
+2. `CredentialPool.add_entry()` calls `_persist()` when no borrowed root rows
+   were loaded. `persist_pool_entries()` special-cases the single-use-refresh
+   `openai-codex` provider and routes a profile with no local rows to
+   `_update_root_pool_rows()`.
+3. That helper is explicitly update-only: it updates root rows with matching
+   existing IDs and does not insert the newly added credential. The caller can
+   still print `Added ...` because it does not verify a successful disk write.
+
+This source path explains the observed message/store mismatch; it is not a claim
+that every Hermes profile or provider has this behavior. We did not inspect
+credential contents, patch upstream Hermes, or rerun OAuth during diagnosis.
+
+The PMP runtime wrapper now provisions a separate restricted `pmp-home` outside
+the named-profile hierarchy. It uses that directory as its own `HERMES_HOME`,
+checks the zero-tool restriction before login, and verifies Hermes' own
+`auth status` afterward without printing account details. The existing
+`profiles/pmp` directory and all other Hermes tracks are left untouched.
+
+The standalone home initially lacked Hermes' managed Python dependency
+environment; its first CLI tool-summary check failed on missing `ruamel.yaml`.
+Using the official PM API with `extras=[]`, the isolated home and existing
+temporary tool/cache directories, minimal dependencies completed successfully.
+The wrapper's offline check then passed: Hermes `vgit.e97923c`, OpenAI SDK
+2.24.0, and CLI `0/28` tools. No auth contents were read.
+
+After allowing only its temporary fixture paths, PMP bridge tests passed (14/14),
+`validate_memory.py PROJECT_MEMORY.md` passed, `validate_release_candidate.py`
+passed (Core 0.2.2/profile 0.1.1, links, size and secret scan), and
+`git diff --check` passed. A prior sandbox-only test invocation failed on temp
+directory ACLs; it is superseded by the successful 14/14 run above. The focused
+upstream Hermes auth tests remain unrun because the base Python lacks `ruamel.yaml`.
+
+One final device authorization was started in this standalone home after those
+checks passed. It is currently awaiting human completion; the temporary device
+code is intentionally not recorded. No model catalog request or inference has
+occurred yet.
+
+The focused pinned-Hermes pytest checks were attempted but could not collect
+because the available `C:\Python314` environment lacks `ruamel.yaml`; the
+source-level diagnosis above is code-path analysis corroborated by the observed
+CLI/store metadata, not a passing upstream regression test. The offline check
+passed and the one final authorization is in progress. If Hermes again reports
+logged out, stop OAuth attempts. If it confirms the credential, inspect the real
+account-scoped catalog for Luna and run at most one bounded replay.

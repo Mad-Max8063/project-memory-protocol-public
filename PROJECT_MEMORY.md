@@ -43,7 +43,7 @@
   SDK 2.24.0; CLI tool summary shows 0/28 enabled. No prior track was accessed.
   See experiments/hermes-pmp/evidence/runtime-gate.md for installation failures,
   successful PM-only dependency selection and observed profile/launcher hashes.
-- [VERIFIED] The Hermes OAuth device flow returned exit 0 twice and printed
+- [VERIFIED] The Hermes OAuth device flow reported success three times and printed
   “Added openai-codex OAuth credential #1”. However, subsequent read-only
   `auth status openai-codex` reports logged out; `auth list openai-codex` shows
   no entry, and Hermes' read-only credential resolver reports no Codex credentials.
@@ -54,7 +54,11 @@
   (14 bridge tests). No Hermes inference, purchase, deployment or global PATH
   change occurred; incremental paid cost remains USD 0.
 - [DOCUMENTED] Conclusion remains B. PARTIALLY VALIDATED. The OAuth/store
-  discrepancy blocks model-catalog and inference checks. Entitlement, quota,
+  discrepancy blocks model-catalog and inference checks. Pinned-source inspection
+  found a plausible no-insert path for first-time `openai-codex` auth in an empty
+  named profile. The Windows wrapper now prepares a separate restricted standalone
+  home and verifies Hermes' own auth status after login; see runtime-gate evidence.
+  Entitlement, quota,
   actual zero-tool model execution and real Hermes handoff remain unverified.
   The minimal temporary runtime is not a complete Hermes install
   and may be removed by Windows cleanup; do not silently substitute another.
@@ -90,20 +94,19 @@
 
 ## Priorities
 
-1. Diagnose why OAuth login reports success but the isolated profile's read-only
-   auth status, credential list, and credential resolver show no OpenAI entry.
-2. Once storage is confirmed by Hermes itself, check the actual account-scoped
-   model catalog for the selected Luna model; only then run one bounded replay.
-3. If either gate cannot be verified, retain this partial result; do not add
-   another OAuth attempt, use a paid API, simulate success or touch Hermes/Argon.
+1. Complete the one final subscription OAuth currently pending in the new
+   standalone `pmp-home`; the wrapper checks Hermes `auth status` and stops if it
+   is still logged out. Offline check passed with CLI 0/28.
+2. If Hermes confirms storage, check the actual account-scoped Luna catalog and
+   only then run one bounded replay. Otherwise retain this partial result; no more
+   OAuth, paid API, simulated success or Hermes/Argon access.
 
 ## Next action
 
-Codex: resolve the mismatch between the successful device-flow message and the
-profile's read-only auth status/list before asking Max to authenticate again.
-Then verify the actual account-scoped Luna catalog entry and rerun the already
-passing restriction gate before the single bounded replay. No paid fallback or
-previous Hermes/Argon runtime.
+Codex: finish the one pending device authorization in the new standalone home.
+Require Hermes' read-only auth status to confirm it before checking Luna or
+attempting the single live replay. If that gate fails, stop and retain the partial
+validation. No paid fallback or previous Hermes/Argon runtime.
 
 ## Evidence
 
