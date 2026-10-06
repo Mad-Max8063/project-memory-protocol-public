@@ -16,6 +16,25 @@
 
 ## Current state
 
+- [COMPLETE] Max authorized a bounded useful follow-up: one offline command
+  verifying the archived Hermes/Claude/Codex chain. Scope and acceptance are in
+  experiments/hermes-pmp/CHAIN_TASK.md. Claude proposes implementation, the host
+  verifies it and an independent Codex reviewer receives repository state only.
+  Baseline full discovery: 76 tests passed; Core memory/release checks passed.
+- [VERIFIED] The single Claude implementation invocation reached its 300-second
+  timeout without a retained complete proposal. No retry was made. Codex then
+  implemented verify_chain.py locally: three bundle/report pins, fourteen
+  historical inputs, lineage, PMP/handoff integrity and six named fixture tests.
+  Six new acceptance tests and full discovery (82) passed; Core gates passed.
+  Independent Codex review was the next action at that checkpoint. No Claude implementation
+  success, runtime usage or billed cost is inferred from the incomplete call.
+- [VERIFIED] A separate Codex reviewer received only a repository snapshot/PMP
+  and reproduced the valid command plus six original acceptance tests. It found
+  two P2 boundaries: ignored imports in the semantic helper and linked ancestors.
+  The host fixed both, added a nonexecution regression and focused ancestor
+  coverage, and passed seven acceptance tests/full discovery (83). Final CLI
+  bytecode flag check passed. Initial review and post-fix host evidence remain
+  distinct; no second independent review or provider invocation occurred.
 - [VERIFIED] Separate branch/worktree starts from remote-confirmed main.
   Existing Jev, MCP and Artifacts worktrees were not reused or modified.
 - [VERIFIED] Core 0.2.2, profile 0.1.1, validators, published replay and existing
@@ -116,6 +135,12 @@
 6. Claude receives only the nine-file synthetic fixture packet. Reuse archived
    Hermes evidence, preserve it historically, and give the host fixed write/test
    authority. Further experiments require a new scoped task.
+7. The authorized follow-up delivers selected repository code, historical
+   evidence and a task-specific PMP dispatch to Claude with no tools. Implement
+   a fixed offline archive verifier; record model proposal versus host changes.
+8. The single Claude attempt timed out. Keep that outcome explicit; local Codex
+   implementation and host-verified review corrections supply the useful tool.
+   The planned Claude implementation handoff remains unvalidated.
 
 ## Constraints
 
@@ -136,17 +161,27 @@
 
 1. Preserve the completed Hermes/Claude/Codex chain with replay bundles,
    independent receipt, tests and the local experimental commit.
-2. Report the observed result and consumption boundaries; no further live calls,
-   subscription purchase, push, PR, merge, release or Hermes/Argon access.
+2. Preserve the completed offline verifier, independent findings and host fixes.
+   Stop this bounded task; further model calls/publication need a new scope.
 
 ## Next action
 
-Max: review docs/experiments/hermes-claude-continuation.md and the archived Codex
-receipt. The bounded experiment is complete; any broader task, additional model
-call or publication needs a new scoped instruction.
+Max: review docs/experiments/replay-chain-verifier.md and the independent review
+with final-checks.json. The command is complete and saved in a local experimental
+commit. Further Claude calls, broader experiments or publication require a new
+scoped instruction; no implementation step remains in this task.
 
 ## Evidence
 
+- experiments/hermes-pmp/CHAIN_TASK.md
+- experiments/hermes-pmp/verify_chain.py
+- experiments/hermes-pmp/evidence/chain-verifier-20261006/host-checks.json
+- experiments/hermes-pmp/evidence/chain-verifier-20261006/dispatch.json
+- experiments/hermes-pmp/evidence/chain-verifier-20261006/claude-timeout.json
+- experiments/hermes-pmp/evidence/chain-verifier-20261006/independent-review.md
+- experiments/hermes-pmp/evidence/chain-verifier-20261006/final-checks.json
+- .project-memory/sessions/chain-verifier-handoff.md
+- docs/experiments/replay-chain-verifier.md
 - experiments/hermes-pmp/evidence/RESULT.md
 - experiments/hermes-pmp/evidence/TESTS.md
 - experiments/hermes-pmp/evidence/replay-report.json

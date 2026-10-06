@@ -1,0 +1,84 @@
+{
+  "timestamp": "2026-10-06T15:54:49.398462+00:00",
+  "source_baseline": "966ced18c8ea540ad73ca942531ed7e9f9e64625",
+  "reviewed_candidate": "d37185b33437c2d30eeee6d424f42e4614acf164",
+  "verifier_sha256": "5a4f25d054f468c9e51fc8c858787df0407b5cf3cc6c28cc013c369d5587f044",
+  "acceptance_source_sha256": "72c70f7d8134b269c3d220c3b192f44df9d56aec27e1390ead99b990cb8b6c18",
+  "review_receipt_sha256": "20e725c0f23a42f8fb48f7824fee6c1a82ce15a65f4e1da25445e69b77895822",
+  "original_dispatch_packet_sha256": "3577c49d91f1efb185bd111223269eb35899c7b54169157ca00022d2ed9ca946",
+  "final_chain_result": {
+    "verified": true,
+    "historical_inputs": 14,
+    "acceptance_tests": 6,
+    "next_action": "Max / dispatch host: review .project-memory/sessions/codex-after-claude.md and this canonical update, then close the bounded experiment. No implementation action remains; any further experiment requires a new scoped task.",
+    "final_commit": "5e717267e23e39a854347ade7e9efa545269c227",
+    "model_identity_certified": false,
+    "session_freshness_certified": false,
+    "test_command": [
+      "python",
+      "-I",
+      "-B",
+      "-c",
+      "import os,sys,unittest; sys.path.insert(0,os.getcwd()); suite=unittest.defaultTestLoader.loadTestsFromNames([\"test_fixture\",\"test_manifest\"]); result=unittest.TextTestRunner(verbosity=2).run(suite); sys.exit(0 if result.wasSuccessful() else 1)"
+    ],
+    "test_exit_code": 0,
+    "test_stdout": "",
+    "test_stderr": "Failed to find real location of C:\\Python314\\python.exe\ntest_normalized_labels (test_fixture.FixtureTests.test_normalized_labels) ... ok\ntest_shape_and_ids (test_fixture.FixtureTests.test_shape_and_ids) ... ok\ntest_whitespace_contract (test_fixture.FixtureTests.test_whitespace_contract) ... ok\ntest_manifest_has_no_blank_lines (test_manifest.ManifestTests.test_manifest_has_no_blank_lines) ... ok\ntest_manifest_has_two_distinct_ids (test_manifest.ManifestTests.test_manifest_has_two_distinct_ids) ... ok\ntest_manifest_matches_fixture_in_order (test_manifest.ManifestTests.test_manifest_matches_fixture_in_order) ... ok\n\n----------------------------------------------------------------------\nRan 6 tests in 0.002s\n\nOK\n",
+    "bundle_sha256": {
+      "live-replay-20261006/replay.bundle": "b729b7f2220f5e639ad9e43f205314c45055d69eab966689b0438f178398de17",
+      "claude-continuation-20261006/claude-replay.bundle": "b9c7e80bdd3c25a4aca67c43dd647fa3325f4340a9f51de5bbc7a61b9f1e03ec",
+      "claude-continuation-20261006/fresh-codex.bundle": "1a5eb32bc3cc3c240be4a0533d110d86adf7291240628defc6f9109b45324b25"
+    },
+    "scope": "fixed archived chain; offline integrity and local test verification"
+  },
+  "acceptance_tests": {
+    "exit_code": 0,
+    "tests_passed": 7,
+    "elapsed_seconds": 27.71,
+    "observed_output_excerpt": "Ran 7 tests in 27.710s\n\nOK\n"
+  },
+  "full_suite": {
+    "exit_code": 0,
+    "tests_passed": 83,
+    "elapsed_seconds": 44.141,
+    "observed_output_excerpt": "Ran 83 tests in 44.141s\n\nOK\n"
+  },
+  "final_cli_bytecode_flag_test": {
+    "exit_code": 0,
+    "tests_passed": 1,
+    "elapsed_seconds": 7.884
+  },
+  "review_findings": [
+    {
+      "severity": "P2",
+      "finding": "ignored untracked modules import before semantic rejection",
+      "resolution": "git ls-files --others -z rejects all untracked including ignored files before bootstrap",
+      "regression": "ignored json.py rejected; execution marker remains absent",
+      "verified_by": "host regression"
+    },
+    {
+      "severity": "P2",
+      "finding": "root ancestor symlinks/junctions not checked",
+      "resolution": "unlinked_root rejects root and every ancestor before path/Git use",
+      "regression": "focused is_symlink/is_junction predicate true only on ancestor",
+      "real_junction_probe_verified": false,
+      "verified_by": "host predicate tests"
+    }
+  ],
+  "implementation_actor": "Codex after Claude timeout",
+  "claude_invocations_attempted": 1,
+  "claude_retries": 0,
+  "claude_implementation_validated": false,
+  "independent_codex_reviews": 1,
+  "independent_reviewer_recovered_repo_only_context": true,
+  "fixes_reviewed_independently_again": false,
+  "new_services_or_credits_purchased": false,
+  "billing_verified": false,
+  "comparative_savings_measured": false,
+  "core_changed": false,
+  "archives_changed": false,
+  "remote_ci_run": false,
+  "push_pr_merge_release_or_publication": false,
+  "utility_result": "complete; offline command and post-review host checks pass",
+  "planned_claude_implementation_handoff_result": "PARTIALLY VALIDATED; one timeout, no complete proposal"
+}
