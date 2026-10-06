@@ -4,6 +4,7 @@ from __future__ import annotations
 import argparse
 import copy
 import json
+import os
 from pathlib import Path
 import shutil
 import subprocess
@@ -15,6 +16,8 @@ CONFIG = '''platform_toolsets:
   cli: []
 fallback_providers: []
 mcp_servers: {}
+security:
+  allow_lazy_installs: false
 memory:
   memory_enabled: false
   user_profile_enabled: false
@@ -66,23 +69,31 @@ def extract_stream(text: str) -> tuple[dict, list[dict]]:
     return json.loads(finals[0]['text']), events
 
 
-def hermes_consume(packet: dict, home: Path, model: str) -> tuple[dict, dict]:
-    executable = shutil.which('hermes')
-    if not executable:
-        raise RuntimeError('Hermes not installed/on PATH; no paid fallback attempted')
+def check_home(home: Path, *, require_auth: bool = True) -> None:
     if not home.is_dir() or home.is_symlink() or home.is_junction():
         raise RuntimeError('dedicated isolated home required')
     if (home / 'config.yaml').read_text(encoding='utf-8') != CONFIG:
         raise RuntimeError('profile restriction config changed; inspect manually')
-    if not (home / 'auth.json').is_file():
+    if require_auth and not (home / 'auth.json').is_file():
         raise RuntimeError('human subscription OAuth login required in the isolated home')
     for name in ('.env', 'plugins', 'hooks', 'memories', 'skills'):
         target = home / name
         if target.exists() and (target.is_file() and target.stat().st_size or
                                 target.is_dir() and any(target.iterdir())):
             raise RuntimeError('isolated home must not contain secrets/customizations/context')
+
+
+def hermes_consume(packet: dict, home: Path, model: str) -> tuple[dict, dict]:
+    executable = shutil.which('hermes')
+    if not executable:
+        raise RuntimeError('Hermes not installed/on PATH; no paid fallback attempted')
+    check_home(home)
     env = clean_env()
     env['HERMES_HOME'] = str(home.resolve())
+    # Windows Path.home() requires USERPROFILE even with a dedicated HERMES_HOME.
+    # Preserve its actual value, not provider keys or external login settings.
+    if os.name == 'nt' and 'USERPROFILE' in os.environ:
+        env['USERPROFILE'] = os.environ['USERPROFILE']
     # Do not inherit provider keys, previous session IDs or external auth/home settings.
     command = [executable, 'chat', '--oneshot', '--query-file', '-', '--ignore-rules',
                '--provider', 'openai-codex', '--model', model, '--max-turns', '1',
@@ -103,7 +114,7 @@ def hermes_consume(packet: dict, home: Path, model: str) -> tuple[dict, dict]:
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('mode', choices=('mock', 'hermes', 'init-home'))
+    parser.add_argument('mode', choices=('mock', 'hermes', 'init-home', 'check-home'))
     parser.add_argument('--home', type=Path)
     parser.add_argument('--model')
     args = parser.parse_args()
@@ -114,6 +125,12 @@ def main() -> int:
             args.home.mkdir(parents=True, exist_ok=False)
             atomic(args.home / 'config.yaml', CONFIG.encode('utf-8'))
             print('Dedicated home created; no credentials or model calls made.')
+            return 0
+        if args.mode == 'check-home':
+            if not args.home:
+                parser.error('--home required')
+            check_home(args.home, require_auth=False)
+            print('Restriction config and empty customization directories verified; no auth read.')
             return 0
         packet = json.loads(sys.stdin.read(65537))
         if args.mode == 'mock':

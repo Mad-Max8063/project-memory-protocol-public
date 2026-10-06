@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import copy
 import json
+import os
 from pathlib import Path
 import shutil
 import subprocess
@@ -146,6 +147,7 @@ class HermesBridgeTests(unittest.TestCase):
             run.assert_not_called()
         self.assertIn('fallback_providers: []', CONFIG)
         self.assertIn('cli: []', CONFIG)
+        self.assertIn('allow_lazy_installs: false', CONFIG)
 
     def test_existing_compatibility_fixture_remains_valid(self):
         repo = HERE.parents[1]
@@ -158,6 +160,23 @@ class HermesBridgeTests(unittest.TestCase):
         self.proposal['expected_memory_sha256'] = self.packet['memory_sha256']
         create_handoff(self.root, self.packet, self.proposal, 'mock')
         self.assertEqual(verify(self.root)['exit_code'], 0)
+
+    def test_runtime_keeps_windows_home_but_not_provider_secrets(self):
+        (self.root / 'config.yaml').write_text(CONFIG, encoding='utf-8')
+        (self.root / 'auth.json').write_text('{}', encoding='utf-8')
+        completion = json.dumps({'type': 'result', 'exit_code': 0,
+                                 'text': json.dumps(self.proposal)})
+        replies = [subprocess.CompletedProcess([], 0, 'test-runtime', ''),
+                   subprocess.CompletedProcess([], 0, completion, '')]
+        with patch('consumer.shutil.which', return_value='test-hermes'), \
+                patch.dict(os.environ, {'OPENAI_API_KEY': 'test-do-not-inherit'}), \
+                patch('consumer.subprocess.run', side_effect=replies) as run:
+            hermes_consume(self.packet, self.root, 'test-model')
+        child_env = run.call_args.kwargs['env']
+        self.assertNotIn('OPENAI_API_KEY', child_env)
+        self.assertEqual(child_env['HERMES_HOME'], str(self.root.resolve()))
+        if os.name == 'nt' and 'USERPROFILE' in os.environ:
+            self.assertEqual(child_env['USERPROFILE'], os.environ['USERPROFILE'])
 
 
 if __name__ == '__main__':

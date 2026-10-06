@@ -102,7 +102,42 @@ continuation.py, as in experiments/hermes-pmp/README.md. A new generated run has
 new commits/timestamps; successful gates, not identical SHAs, are the invariant.
 Pass `--archive <new-empty-directory>` to retain its report and bundle elsewhere.
 
-## Optional live Hermes connection — NOT YET VERIFIED
+## Optional live Hermes connection — inference NOT YET VERIFIED
+
+On 2026-10-06 a NEW pinned minimal Windows CLI runtime was installed and its
+zero-tool profile checked locally. See
+[runtime gate evidence](../../experiments/hermes-pmp/evidence/runtime-gate.md).
+This is not a real model replay; subscription OAuth is the remaining human gate.
+From this experimental repository, the prepared commands are:
+
+```powershell
+& ./experiments/hermes-pmp/windows-runtime.ps1 -Action check
+& ./experiments/hermes-pmp/windows-runtime.ps1 -Action login
+```
+
+`login` checks restrictions, prints the device-login instructions and waits for
+human authorization. It makes no model call and restores process environment
+afterward. Never paste credentials here. It deliberately uses the NEW runtime
+under `%TEMP%/pmp-hermes-runtime-20261006`, not an existing global Hermes runtime.
+The temporary runtime can be removed by Windows cleanup; missing runtime is a
+hard gate, not permission to reuse the blocked track. No global PATH was changed.
+For the later single live replay, after OAuth and covered-model verification:
+
+```powershell
+$pmpSavedPath = $env:Path
+try {
+    $env:Path = (Join-Path $env:TEMP 'pmp-hermes-runtime-20261006/bin') + ';' + $pmpSavedPath
+    python experiments/hermes-pmp/replay.py --mode hermes --home (Join-Path $env:TEMP 'pmp-hermes-runtime-20261006/profiles/pmp') --model '<subscription-covered-model>' --archive '<new-empty-evidence-directory>'
+} finally {
+    $env:Path = $pmpSavedPath
+}
+```
+
+The full/default source installation failed on blocked FFmpeg. The successful
+minimal runtime uses the official PM dependency API with no Python extras.
+It does not grant multimedia/tool availability or bypass Windows protection.
+The bridge preserves unchanged USERPROFILE for Windows Path.home() and otherwise
+keeps the minimized environment. Automatic dependency installation is disabled.
 
 Hermes currently documents --query-file, --oneshot, --ignore-rules,
 --format stream-json and one-turn limits in its

@@ -36,9 +36,22 @@
   `python experiments/hermes-pmp/verify_archive.py`; bundle digests, lineage,
   change boundaries, host evidence, canonical state and acceptance gates pass.
 - [DOCUMENTED] Conclusion: B. PARTIALLY VALIDATED. Actual Hermes installation,
-  subscription entitlement, profile enforcement and live runtime are unverified.
-  Hermes was not found through scoped local availability checks. No model/provider
-  call by Hermes, installer, purchase, paid service or deployment occurred.
+  subscription entitlement and live inference were unverified at the initial
+  experiment commit. The earlier mock/Codex evidence remains unchanged.
+- [VERIFIED] A NEW pinned Hermes minimal Windows CLI runtime now starts locally:
+  upstream `e97923c38acba2066aff9c45e35fe1584a2155b2`, Python 3.14.7,
+  SDK 2.24.0; CLI tool summary shows 0/28 enabled. No prior track was accessed.
+  See experiments/hermes-pmp/evidence/runtime-gate.md for installation failures,
+  successful PM-only dependency selection and observed profile/launcher hashes.
+- [VERIFIED] Restricted profile has no OAuth credential yet, no custom hooks,
+  memories or skills, and automatic installs are disabled. Windows USERPROFILE
+  is preserved only to make Path.home() work. Wrapper check and 71 tests pass
+  (14 bridge tests). No Hermes inference, purchase, deployment or global PATH
+  change occurred; incremental paid cost remains USD 0.
+- [DOCUMENTED] Conclusion remains B. PARTIALLY VALIDATED. Entitlement, quota,
+  actual zero-tool model execution and real Hermes handoff still require live
+  verification. The minimal temporary runtime is not a complete Hermes install
+  and may be removed by Windows cleanup; do not silently substitute another.
 - [DOCUMENTED] Stable release lifecycle evidence remains in baseline history
   and docs; this experiment neither changes nor re-audits the released lifecycle.
 
@@ -71,20 +84,21 @@
 
 ## Priorities
 
-1. Establish whether a NEW independent Hermes runtime and existing-subscription
-   OAuth route are available without incremental paid charges.
-2. Only after inspecting that version's tool restrictions, run one bounded live
+1. Complete human subscription OAuth in the prepared isolated profile and verify
+   coverage without incremental paid charges.
+2. After repeating that version's tool restrictions, run one bounded live
    attempt with the dedicated home, no provider fallback and no chat history.
 3. If the route is unavailable, retain this honest partial result; do not expand
    architecture, simulate success or repair the blocked previous track.
 
 ## Next action
 
-Human authority: make a NEW independent Hermes runtime available using the
-official Windows guide linked in docs/experiments/hermes-pmp-adapter.md.
-Do not reuse the blocked track or purchase a service. Then follow the guide's
-dedicated-home subscription OAuth procedure and stop if entitlement or tool
-restriction cannot be verified; no automatic paid fallback.
+Max: from this experiment checkout run
+`& ./experiments/hermes-pmp/windows-runtime.ps1 -Action login` and complete OAuth
+using the existing ChatGPT/Codex subscription; do not share credentials.
+Afterward Codex repeats the restriction check, verifies the covered model and
+runs one bounded live replay. Stop if coverage or restrictions cannot be verified;
+no previous Hermes/Argon runtime, purchase or automatic paid fallback.
 
 ## Evidence
 
@@ -94,6 +108,8 @@ restriction cannot be verified; no automatic paid fallback.
 - experiments/hermes-pmp/evidence/replay.bundle
 - experiments/hermes-pmp/evidence/fresh-codex.json
 - experiments/hermes-pmp/evidence/fresh-codex.bundle
+- experiments/hermes-pmp/evidence/runtime-gate.md
+- experiments/hermes-pmp/windows-runtime.ps1
 - experiments/hermes-pmp/verify_archive.py
 - experiments/hermes-pmp/README.md
 - docs/experiments/hermes-pmp-adapter.md
