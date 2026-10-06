@@ -63,6 +63,24 @@ Requirements: Git and Python 3.12+. No dependencies to install. Local verificati
 was performed on Windows with Python 3.14; other environments need external
 confirmation. Use a normal directory with no symlink/junction ancestors.
 
+### Public branch: recommended entry point
+
+The experimental branch is being submitted for external review, not merged into
+the stable protocol. From a directory where the destination does not exist:
+
+```text
+git clone --config core.autocrlf=false --single-branch --branch experiment/hermes-pmp-adapter https://github.com/Mad-Max8063/project-memory-protocol-public.git pmp-hermes-review
+cd pmp-hermes-review
+git rev-parse HEAD
+```
+
+Record that outer source SHA in your review. The branch may receive follow-up
+documentation; the three archived replay bundles remain pinned by the verifier.
+Continue with the Windows or POSIX verification commands below. Post your
+results in the review PR's conversation; do not post credentials or personal paths.
+
+### Offline bundle: alternative transport
+
 The review package contains `pmp-hermes-review.bundle` (source, this brief and
 archived evidence), an entry-point README, a draft PR and a SHA-256 manifest.
 Choose a new checkout directory. From the extracted
@@ -75,8 +93,8 @@ git rev-parse HEAD
 ```
 
 The checkout SHA must match `source_commit` in the package's `manifest.json`.
-The package is a local delivery artifact. A GitHub branch/PR has not been
-published by this preparation step; no unavailable GitHub branch is required.
+The earlier package is a local delivery artifact of its recorded source commit.
+It remains independently usable and does not require the public branch or PR.
 Review source and the manifest before executing code. Hashes establish
 consistency within the delivered package, not independent publisher signatures.
 

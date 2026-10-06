@@ -16,6 +16,12 @@
 
 ## Current state
 
+- [AUTHORIZED] Max authorized publishing this experimental branch and opening
+  its external-review PR. Scope includes public clone instructions and prepared
+  English X/LinkedIn copy, not posting to social networks or contacting reviewers.
+  Public repo visibility and gh authentication are confirmed. Refreshed main is
+  2d9da5549d802c27b7a47293384d3f0d59b0ff13; no remote experiment branch or PR exists
+  at this pre-push checkpoint. Publish after checks and record actual results.
 - [PREPARED] Max authorized an English external-review delivery: a concise
   experiment brief, reproduction instructions and a draft PR. Files are
   docs/experiments/hermes-review-brief.md and hermes-review-pr-draft.md.
@@ -147,9 +153,10 @@
 8. The single Claude attempt timed out. Keep that outcome explicit; local Codex
    implementation and host-verified review corrections supply the useful tool.
    The planned Claude implementation handoff remains unvalidated.
-9. Prepare English review materials and a local portable delivery only. Describe
+9. Prepare English review materials and a local portable delivery. Describe
    the earlier successful fixture chain separately from the later timeout.
-   External-machine reproduction, publication and PR submission are pending.
+   External-machine reproduction remains pending. Max subsequently authorized
+   experimental branch publication and a review PR, without merge or release.
 
 ## Constraints
 
@@ -159,7 +166,8 @@
   destructive changes, deploy, services, credit purchase or subscription activation.
 - Target incremental paid cost: USD 0. Existing Codex allowance is not unlimited;
   Hermes provider eligibility/quota semantics are not yet verified.
-- No push, PR, main merge, tag, release or publication.
+- Branch push and external-review PR are authorized. No main merge, tag, release,
+  social-media posting, reviewer contact or paid promotion.
 - Generated input snapshots are historical evidence only; current state remains
   solely in each repository's PROJECT_MEMORY.md.
 - Bridge lock/atomic file writes are not an OS sandbox or crash-proof multi-file
@@ -176,10 +184,10 @@
 
 ## Next action
 
-Max: review docs/experiments/hermes-review-brief.md and hermes-review-pr-draft.md,
-plus the local package manifest and smoke report. To publish, authorize the
-experimental branch push and review PR explicitly. External reproduction remains
-pending; preparation does not authorize merge, release or promotional contact.
+Codex: complete publication checks, push experiment/hermes-pmp-adapter, open and
+attach its external-review PR, verify the remote head and report CI separately.
+Prepare English social copy with the actual public link; do not post it.
+External reproduction remains pending; no merge, release or outreach is authorized.
 
 ## Evidence
 
