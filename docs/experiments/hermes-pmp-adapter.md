@@ -12,6 +12,10 @@ handoff followed by an independent Codex continuation. This does not validate
 general autonomy, model identity, session freshness, subscription guarantees,
 or the truth of model assertions. See the live replay evidence below.
 
+The later authorized Claude continuation is documented separately in
+[Hermes → Claude → Codex](hermes-claude-continuation.md); it reuses the real
+Hermes bundle without rerunning Hermes or changing PMP Core.
+
 ## Inspection and integration point
 
 Baseline main `2d9da5549d802c27b7a47293384d3f0d59b0ff13` was confirmed through

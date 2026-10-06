@@ -87,6 +87,19 @@
   regression test covers both conditions. Closure gates pass: 72 tests, PMP
   memory validation, release metadata/links/size/secret scan, and diff checks.
   No remote CI was run.
+- [VERIFIED] Authorized Claude extension completed from the real Hermes bundle,
+  without rerunning Hermes. Claude Code 2.1.274, existing claude.ai Pro login,
+  produced a labels.txt proposal; the host passed six fixture/manifest tests.
+  The successful receipt reports claude-sonnet-5, one turn and no tools, with
+  auxiliary Haiku usage also recorded. One prior invocation exited 1; its
+  provider-request count and cause are unknown. See the dedicated guide.
+- [VERIFIED] A separate Codex subagent with no inherited turns read the resulting
+  clone, passed all six tests and verified fourteen historical input hashes.
+  Its receipt/canonical update is preserved in replay commit
+  `5e717267e23e39a854347ade7e9efa545269c227` and a second bundle. Both Claude-stage
+  bundles verified; full repository discovery passed 76 tests. The bounded
+  chain is A. VALIDATED, without certifying identity, hidden session freshness,
+  general autonomy, provider coverage or billing.
 
 ## Active decisions
 
@@ -100,6 +113,9 @@
    Codex continuation. Do not claim identity, freshness or profile conformance.
 5. Keep the integration experimental; no additional infrastructure or general
    autonomy claims after this single bounded live replay.
+6. Claude receives only the nine-file synthetic fixture packet. Reuse archived
+   Hermes evidence, preserve it historically, and give the host fixed write/test
+   authority. Further experiments require a new scoped task.
 
 ## Constraints
 
@@ -118,15 +134,16 @@
 
 ## Priorities
 
-1. Finish repository gates and save one coherent local commit. No push, PR,
-   merge, release, or further live model calls.
-2. Report this one bounded replay and its limits; no paid API, additional
-   subscription purchase, or Hermes/Argon access.
+1. Preserve the completed Hermes/Claude/Codex chain with replay bundles,
+   independent receipt, tests and the local experimental commit.
+2. Report the observed result and consumption boundaries; no further live calls,
+   subscription purchase, push, PR, merge, release or Hermes/Argon access.
 
 ## Next action
 
-Codex: report the completed scoped local commit. Do not make more model calls or
-push, open a PR, merge, tag, release, or publish.
+Max: review docs/experiments/hermes-claude-continuation.md and the archived Codex
+receipt. The bounded experiment is complete; any broader task, additional model
+call or publication needs a new scoped instruction.
 
 ## Evidence
 
@@ -140,6 +157,14 @@ push, open a PR, merge, tag, release, or publish.
 - experiments/hermes-pmp/evidence/live-replay-20261006/replay-report.json
 - experiments/hermes-pmp/evidence/live-replay-20261006/replay.bundle
 - experiments/hermes-pmp/evidence/live-replay-20261006/codex-continuation.md
+- experiments/hermes-pmp/evidence/claude-continuation-20261006/claude-report.json
+- experiments/hermes-pmp/evidence/claude-continuation-20261006/fresh-codex.json
+- experiments/hermes-pmp/evidence/claude-continuation-20261006/codex-after-claude.md
+- experiments/hermes-pmp/evidence/claude-continuation-20261006/claude-replay.bundle
+- experiments/hermes-pmp/evidence/claude-continuation-20261006/fresh-codex.bundle
+- experiments/hermes-pmp/claude_replay.py
+- tests/test_claude_pmp_continuation.py
+- docs/experiments/hermes-claude-continuation.md
 - experiments/hermes-pmp/windows-runtime.ps1
 - experiments/hermes-pmp/verify_archive.py
 - experiments/hermes-pmp/README.md

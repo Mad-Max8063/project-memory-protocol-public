@@ -1,0 +1,23 @@
+{
+  "date": "2026-10-06",
+  "observer": "separate Codex subagent, fork_turns=none; no inherited conversation",
+  "input_revision": "1993c0aa4a4b308da690e87bc5f74f6fda514d73",
+  "receipt_commit": "5e717267e23e39a854347ade7e9efa545269c227",
+  "commit_actor": "PMP Replay Host, after the independent verifier completed",
+  "changed_files": ["PROJECT_MEMORY.md", ".project-memory/sessions/codex-after-claude.md"],
+  "receipt_sha256": "c0b9caf0a6aacb5c78725f0025505e4f4bda23858ea6f0d5e038befd61fe45a9",
+  "memory_sha256": "d96b10e6de418dac9ad0d7845bf95cefc894e4d280f2c92c2c0024441b8ab1e9",
+  "bundle_sha256": "1a5eb32bc3cc3c240be4a0533d110d86adf7291240628defc6f9109b45324b25",
+  "command": ["python", "-I", "-B", "-m", "unittest", "discover", "-s", ".", "-p", "test_*.py", "-v"],
+  "tests_passed": 6,
+  "exit_code": 0,
+  "historical_input_hashes_checked": 14,
+  "previous_artifacts_preserved": 15,
+  "fresh_codex_executed": true,
+  "model_identity_certified": false,
+  "session_freshness_certified": false,
+  "billing_verified": false,
+  "first_claude_invocation": "exit 1; diagnostics not retained; provider-request count unknown",
+  "second_claude_invocation": "successful one-turn completion; main Sonnet and auxiliary Haiku usage reported",
+  "conclusion": "A. VALIDATED for this bounded repository-only Hermes/Claude/Codex continuation, not general autonomy"
+}
