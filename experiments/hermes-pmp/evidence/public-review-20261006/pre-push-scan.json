@@ -1,0 +1,32 @@
+{
+  "new_branch_blobs": 79,
+  "archived_bundles": [
+    {
+      "path": "experiments/hermes-pmp/evidence/claude-continuation-20261006/claude-replay.bundle",
+      "sha256": "b9c7e80bdd3c25a4aca67c43dd647fa3325f4340a9f51de5bbc7a61b9f1e03ec",
+      "scanned_blobs": 21
+    },
+    {
+      "path": "experiments/hermes-pmp/evidence/claude-continuation-20261006/fresh-codex.bundle",
+      "sha256": "1a5eb32bc3cc3c240be4a0533d110d86adf7291240628defc6f9109b45324b25",
+      "scanned_blobs": 23
+    },
+    {
+      "path": "experiments/hermes-pmp/evidence/fresh-codex.bundle",
+      "sha256": "c76cd1f0100916802ae66af9d7f83dd265c824af67f92ea97ee0ed7d55aa2c57",
+      "scanned_blobs": 13
+    },
+    {
+      "path": "experiments/hermes-pmp/evidence/live-replay-20261006/replay.bundle",
+      "sha256": "b729b7f2220f5e639ad9e43f205314c45055d69eab966689b0438f178398de17",
+      "scanned_blobs": 11
+    },
+    {
+      "path": "experiments/hermes-pmp/evidence/replay.bundle",
+      "sha256": "1b2604abddecc8a40cc6998d800f194287312edf6d210fff7977fc1967ac489d",
+      "scanned_blobs": 11
+    }
+  ],
+  "findings": [],
+  "limit": "Known token/private-key patterns only; not a complete secret audit"
+}

@@ -1,300 +1,315 @@
-# Project Memory Protocol — Public Distribution Memory
+# Project Memory Protocol — independent Hermes adapter experiment
 
-> Canonical operational memory shared by humans and compatible agents.
+> Canonical operational memory for this experimental branch only.
 > Protocol: PMP `0.2.2`
 > Canonical path: `PROJECT_MEMORY.md`
 
 ## Identity
 
-- Project: `Project Memory Protocol public distribution`
-- Repository: `https://github.com/Mad-Max8063/project-memory-protocol-public` (`PUBLIC`)
-- Human authority: `Matías Maximiliano Bernal / Max Devs Solutions`
-- Default branch: `main`
-- Last updated: `2026-09-12`
-- Last actor: `Codex`
+- Project: PMP public distribution — independent Hermes interoperability track
+- Repository: https://github.com/Mad-Max8063/project-memory-protocol-public
+- Human authority: Max / Max Devs Solutions
+- Branch: `experiment/hermes-pmp-adapter`
+- Starting revision: `2d9da5549d802c27b7a47293384d3f0d59b0ff13`
+- Last updated: 2026-10-07
+- Last actor: Codex (logical participant; no identity attestation)
 
 ## Current state
 
-- [VERIFIED] This public distribution contains only allowlisted protocol,
-  validation, documentation, profile-template, and packaged-demo artifacts.
-- [VERIFIED] Private operational history, pilot evidence, internal phase
-  records, private tag plans, and unrelated repository identifiers are absent.
-- [DOCUMENTED] The local Core `0.2.2` release preparation preserves the
-  normative Reader, Writer, and Adapter behavior of `0.2.1` while presenting
-  the merged Core R3 validator hardening through lifecycle-neutral metadata.
-  The Evidence-backed Handoff profile remains at `0.1.1`.
-- [VERIFIED] The clean remote was bootstrapped on `main` from the exact
-  clean-history root commit `e56aa540ea91d1bb7fd9ed61d3bda8321badea95`.
-- [VERIFIED] GitHub Actions run `32764540923` executed for that exact root
-  commit after the initial push and completed successfully with every job and
-  step passing.
-- [DOCUMENTED] The final read-only audit of the root commit passed its
-  technical and external-state checks but found one medium documentation
-  inconsistency: this memory still claimed that no remote existed and left
-  remote creation as the next action. This closure update resolves that
-  inconsistency.
-- [VERIFIED] The documentation-only bootstrap closure is commit
-  `365e48c7b8480f339b622b1f22eb30c8f93a6da8`; GitHub Actions run
-  `32765750211` completed successfully for that exact commit.
-- [DOCUMENTED] The repository was subsequently made public under explicit
-  human authorization. This update resolves the resulting stale `PRIVATE`
-  metadata and records the current public state.
-- [VERIFIED] The repository and its README, LICENSE, specification, history,
-  and CI are anonymously accessible. A post-merge read-only check on
-  `2026-09-09` found no tag, GitHub Release, artifact, or deployment.
-- [VERIFIED] The public blind replay at
-  `Mad-Max8063/pmp-public-replay-01` completed its four-commit
-  Human -> ChatGPT -> Codex -> ChatGPT chain at
-  `a4e6469a4257f32809b9405946b07fd2ef3e8416`.
-- [VERIFIED] Replay CI run `32791128976` completed successfully for that exact
-  final commit with seven passing acceptance tests and
-  `REPLAY STAGE VERIFIED: chatgpt-verification`.
-- [VERIFIED] Local gates pass: Python compilation, six memory validations, two
-  profile-template validations, 17 profile tests, seven release tests, release
-  metadata/link/size/secret validation, the packaged demo, and the
-  expected-incomplete seed.
-- [VERIFIED] Targeted privacy scans found no private product or repository
-  identifiers, inherited CI URLs or commit SHAs, local user paths, or
-  credential-like assignments in the 50-file candidate.
-- [VERIFIED] Byte comparison preserved every copied artifact except the
-  explicitly reviewed public surfaces: workflow, README, changelog, upgrade
-  and release notes, demo script, profile guidance, and release validation.
-- [VERIFIED] PR #1 merged the reviewed Core R3 hardening into `main` through
-  Rebase and merge. The resulting commit is
-  `c32c4d9cbf5cb239eebcdfad2c184f525bfee61b`; its sole parent is
-  `0c9b84a28a73b414b0ae8326ad4f4c43cda02ec2`.
-- [VERIFIED] The merged commit and reviewed branch commit
-  `930082a0be3be1c6b2ab1346d625b8afb4dd7471` share the exact tree
-  `8061adf527bfc9cd60bca406327b57d991cc028e`. Both contain the same five-file
-  change: 332 insertions and 21 deletions.
-- [VERIFIED] GitHub Actions push run `34418092764` and job `verify`
-  `102687351177` completed successfully for the exact merged `main` SHA, with
-  every reported step passing.
-- [VERIFIED] Branch `codex/core-r3-integration` remains preserved at the
-  reviewed commit. Repository visibility remains public; no existing branch,
-  protection setting, tag, Release, artifact, deployment, or replay history
-  was changed by the merge closure.
-- [VERIFIED] PR #2 merged the documentation-only Core R3 post-merge closure
-  into `main` through Rebase and merge. The resulting commit is
-  `28dfa20970d92ec0b9fb4f129eb31b3e34fb54c5`; its sole parent is
-  `c32c4d9cbf5cb239eebcdfad2c184f525bfee61b`.
-- [VERIFIED] The PR #2 merge commit and reviewed branch commit
-  `1cb86b93f2bad617f8344a5eae542f0bfd93588e` share the exact tree
-  `85b3a3a16ee468effff59239cacf35918c4bf3ca` and the same
-  `PROJECT_MEMORY.md` blob `91b8e762bf18dbff68f45ee5c701655c15a3e5a6`.
-- [VERIFIED] GitHub Actions push run `34420701574` and job `verify`
-  `102695248865` completed successfully for the exact PR #2 merge SHA, with
-  every reported step passing.
-- [VERIFIED] Branch `docs/core-r3-post-merge-closure` remains preserved at
-  `1cb86b93f2bad617f8344a5eae542f0bfd93588e`.
-- [VERIFIED] Core `0.2.2` release content commit
-  `54f95b9ec5e67ab5ad63a54c3532286503f57cb0` is the single child of exact
-  `main` `28dfa20970d92ec0b9fb4f129eb31b3e34fb54c5`. It contains exactly 18
-  allowlisted paths and tree `ef9343dde4d4423cf6e06eaf601ef035f8f35905`.
-- [VERIFIED] All 15 applicable local gates passed for the Core `0.2.2`
-  release-content preparation: compilation; six memory validations; two profile
-  template validations; 17 profile tests; 33 Markdown parser regressions;
-  seven release tests; release metadata, link, size, and secret validation;
-  the packaged demo; and the expected-incomplete seed with exit `1`.
-- [VERIFIED] The prepared diff contains exactly 18 allowlisted paths: 16
-  modified metadata, documentation, memory, adapter, or release-consistency
-  files plus two new release documents. Core R3 implementation, memory/profile
-  validators, Markdown regression suite, workflow, fixtures, and replay
-  history remain unchanged by this preparation.
-- [VERIFIED] Branch `release/0.2.2` was published at the exact release content
-  commit. Manual GitHub Actions run `34427049413` and job `verify`
-  `102714408763` completed successfully for that exact SHA, with every
-  reported step passing.
-- [VERIFIED] A read-only post-push, pre-PR audit found the repository public with
-  `main` unchanged at `28dfa20970d92ec0b9fb4f129eb31b3e34fb54c5`, the
-  release branch at the expected content commit, and no pull request, tag,
-  GitHub Release, artifact, or deployment.
-- [VERIFIED] PR #3 merged the reviewed Core `0.2.2` release scope into `main`
-  through Rebase and merge. The resulting linear commits are release content
-  `6b98f5d8938707a98d96ce83c1d406c6c2d1edb0`, branch-CI closure
-  `9c7a91e367ec4b94e20ab914654b77dcc95edaff`, and final PR closure
-  `4cb77f1081138780972147c220852a1164c02bf0`.
-- [VERIFIED] The first rebased commit has exact parent
-  `28dfa20970d92ec0b9fb4f129eb31b3e34fb54c5` and retains release-content tree
-  `ef9343dde4d4423cf6e06eaf601ef035f8f35905`. The final `main` tree
-  `e2c2957d976e427a9a110e699126c0899b8d2e87` exactly matches reviewed PR head
-  `6e1f8d430248713cf52773618ce0b3974b217908`.
-- [VERIFIED] GitHub Actions push run `34553817534` and job `verify`
-  `103122086694` completed successfully for exact merged `main`
-  `4cb77f1081138780972147c220852a1164c02bf0`, with every reported step
-  passing.
-- [VERIFIED] Branch `release/0.2.2` remains preserved at reviewed head
-  `6e1f8d430248713cf52773618ce0b3974b217908`. The post-merge audit found the
-  repository public with no tag, GitHub Release, artifact, or deployment.
-- [VERIFIED] PR #4 merged the one-file Core `0.2.2` post-merge closure through
-  Rebase and merge. Resulting commit
-  `53f3daac4da79e5e1ed8a581a1108f7940c49a83` has exact parent
-  `4cb77f1081138780972147c220852a1164c02bf0` and tree
-  `c01668ecd1451ea5bb88f1a7092790fc649e3808`, identical to reviewed head
-  `18b804c0258d7775c24d633e4a2c2df7c263a0e9`.
-- [VERIFIED] GitHub Actions push run `34555094139` and job `verify`
-  `103125951065` completed successfully for exact PR #4 merge commit
-  `53f3daac4da79e5e1ed8a581a1108f7940c49a83`, with every reported step
-  passing. Branch `docs/pmp-0.2.2-post-merge-closure` remains preserved at its
-  reviewed head.
-- [VERIFIED] A strict read-only tag-readiness audit of that exact merge commit
-  passed lineage, tree, version metadata, CI, branch protection, anonymous
-  access, visibility, branch preservation, and zero-tag, zero-Release,
-  zero-artifact, zero-deployment, and zero-open-PR checks.
-- [DOCUMENTED] The same audit found one blocking documentation inconsistency:
-  canonical memory still described PR #4 as pending and treated its parent as
-  current `main`. This lifecycle-neutral closure resolves that inconsistency
-  without predicting the SHA that a future protected merge may create.
-- [DOCUMENTED] Six known validation limits remain: empty authority content,
-  multiple actions, invented `[VERIFIED]` claims, two secret-scanner evasions,
-  and placeholder evidence. Core R3 does not claim to validate truth, identity,
-  authorization, or complete CommonMark semantics.
-- [VERIFIED] PR #5 merged the one-file lifecycle-neutral tag-readiness closure
-  through Rebase and merge. Resulting `main` commit
-  `0597ac7fd428e5c693d50caffb8686f8319b9fa4` has exact parent
-  `53f3daac4da79e5e1ed8a581a1108f7940c49a83` and tree
-  `6ea52ffdc714b8fd3952a66ae1ed8b8504db3a2b`, identical to reviewed head
-  `2395f617acf9145711f1e4fc777072651140109a`.
-- [VERIFIED] GitHub Actions push run `34556398091` and job `verify`
-  `103129875345` completed successfully for that exact `main` commit.
-- [VERIFIED] Annotated tag `v0.2.2` has tag-object
-  `1bda566198a1e5c6cc4564c0984b42b7744575e7` and peels to exact commit
-  `0597ac7fd428e5c693d50caffb8686f8319b9fa4`. Its approved tagger is
-  `Matías Maximiliano Bernal <179927943+Mad-Max8063@users.noreply.github.com>`;
-  the tag is unsigned as explicitly accepted by the human authority.
-- [VERIFIED] GitHub Release `386759221`, titled
-  `Project Memory Protocol v0.2.2`, is public, stable, non-draft,
-  non-prerelease, and marked `Latest`. Its published body matches
-  `docs/RELEASE_NOTES_0.2.2.md`; anonymous access to the Release and automatic
-  ZIP/TAR source archives returned HTTP `200`.
-- [VERIFIED] The post-Release audit on `2026-09-11` found the repository public
-  with all six branches preserved, one tag, one Release, no uploaded Release
-  assets, no Actions artifacts, no deployments, and no open pull requests.
-- [DOCUMENTED] A new `Capability-Aware Handoff` document records an exploratory,
-  non-normative design for transferring bounded work between environments with
-  different observable capabilities. It does not change Core `0.2.2`, profile
-  `0.1.1`, the published tag, or the stable GitHub Release.
+- [DOCUMENTED] Max reported successful offline reproduction on a separate
+  ACER machine after Windows reinstall: Windows 11 Home 10.0.26300,
+  Python 3.14.8, Git 2.56.0.windows.2, pinned source
+  1f56483e472c518d2954d7af15cfa59f1e5cf58e. Pasted console output reports
+  verifier exit 0, three bundle digests, fourteen historical inputs, six fixture
+  tests, seven acceptance tests in 28.160 s (exit 0), and clean Git status.
+  This is maintainer-reported other-machine reproduction, not a directly
+  observed host run, independent third-party review, or a new live agent chain.
+  The evidence record preserves the initial paste/temp setup error. This
+  documentation incorporation was initially local only. Max then authorized
+  publication: source commit 9ec50b456db0c3df3fe164446a3dcd7f78ef11c1 was
+  pushed fast-forward and PR #8 was observed OPEN/draft at that exact HEAD.
+  CI run 37711737829 passed for that source (existing Core workflow, not the
+  complete experiment suite). Remote main remained
+  2d9da5549d802c27b7a47293384d3f0d59b0ff13. This state-only closeout follows
+  the verified source; do not infer its own HEAD/CI from that earlier run.
+- [PUBLISHED] Max authorized publishing this experimental branch and opening
+  its external-review PR. Scope includes public clone instructions and prepared
+  English X/LinkedIn copy, not posting to social networks or contacting reviewers.
+  Public repo visibility and gh authentication are confirmed. Refreshed main is
+  2d9da5549d802c27b7a47293384d3f0d59b0ff13. Initial pushed source is
+  6ae8b85178dc670acd261cfaa8a67cc8cb24c204. Draft review PR #8 is OPEN against main:
+  https://github.com/Mad-Max8063/project-memory-protocol-public/pull/8.
+  Local full suite passed 83 tests in 39.752 s. CI run 37495814502 passed for
+  the initial pushed source, testing existing Core checks (not the full new suite).
+  Anonymous PR/brief requests returned HTTP 200; a credential-free new public
+  clone verified all three archived bundles, 14 inputs and six fixture tests.
+  That smoke remains same-host verification; external-person reproduction is pending.
+  English social copy is prepared in docs/experiments/hermes-review-social-drafts.md.
+  Unified Claude Code/Antigravity review prompt is saved at
+  docs/experiments/hermes-cross-runtime-review-prompt.md. Both runtimes have
+  now completed the same-host round; reports are incorporated under
+  experiments/hermes-pmp/evidence/reproductions/. Max subsequently authorized
+  publication: commit 1f56483e472c518d2954d7af15cfa59f1e5cf58e was pushed
+  fast-forward to this branch and PR #8's observed HEAD matched it.
+  CI run 37536055141 passed for that exact source (existing Core workflow,
+  not the complete experiment suite). Anonymous requests to the summary and
+  both REVIEW.md files returned 200 and matched local SHA-256 values.
+  Main remained 2d9da5549d802c27b7a47293384d3f0d59b0ff13. These observations
+  precede the state-only publication closeout commit; its HEAD/CI must be
+  checked separately rather than inferred from the source run.
+- [VERIFIED] Max ran the saved prompt in Claude Code and Google Antigravity.
+  Both separate clones remain at 8c96e926b0d28a182759c45c3a0141fa9a934eba;
+  read-only host Git checks found no tracked/staged changes, only each runtime's
+  three reports. Code/test and six archive-file SHA-256 values match the host.
+  Reports record exit 0, three bundles, fourteen historical inputs, six fixture
+  tests and seven acceptance tests. Host reran the verifier (exit 0) and seven
+  acceptance tests (37.954 s, exit 0). This is same-host reproduction, not
+  external-human review, hidden-context attestation or a new live agent chain.
+- [VERIFIED] Max authorized local report incorporation and documentation fixes.
+  Imported reports/provisional reconstructions retain reviewer claims, with LF
+  normalization and personal-path redaction documented by an import manifest.
+  Original reviewer files are untouched. The brief now distinguishes archived
+  next_action, uses external temporary roots and recommends short Windows paths.
+  The maintainer assessment records the Claude provisional timestamp mismatch
+  and qualifies Antigravity's broad context/model/atomicity claims.
+  Integration checks pass for all eight imports, recorded JSON/log outputs,
+  PMP memory, explicit-root release/link/size/secret validation, and the Windows
+  example syntax. Core/code/tests/workflows/archive paths have no diff.
+- [PREPARED] Max authorized an English external-review delivery: a concise
+  experiment brief, reproduction instructions and a draft PR. Files are
+  docs/experiments/hermes-review-brief.md and hermes-review-pr-draft.md.
+  A local Git-bundle/ZIP delivery may be assembled from this committed branch;
+  its exact source SHA and local smoke result are recorded in the package
+  manifest/LOCAL_VERIFICATION.json, separate from external reproduction.
+- [COMPLETE] Max authorized a bounded useful follow-up: one offline command
+  verifying the archived Hermes/Claude/Codex chain. Scope and acceptance are in
+  experiments/hermes-pmp/CHAIN_TASK.md. Claude proposes implementation, the host
+  verifies it and an independent Codex reviewer receives repository state only.
+  Baseline full discovery: 76 tests passed; Core memory/release checks passed.
+- [VERIFIED] The single Claude implementation invocation reached its 300-second
+  timeout without a retained complete proposal. No retry was made. Codex then
+  implemented verify_chain.py locally: three bundle/report pins, fourteen
+  historical inputs, lineage, PMP/handoff integrity and six named fixture tests.
+  Six new acceptance tests and full discovery (82) passed; Core gates passed.
+  Independent Codex review was the next action at that checkpoint. No Claude implementation
+  success, runtime usage or billed cost is inferred from the incomplete call.
+- [VERIFIED] A separate Codex reviewer received only a repository snapshot/PMP
+  and reproduced the valid command plus six original acceptance tests. It found
+  two P2 boundaries: ignored imports in the semantic helper and linked ancestors.
+  The host fixed both, added a nonexecution regression and focused ancestor
+  coverage, and passed seven acceptance tests/full discovery (83). Final CLI
+  bytecode flag check passed. Initial review and post-fix host evidence remain
+  distinct; no second independent review or provider invocation occurred at
+  that checkpoint. The later same-host runtime reports are separate evidence.
+- [VERIFIED] Separate branch/worktree starts from remote-confirmed main.
+  Existing Jev, MCP and Artifacts worktrees were not reused or modified.
+- [VERIFIED] Core 0.2.2, profile 0.1.1, validators, published replay and existing
+  adapters remain unchanged. Branch adds an optional stdlib-only file bridge.
+- [VERIFIED] Baseline 57 unit tests, memory/release gates and six-test packaged
+  demo passed. Thirteen new bridge tests and full discovery (70) passed.
+  See experiments/hermes-pmp/evidence/RESULT.md for commands and boundaries.
+- [VERIFIED] Local mock replay records baseline
+  `a1b7d1b7bac7456178b694eaadf497d8aa193fa9` and handoff
+  `9be68212880c48724228e50879ae2def65326654`: input state, proposal,
+  host-run tests, evidence, preserved decisions and exact next action.
+- [VERIFIED] A Codex subagent spawned without inherited turns read only the
+  result clone and repository evidence, recognized the mock producer, checked
+  hashes and reran three tests. Its receipt/memory commit is
+  `25e3b504bbc66b64904297a95acc5b27d2623379`. This is observed context
+  delivery and local verification, not proof of hidden identity or freshness.
+- [VERIFIED] Both saved Git bundles were cloned and independently checked by
+  `python experiments/hermes-pmp/verify_archive.py`; bundle digests, lineage,
+  change boundaries, host evidence, canonical state and acceptance gates pass.
+- [DOCUMENTED, HISTORICAL] Conclusion at the initial experiment commit was B.
+  PARTIALLY VALIDATED because actual Hermes/provider execution was unverified.
+  The earlier mock/Codex evidence remains unchanged; the live addendum below
+  supersedes that checkpoint without rewriting it.
+- [VERIFIED] A NEW pinned Hermes minimal Windows CLI runtime now starts locally:
+  upstream `e97923c38acba2066aff9c45e35fe1584a2155b2`, Python 3.14.7,
+  SDK 2.24.0; CLI tool summary shows 0/28 enabled. No prior track was accessed.
+  See experiments/hermes-pmp/evidence/runtime-gate.md for installation failures,
+  successful PM-only dependency selection and observed profile/launcher hashes.
+- [VERIFIED, HISTORICAL] The Hermes OAuth device flow reported success three times and printed
+  “Added openai-codex OAuth credential #1”. However, subsequent read-only
+  `auth status openai-codex` reports logged out; `auth list openai-codex` shows
+  no entry, and Hermes' read-only credential resolver reports no Codex credentials.
+  Only the existing Copilot CLI source is listed. Credential contents were never
+  inspected or recorded. The post-login wrapper check still reports CLI 0/28 tools.
+  No custom hooks, memories or skills; automatic installs are disabled. Windows USERPROFILE
+  is preserved only to make Path.home() work. Wrapper check and 71 tests pass
+  (14 bridge tests). At that checkpoint no Hermes inference, purchase, deployment or global PATH
+  change occurred; incremental paid cost remains USD 0.
+- [DOCUMENTED, HISTORICAL] The OAuth/store
+  discrepancy blocks model-catalog and inference checks. Pinned-source inspection
+  found a plausible no-insert path for first-time `openai-codex` auth in an empty
+  named profile. The Windows wrapper now prepares a separate restricted standalone
+  home and verifies Hermes' own auth status after login; see runtime-gate evidence.
+  A read-only Hermes path probe confirms `pmp-home` is its own default root with
+  no global auth fallback. The final device flow timed out after 15 minutes and
+  native `auth status` confirms logged out; `pmp-home/auth.json` is absent.
+  At that historical checkpoint, entitlement/quota, live inference and real
+  Hermes handoff remained unverified.
+  The minimal temporary runtime is not a complete Hermes install
+  and may be removed by Windows cleanup; do not silently substitute another.
+- [DOCUMENTED] Stable release lifecycle evidence remains in baseline history
+  and docs; this experiment neither changes nor re-audits the released lifecycle.
+- [VERIFIED] After the earlier failed OAuth/store attempts, one device flow in
+  the isolated `pmp-home` completed and Hermes `auth status` confirmed the
+  `openai-codex` credential without exposing account data. Its live catalog
+  listed `gpt-5.6-luna`; exactly one bounded replay then completed through the
+  pinned Hermes CLI `vgit.e97923c` using the existing subscription. No model
+  identity or entitlement/quota guarantee is inferred beyond that observed call.
+- [VERIFIED] The real replay handoff is archived at
+  `experiments/hermes-pmp/evidence/live-replay-20261006/` with report and Git
+  bundle. Hermes proposed only the two fixture labels; host ran all three
+  acceptance tests and committed the handoff. An independent Codex continuation
+  with no inherited turns inspected the fresh clone, reran all three tests,
+  checked evidence hashes, and recorded its receipt. This is observed portable
+  context recovery, not cryptographic proof of model identity/session freshness.
+- [VERIFIED] Replay initially hit two pre-inference failures because the
+  minimized nested Windows environment omitted `USERPROFILE`; the adapter now
+  preserves that home path while continuing to exclude provider API keys. A
+  regression test covers both conditions. Closure gates pass: 72 tests, PMP
+  memory validation, release metadata/links/size/secret scan, and diff checks.
+  No remote CI was run.
+- [VERIFIED] Authorized Claude extension completed from the real Hermes bundle,
+  without rerunning Hermes. Claude Code 2.1.274, existing claude.ai Pro login,
+  produced a labels.txt proposal; the host passed six fixture/manifest tests.
+  The successful receipt reports claude-sonnet-5, one turn and no tools, with
+  auxiliary Haiku usage also recorded. One prior invocation exited 1; its
+  provider-request count and cause are unknown. See the dedicated guide.
+- [VERIFIED] A separate Codex subagent with no inherited turns read the resulting
+  clone, passed all six tests and verified fourteen historical input hashes.
+  Its receipt/canonical update is preserved in replay commit
+  `5e717267e23e39a854347ade7e9efa545269c227` and a second bundle. Both Claude-stage
+  bundles verified; full repository discovery passed 76 tests. The bounded
+  chain is A. VALIDATED, without certifying identity, hidden session freshness,
+  general autonomy, provider coverage or billing.
 
 ## Active decisions
 
-1. Keep the private evidence archive separate and unpublished.
-2. Keep the public distribution clean-history, self-contained, and separate
-   from the private evidence archive.
-3. Keep baseline PMP independent of external services; the Evidence-backed
-   Handoff profile remains optional.
-4. Do not present Git metadata as proof of human or model identity.
-5. Treat the public replay as reproducible repository and CI evidence while
-   preserving the documented limits around hidden identity and session state.
-6. Preserve published Core `0.2.2`, its normative contract, profile `0.1.1`,
-   annotated tag-object `1bda566198a1e5c6cc4564c0984b42b7744575e7`, exact
-   target `0597ac7fd428e5c693d50caffb8686f8319b9fa4`, and stable GitHub Release.
-   Treat any tag or Release modification, deployment, visibility or protection
-   change, replay change, and promotional publication as separate human
-   decisions.
-7. Treat `Capability-Aware Handoff` only as an exploratory optional-profile
-   proposal until a disposable cross-environment pilot and adversarial review
-   provide evidence for a separate human decision.
+1. Keep PMP canonical and vendor-neutral. Hermes is an optional actor/runtime,
+   not Core state or a mandatory dependency.
+2. Reuse unchanged Core parser/validator and ordinary Markdown session records.
+   Proposal JSON is non-normative transport, not a new PMP schema.
+3. Choose the smallest low-risk task: normalize two JSON fixture labels.
+   Only the bridge writes fixed paths and executes trusted fixed tests.
+4. Separate producer assertions, mock versus live Hermes, host verification and
+   Codex continuation. Do not claim identity, freshness or profile conformance.
+5. Keep the integration experimental; no additional infrastructure or general
+   autonomy claims after this single bounded live replay.
+6. Claude receives only the nine-file synthetic fixture packet. Reuse archived
+   Hermes evidence, preserve it historically, and give the host fixed write/test
+   authority. Further experiments require a new scoped task.
+7. The authorized follow-up delivers selected repository code, historical
+   evidence and a task-specific PMP dispatch to Claude with no tools. Implement
+   a fixed offline archive verifier; record model proposal versus host changes.
+8. The single Claude attempt timed out. Keep that outcome explicit; local Codex
+   implementation and host-verified review corrections supply the useful tool.
+   The planned Claude implementation handoff remains unvalidated.
+9. Prepare English review materials and a local portable delivery. Describe
+   the earlier successful fixture chain separately from the later timeout.
+   External-machine reproduction was pending at that checkpoint. Max subsequently authorized
+   experimental branch publication and a review PR, without merge or release.
+10. Preserve both same-host runtime reviews and maintainer qualifications as
+    evidence, not identity attestation or proof of external reproduction.
+    The local incorporation step did not push. Max subsequently authorized
+    publishing this evidence to the existing draft PR. Do not rerun live
+    agents, expand the experiment, merge, release, post or contact reviewers.
 
 ## Constraints
 
-- Do not copy private archive repository names, branches, commits, URLs,
-  operational sessions, credentials, local paths, or product-specific details
-  here.
-- Do not add or change remotes, modify tags or GitHub Releases, publish
-  promotional material, deploy, or change visibility without separate explicit
-  human authorization.
-- Each remaining lifecycle transition MUST be separately and explicitly
-  human-authorized. In particular, this documentation closure does not imply
-  merge, tag, GitHub Release, deployment, branch deletion, visibility change,
-  protection change, replay change, or promotional publication authority.
-- Do not claim that a recording or public companion demo exists until its URL
-  and anonymous accessibility have been verified.
-- Do not place private paths, credentials, signed artifact URLs, or unnecessary
-  personal data in public capability records or fixtures.
+- Do not access, modify, reactivate, repair or depend on the blocked previous
+  Hermes/Argon experiment. No Argon, Obsidian, Jev or Cloudflare dependency.
+- No Core/spec/version/profile changes, refactor, production credentials,
+  destructive changes, deploy, services, credit purchase or subscription activation.
+- Target incremental paid cost: USD 0. Existing Codex allowance is not unlimited;
+  Hermes provider eligibility/quota semantics are not yet verified.
+- Branch push and external-review PR are authorized. No main merge, tag, release,
+  social-media posting, reviewer contact or paid promotion.
+- Generated input snapshots are historical evidence only; current state remains
+  solely in each repository's PROJECT_MEMORY.md.
+- Bridge lock/atomic file writes are not an OS sandbox or crash-proof multi-file
+  transaction. Publish dependent state/evidence together in one Git commit.
+- Preserve all six known Core structural-validation limits and evidence boundaries.
 
 ## Priorities
 
-1. Keep the public README, canonical memory, replay evidence, and actual
-   external state aligned.
-2. Require exact-SHA local gates, CI, and read-only audit evidence for each
-   authorized lifecycle transition.
-3. Keep the published `v0.2.2` tag, Release notes, canonical memory, and actual
-   external state aligned; let the human decide whether to authorize
-   promotional publication.
-4. Review the `Capability-Aware Handoff` proposal and decide whether to prepare
-   a disposable, non-production cross-environment prototype.
+1. Preserve the completed Hermes/Claude/Codex chain with replay bundles,
+   independent receipt, tests and the local experimental commit.
+2. Preserve the completed offline verifier, independent findings and host fixes.
+3. Preserve the completed same-host review round and corrected review docs.
+   Preserve Max's subsequent other-machine console report with explicit
+   provenance limits; do not repeat runs or enlarge the experiment by default.
 
 ## Next action
 
-`Human authority: review the non-normative Capability-Aware Handoff proposal and decide whether to authorize an isolated, disposable cross-environment prototype and adversarial test matrix. No Core or stable-profile change, commit, push, pull request, tag or GitHub Release modification, deployment, branch deletion, visibility or protection change, replay change, artifact transfer, credential access, or promotional publication is implied by this proposal.`
+Max: review the published other-machine evidence in the existing draft PR #8,
+then choose whether to close this bounded track or authorize a separately
+scoped follow-up. No further execution is needed for this reproduction. Do not
+invoke live agents, contact reviewers, post, merge or release by default.
 
 ## Evidence
 
-- `SPEC.md`
-- `README.md`
-- `docs/PROVENANCE.md`
-- `docs/RELEASE_NOTES_0.2.1.md`
-- `docs/RELEASE_NOTES_0.2.2.md`
-- `docs/UPGRADING_0.2.1_TO_0.2.2.md`
-- `docs/proposals/CAPABILITY_AWARE_HANDOFF.md`
-- `examples/chatgpt-codex-handoff/README.md`
-- PR #1 `https://github.com/Mad-Max8063/project-memory-protocol-public/pull/1`
-- Core R3 merge commit `c32c4d9cbf5cb239eebcdfad2c184f525bfee61b`
-- Core R3 reviewed commit `930082a0be3be1c6b2ab1346d625b8afb4dd7471`
-- Core R3 `main` CI run `34418092764`
-- Core R3 `main` CI job `102687351177`
-- PR #2 `https://github.com/Mad-Max8063/project-memory-protocol-public/pull/2`
-- PR #2 merge commit `28dfa20970d92ec0b9fb4f129eb31b3e34fb54c5`
-- PR #2 reviewed commit `1cb86b93f2bad617f8344a5eae542f0bfd93588e`
-- PR #2 merge CI run `34420701574`
-- PR #2 merge CI job `102695248865`
-- Core `0.2.2` release content commit `54f95b9ec5e67ab5ad63a54c3532286503f57cb0`
-- Core `0.2.2` release content CI run `34427049413`
-- Core `0.2.2` release content CI job `102714408763`
-- PR #3 `https://github.com/Mad-Max8063/project-memory-protocol-public/pull/3`
-- PR #3 initial head `a341d3c8482ff32e52702cca6c41454dc55aa60a`
-- PR #3 initial CI run `34428284113`
-- PR #3 initial CI job `102718094144`
-- PR #3 reviewed head `6e1f8d430248713cf52773618ce0b3974b217908`
-- PR #3 reviewed-head CI run `34552366066`
-- PR #3 reviewed-head CI job `103117747308`
-- PR #3 merged `main` commit `4cb77f1081138780972147c220852a1164c02bf0`
-- PR #3 merged `main` CI run `34553817534`
-- PR #3 merged `main` CI job `103122086694`
-- PR #4 `https://github.com/Mad-Max8063/project-memory-protocol-public/pull/4`
-- PR #4 reviewed head `18b804c0258d7775c24d633e4a2c2df7c263a0e9`
-- PR #4 pull-request CI run `34554752425`
-- PR #4 pull-request CI job `103124919674`
-- PR #4 merged commit `53f3daac4da79e5e1ed8a581a1108f7940c49a83`
-- PR #4 merged `main` CI run `34555094139`
-- PR #4 merged `main` CI job `103125951065`
-- PR #5 `https://github.com/Mad-Max8063/project-memory-protocol-public/pull/5`
-- PR #5 reviewed head `2395f617acf9145711f1e4fc777072651140109a`
-- PR #5 merged `main` commit `0597ac7fd428e5c693d50caffb8686f8319b9fa4`
-- PR #5 merged `main` CI run `34556398091`
-- PR #5 merged `main` CI job `103129875345`
-- annotated tag `v0.2.2` object `1bda566198a1e5c6cc4564c0984b42b7744575e7`
-- GitHub Release `https://github.com/Mad-Max8063/project-memory-protocol-public/releases/tag/v0.2.2`
-- root commit `e56aa540ea91d1bb7fd9ed61d3bda8321badea95`
-- GitHub Actions run `32764540923`
-- bootstrap closure commit `365e48c7b8480f339b622b1f22eb30c8f93a6da8`
-- bootstrap closure CI run `32765750211`
-- public replay `https://github.com/Mad-Max8063/pmp-public-replay-01`
-- replay final commit `a4e6469a4257f32809b9405946b07fd2ef3e8416`
-- replay final CI run `32791128976`
-- `python scripts/validate_release_candidate.py`
-- `python examples/chatgpt-codex-handoff/verify_demo.py`
+- experiments/hermes-pmp/evidence/reproductions/acer-windows-20261007/REPORT.md
+- https://github.com/Mad-Max8063/project-memory-protocol-public/actions/runs/37711737829
+- experiments/hermes-pmp/evidence/reproductions/README.md
+- experiments/hermes-pmp/evidence/reproductions/import-manifest.json
+- experiments/hermes-pmp/evidence/reproductions/host-integration-checks.json
+- experiments/hermes-pmp/evidence/reproductions/publication-20261006.json
+- https://github.com/Mad-Max8063/project-memory-protocol-public/actions/runs/37536055141
+- experiments/hermes-pmp/evidence/reproductions/claude-code/20261006T195333Z/REVIEW.md
+- experiments/hermes-pmp/evidence/reproductions/google-antigravity/20261006T203424Z/REVIEW.md
+- .project-memory/sessions/cross-runtime-reviews.md
+- experiments/hermes-pmp/evidence/public-review-20261006/anonymous-smoke.json
+- experiments/hermes-pmp/evidence/public-review-20261006/pre-push-scan.json
+- https://github.com/Mad-Max8063/project-memory-protocol-public/actions/runs/37495814502
+- docs/experiments/hermes-review-social-drafts.md
+- docs/experiments/hermes-cross-runtime-review-prompt.md
+- .project-memory/sessions/public-review-publication.md
+- https://github.com/Mad-Max8063/project-memory-protocol-public/pull/8
+- docs/experiments/hermes-review-brief.md
+- docs/experiments/hermes-review-pr-draft.md
+- .project-memory/sessions/english-review-package.md
+- experiments/hermes-pmp/CHAIN_TASK.md
+- experiments/hermes-pmp/verify_chain.py
+- experiments/hermes-pmp/evidence/chain-verifier-20261006/host-checks.json
+- experiments/hermes-pmp/evidence/chain-verifier-20261006/dispatch.json
+- experiments/hermes-pmp/evidence/chain-verifier-20261006/claude-timeout.json
+- experiments/hermes-pmp/evidence/chain-verifier-20261006/independent-review.md
+- experiments/hermes-pmp/evidence/chain-verifier-20261006/final-checks.json
+- .project-memory/sessions/chain-verifier-handoff.md
+- docs/experiments/replay-chain-verifier.md
+- experiments/hermes-pmp/evidence/RESULT.md
+- experiments/hermes-pmp/evidence/TESTS.md
+- experiments/hermes-pmp/evidence/replay-report.json
+- experiments/hermes-pmp/evidence/replay.bundle
+- experiments/hermes-pmp/evidence/fresh-codex.json
+- experiments/hermes-pmp/evidence/fresh-codex.bundle
+- experiments/hermes-pmp/evidence/runtime-gate.md
+- experiments/hermes-pmp/evidence/live-replay-20261006/replay-report.json
+- experiments/hermes-pmp/evidence/live-replay-20261006/replay.bundle
+- experiments/hermes-pmp/evidence/live-replay-20261006/codex-continuation.md
+- experiments/hermes-pmp/evidence/claude-continuation-20261006/claude-report.json
+- experiments/hermes-pmp/evidence/claude-continuation-20261006/fresh-codex.json
+- experiments/hermes-pmp/evidence/claude-continuation-20261006/codex-after-claude.md
+- experiments/hermes-pmp/evidence/claude-continuation-20261006/claude-replay.bundle
+- experiments/hermes-pmp/evidence/claude-continuation-20261006/fresh-codex.bundle
+- experiments/hermes-pmp/claude_replay.py
+- tests/test_claude_pmp_continuation.py
+- docs/experiments/hermes-claude-continuation.md
+- experiments/hermes-pmp/windows-runtime.ps1
+- experiments/hermes-pmp/verify_archive.py
+- experiments/hermes-pmp/README.md
+- docs/experiments/hermes-pmp-adapter.md
+- tests/test_hermes_pmp_adapter.py
+- SPEC.md
+- profiles/evidence-backed-handoff/PROFILE.md
 
 ## Update rules
 
-- Read this file before significant work.
-- Update it only when current state, a decision, a constraint, a priority, or
-  the next action changes.
-- Keep current truth here; use session records only when historical detail is
-  useful and safe for public distribution.
-- Never store secrets, credentials, tokens, private keys, `.env` values,
-  private repository identifiers, or unnecessary personal data.
-- Use `[VERIFIED]`, `[DOCUMENTED]`, and `[ASSUMED]` exactly as defined by PMP.
-- Resolve conflicts using: latest authorized human instruction -> current
-  verified evidence -> this file -> specialized documentation -> session
-  history -> private model memory.
+- Read this memory and repository instructions before significant work.
+- Update state, decisions, evidence and the single next action together.
+- Keep detailed results in evidence; never promote mock to live runtime evidence.
+- No identity, freshness, autonomy or semantic-truth guarantees from Git.
+- Human authority > current evidence > canonical memory > docs > history > chat.

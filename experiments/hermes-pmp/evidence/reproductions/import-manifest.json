@@ -1,0 +1,126 @@
+{
+  "experimental": true,
+  "scope": "Same-host reviewer artifact import; metadata and hashes are not attestation",
+  "reviewed_commit": "8c96e926b0d28a182759c45c3a0141fa9a934eba",
+  "host_starting_commit": "2e08ae15586955e76655f110fe424b85f1c8b121",
+  "import_date": "2026-10-06",
+  "originals_modified": false,
+  "files": [
+    {
+      "runtime": "claude-code",
+      "run_id": "20261006T195333Z",
+      "path": "experiments/hermes-pmp/evidence/reproductions/claude-code/20261006T195333Z/REVIEW.md",
+      "source_sha256": "2e2c5e44ea30728840687f1a996cb5d846b3f533acd7028e505fb0c3fd860fc5",
+      "source_bytes": 14448,
+      "source_last_write_utc": "2026-10-06T19:58:03.6973081Z",
+      "source_role": "reviewer report",
+      "transformations": [
+        "UTF-8 text imported with LF line endings and one final newline",
+        "Local Windows home paths represented as %USERPROFILE%; reviewer-preexisting redactions retained"
+      ],
+      "imported_sha256": "2e2c5e44ea30728840687f1a996cb5d846b3f533acd7028e505fb0c3fd860fc5",
+      "imported_bytes": 14448
+    },
+    {
+      "runtime": "claude-code",
+      "run_id": "20261006T195333Z",
+      "path": "experiments/hermes-pmp/evidence/reproductions/claude-code/20261006T195333Z/execution.log",
+      "source_sha256": "f98d7b0f9cd0c09cf10c2c7de9c2b68beac648d5904b3ed117bad49c2cbc555e",
+      "source_bytes": 8415,
+      "source_last_write_utc": "2026-10-06T19:57:03.4035628Z",
+      "source_role": "reviewer report",
+      "transformations": [
+        "UTF-8 text imported with LF line endings and one final newline",
+        "Local Windows home paths represented as %USERPROFILE%; reviewer-preexisting redactions retained"
+      ],
+      "imported_sha256": "f98d7b0f9cd0c09cf10c2c7de9c2b68beac648d5904b3ed117bad49c2cbc555e",
+      "imported_bytes": 8415
+    },
+    {
+      "runtime": "claude-code",
+      "run_id": "20261006T195333Z",
+      "path": "experiments/hermes-pmp/evidence/reproductions/claude-code/20261006T195333Z/verifier.json",
+      "source_sha256": "1b8c1dcac24f4a976686325cce5d49047f83836c1bcfc90cf41ac1e8da0effba",
+      "source_bytes": 2007,
+      "source_last_write_utc": "2026-10-06T19:56:09.2397275Z",
+      "source_role": "reviewer report",
+      "transformations": [
+        "UTF-8 text imported with LF line endings and one final newline"
+      ],
+      "imported_sha256": "a129bbee7957e41a0e99d29ee449d5736f2757c4d930288123c2cb5b59db5f87",
+      "imported_bytes": 1982
+    },
+    {
+      "runtime": "claude-code",
+      "run_id": "20261006T195333Z",
+      "path": "experiments/hermes-pmp/evidence/reproductions/claude-code/20261006T195333Z/initial-reconstruction.md",
+      "source_sha256": "d5fabc049214a9972e34f6ef14b76e23991074df90b11ae3fb1d0b2febb48c98",
+      "source_bytes": 2884,
+      "source_last_write_utc": "2026-10-06T19:54:13.6376338Z",
+      "source_role": "external provisional reconstruction",
+      "transformations": [
+        "UTF-8 text imported with LF line endings and one final newline"
+      ],
+      "imported_sha256": "d5fabc049214a9972e34f6ef14b76e23991074df90b11ae3fb1d0b2febb48c98",
+      "imported_bytes": 2884
+    },
+    {
+      "runtime": "google-antigravity",
+      "run_id": "20261006T203424Z",
+      "path": "experiments/hermes-pmp/evidence/reproductions/google-antigravity/20261006T203424Z/REVIEW.md",
+      "source_sha256": "f44a7c500c01c4900cdc8c4f42a603586b4832b45aa442c5fd04739b2fa89da2",
+      "source_bytes": 13691,
+      "source_last_write_utc": "2026-10-06T20:43:24.6605022Z",
+      "source_role": "reviewer report",
+      "transformations": [
+        "UTF-8 text imported with LF line endings and one final newline",
+        "Local Windows home paths represented as %USERPROFILE%; reviewer-preexisting redactions retained"
+      ],
+      "imported_sha256": "d9cb2403cca92d4e1738c819d27f22f44753fc8a5b2f5d50c8f756c00a35466c",
+      "imported_bytes": 13685
+    },
+    {
+      "runtime": "google-antigravity",
+      "run_id": "20261006T203424Z",
+      "path": "experiments/hermes-pmp/evidence/reproductions/google-antigravity/20261006T203424Z/execution.log",
+      "source_sha256": "c716f5dd7b6ea46a32996d343dd51c9d33ade271fbcd8787c1768f37bc29b8d2",
+      "source_bytes": 5195,
+      "source_last_write_utc": "2026-10-06T20:42:51.1441412Z",
+      "source_role": "reviewer report",
+      "transformations": [
+        "UTF-8 text imported with LF line endings and one final newline",
+        "Local Windows home paths represented as %USERPROFILE%; reviewer-preexisting redactions retained"
+      ],
+      "imported_sha256": "e9922a9cd6af94a4c48eb4591cb5c137209e7ff7cb7af845848700ef36344fdf",
+      "imported_bytes": 5189
+    },
+    {
+      "runtime": "google-antigravity",
+      "run_id": "20261006T203424Z",
+      "path": "experiments/hermes-pmp/evidence/reproductions/google-antigravity/20261006T203424Z/verifier.json",
+      "source_sha256": "a129bbee7957e41a0e99d29ee449d5736f2757c4d930288123c2cb5b59db5f87",
+      "source_bytes": 1982,
+      "source_last_write_utc": "2026-10-06T20:42:34.4613163Z",
+      "source_role": "reviewer report",
+      "transformations": [
+        "UTF-8 text imported with LF line endings and one final newline"
+      ],
+      "imported_sha256": "a129bbee7957e41a0e99d29ee449d5736f2757c4d930288123c2cb5b59db5f87",
+      "imported_bytes": 1982
+    },
+    {
+      "runtime": "google-antigravity",
+      "run_id": "20261006T203424Z",
+      "path": "experiments/hermes-pmp/evidence/reproductions/google-antigravity/20261006T203424Z/initial-reconstruction.md",
+      "source_sha256": "cb48b23d2a82b9d4a757b09e30123a065632a49271c48c60a6a23f5e73080879",
+      "source_bytes": 4892,
+      "source_last_write_utc": "2026-10-06T20:36:52.2066558Z",
+      "source_role": "external provisional reconstruction",
+      "transformations": [
+        "UTF-8 text imported with LF line endings and one final newline"
+      ],
+      "imported_sha256": "cb48b23d2a82b9d4a757b09e30123a065632a49271c48c60a6a23f5e73080879",
+      "imported_bytes": 4892
+    }
+  ]
+}

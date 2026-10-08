@@ -1,0 +1,88 @@
+[2026-10-06T20:33:13Z] Environment inspection:
+git --version; python --version; [System.Environment]::OSVersion.VersionString
+git version 2.53.0.windows.2
+Python 3.14.3
+Microsoft Windows NT 10.0.26300.0
+
+[2026-10-06T20:34:24Z] UTC Timestamp generation:
+Run ID: 20261006T203424Z
+Runtime: google-antigravity
+Model (metadata): Gemini 3.8 Flash (High)
+
+[2026-10-06T20:34:40Z] Clone command:
+git clone --config core.autocrlf=false --single-branch --branch experiment/hermes-pmp-adapter https://github.com/Mad-Max8063/project-memory-protocol-public.git %USERPROFILE%\.gemini\antigravity\scratch\pmp-review-google-antigravity-20261006T203424Z
+Exit code: 0
+
+[2026-10-06T20:34:56Z] Repository state and commit pinning:
+git status --porcelain
+(clean, no output)
+git switch --detach 8c96e926b0d28a182759c45c3a0141fa9a934eba
+HEAD is now at 8c96e92 docs: record public review and prepare English social requests
+git rev-parse HEAD
+8c96e926b0d28a182759c45c3a0141fa9a934eba
+Exit code: 0
+
+[2026-10-06T20:36:06Z] Prepare external temp folder outside clone:
+Target: %USERPROFILE%\.gemini\antigravity\scratch\tmp-pmp-review-20261006T203424Z
+Reparse point check: All components IsReparsePoint = False.
+
+[2026-10-06T20:38:10Z] Verify chain execution:
+Command:
+$env:TEMP = "%USERPROFILE%\.gemini\antigravity\scratch\tmp-pmp-review-20261006T203424Z"
+$env:TMP = "%USERPROFILE%\.gemini\antigravity\scratch\tmp-pmp-review-20261006T203424Z"
+python -B experiments/hermes-pmp/verify_chain.py --json
+Stdout:
+{
+  "verified": true,
+  "historical_inputs": 14,
+  "acceptance_tests": 6,
+  "next_action": "Max / dispatch host: review .project-memory/sessions/codex-after-claude.md and this canonical update, then close the bounded experiment. No implementation action remains; any further experiment requires a new scoped task.",
+  "final_commit": "5e717267e23e39a854347ade7e9efa545269c227",
+  "model_identity_certified": false,
+  "session_freshness_certified": false,
+  "test_command": [
+    "python",
+    "-I",
+    "-B",
+    "-c",
+    "import os,sys,unittest; sys.path.insert(0,os.getcwd()); suite=unittest.defaultTestLoader.loadTestsFromNames([\"test_fixture\",\"test_manifest\"]); result=unittest.TextTestRunner(verbosity=2).run(suite); sys.exit(0 if result.wasSuccessful() else 1)"
+  ],
+  "test_exit_code": 0,
+  "test_stdout": "",
+  "test_stderr": "test_normalized_labels (test_fixture.FixtureTests.test_normalized_labels) ... ok\ntest_shape_and_ids (test_fixture.FixtureTests.test_shape_and_ids) ... ok\ntest_whitespace_contract (test_fixture.FixtureTests.test_whitespace_contract) ... ok\ntest_manifest_has_no_blank_lines (test_manifest.ManifestTests.test_manifest_has_no_blank_lines) ... ok\ntest_manifest_has_two_distinct_ids (test_manifest.ManifestTests.test_manifest_has_two_distinct_ids) ... ok\ntest_manifest_matches_fixture_in_order (test_manifest.ManifestTests.test_manifest_matches_fixture_in_order) ... ok\n\n----------------------------------------------------------------------\nRan 6 tests in 0.002s\n\nOK\n",
+  "bundle_sha256": {
+    "live-replay-20261006/replay.bundle": "b729b7f2220f5e639ad9e43f205314c45055d69eab966689b0438f178398de17",
+    "claude-continuation-20261006/claude-replay.bundle": "b9c7e80bdd3c25a4aca67c43dd647fa3325f4340a9f51de5bbc7a61b9f1e03ec",
+    "claude-continuation-20261006/fresh-codex.bundle": "1a5eb32bc3cc3c240be4a0533d110d86adf7291240628defc6f9109b45324b25"
+  },
+  "scope": "fixed archived chain; offline integrity and local test verification"
+}
+Stderr: (empty)
+Exit code: 0
+
+[2026-10-06T20:38:29Z] Acceptance test suite execution:
+Command:
+$env:TEMP = "%USERPROFILE%\.gemini\antigravity\scratch\tmp-pmp-review-20261006T203424Z"
+$env:TMP = "%USERPROFILE%\.gemini\antigravity\scratch\tmp-pmp-review-20261006T203424Z"
+python -B -m unittest discover -s tests -p test_pmp_replay_chain.py -v
+Stdout:
+(empty)
+Stderr:
+test_cli_json_usage_and_failure_exit_codes (test_pmp_replay_chain.ChainAcceptanceTests.test_cli_json_usage_and_failure_exit_codes) ... ok
+test_corrupted_bundle_rejected_before_git (test_pmp_replay_chain.ChainAcceptanceTests.test_corrupted_bundle_rejected_before_git) ... ok
+test_ignored_import_payload_rejected_without_execution (test_pmp_replay_chain.ChainAcceptanceTests.test_ignored_import_payload_rejected_without_execution) ... ok
+test_missing_archive_and_linked_inputs_rejected (test_pmp_replay_chain.ChainAcceptanceTests.test_missing_archive_and_linked_inputs_rejected) ... ok
+test_modified_report_rejected_before_git (test_pmp_replay_chain.ChainAcceptanceTests.test_modified_report_rejected_before_git) ... ok
+test_real_archive_chain_and_readonly_boundary (test_pmp_replay_chain.ChainAcceptanceTests.test_real_archive_chain_and_readonly_boundary) ... ok
+test_semantic_verifier_rejects_changed_result_and_missing_handoff (test_pmp_replay_chain.ChainAcceptanceTests.test_semantic_verifier_rejects_changed_result_and_missing_handoff) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 21.391s
+
+OK
+Exit code: 0
+
+[2026-10-06T20:39:37Z] Pre-report working tree status check:
+git diff --exit-code -> exit 0 (no diff)
+git diff --cached --exit-code -> exit 0 (no cached diff)
+git status --porcelain -> exit 0 (clean tree)
