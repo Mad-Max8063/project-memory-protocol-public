@@ -204,5 +204,9 @@ machine. Both recorded exit 0, three bundles, fourteen inputs, six fixture tests
 and seven verifier acceptance tests. The maintainer checked the clones and
 digests and separately reran the bounded commands. Their original reports and
 the assessment above retain the scope limits and documentation findings.
-Reproduction on another machine remains the next success criterion; these
-reports are not external-human review or certification of hidden freshness.
+Max subsequently supplied passing console outputs from a separate Windows 11
+machine at source `1f56483e472c518d2954d7af15cfa59f1e5cf58e`: three bundles,
+fourteen inputs, six fixture tests and seven acceptance tests, exit 0 and clean
+Git status. See the [other-machine report](../../experiments/hermes-pmp/evidence/reproductions/acer-windows-20261007/REPORT.md).
+This is maintainer-reported reproduction, not directly observed host execution,
+independent third-party review or certification of hidden freshness.

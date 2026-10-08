@@ -11,11 +11,21 @@
 - Human authority: Max / Max Devs Solutions
 - Branch: `experiment/hermes-pmp-adapter`
 - Starting revision: `2d9da5549d802c27b7a47293384d3f0d59b0ff13`
-- Last updated: 2026-10-06
+- Last updated: 2026-10-07
 - Last actor: Codex (logical participant; no identity attestation)
 
 ## Current state
 
+- [DOCUMENTED] Max reported successful offline reproduction on a separate
+  ACER machine after Windows reinstall: Windows 11 Home 10.0.26300,
+  Python 3.14.8, Git 2.56.0.windows.2, pinned source
+  1f56483e472c518d2954d7af15cfa59f1e5cf58e. Pasted console output reports
+  verifier exit 0, three bundle digests, fourteen historical inputs, six fixture
+  tests, seven acceptance tests in 28.160 s (exit 0), and clean Git status.
+  This is maintainer-reported other-machine reproduction, not a directly
+  observed host run, independent third-party review, or a new live agent chain.
+  The evidence record preserves the initial paste/temp setup error. This
+  documentation incorporation is local only; no new publication occurred.
 - [PUBLISHED] Max authorized publishing this experimental branch and opening
   its external-review PR. Scope includes public clone instructions and prepared
   English X/LinkedIn copy, not posting to social networks or contacting reviewers.
@@ -193,7 +203,7 @@
    The planned Claude implementation handoff remains unvalidated.
 9. Prepare English review materials and a local portable delivery. Describe
    the earlier successful fixture chain separately from the later timeout.
-   External-machine reproduction remains pending. Max subsequently authorized
+   External-machine reproduction was pending at that checkpoint. Max subsequently authorized
    experimental branch publication and a review PR, without merge or release.
 10. Preserve both same-host runtime reviews and maintainer qualifications as
     evidence, not identity attestation or proof of external reproduction.
@@ -223,22 +233,19 @@
    independent receipt, tests and the local experimental commit.
 2. Preserve the completed offline verifier, independent findings and host fixes.
 3. Preserve the completed same-host review round and corrected review docs.
-   Reproduction on another machine remains pending; do not repeat the same
-   local round or enlarge the experiment by default.
+   Preserve Max's subsequent other-machine console report with explicit
+   provenance limits; do not repeat runs or enlarge the experiment by default.
 
 ## Next action
 
-Max: choose an accessible machine other than this Windows host for one bounded
-offline reproduction. Clone the public experimental branch, pin source
-1f56483e472c518d2954d7af15cfa59f1e5cf58e, inspect instructions/code, then run
-verify_chain.py --json and the seven test_pmp_replay_chain.py acceptance tests.
-Return source SHA, OS/Python/Git, exact commands, outputs and exit codes for
-review. Use an external temporary root and a 15-minute budget; stop on a real
-access/tool blocker. Do not repeat this same-host round, invoke live agents,
-contact reviewers, post, merge or release by default.
+Max: review the local other-machine evidence record and decide whether to
+publish this documentation update to the existing experimental branch/review
+PR. No further execution is needed for the bounded reproduction. Do not invoke
+live agents, contact reviewers, post, merge, release or expand the experiment.
 
 ## Evidence
 
+- experiments/hermes-pmp/evidence/reproductions/acer-windows-20261007/REPORT.md
 - experiments/hermes-pmp/evidence/reproductions/README.md
 - experiments/hermes-pmp/evidence/reproductions/import-manifest.json
 - experiments/hermes-pmp/evidence/reproductions/host-integration-checks.json

@@ -3,6 +3,11 @@
 Experimental, non-normative evidence. Current project state and task remain
 in the outer repository's root `PROJECT_MEMORY.md`.
 
+Later evidence: [Max's other-machine Windows reproduction](acer-windows-20261007/REPORT.md)
+at pinned source `1f56483e472c518d2954d7af15cfa59f1e5cf58e`. This is a
+maintainer-supplied console report, separate from the same-host runtime round
+below; it is not independent third-party review or a directly observed host run.
+
 Both reviewers targeted outer commit
 `8c96e926b0d28a182759c45c3a0141fa9a934eba`, not the later documentation tip.
 The verifier returns archived fixture commit
