@@ -25,7 +25,13 @@
   This is maintainer-reported other-machine reproduction, not a directly
   observed host run, independent third-party review, or a new live agent chain.
   The evidence record preserves the initial paste/temp setup error. This
-  documentation incorporation is local only; no new publication occurred.
+  documentation incorporation was initially local only. Max then authorized
+  publication: source commit 9ec50b456db0c3df3fe164446a3dcd7f78ef11c1 was
+  pushed fast-forward and PR #8 was observed OPEN/draft at that exact HEAD.
+  CI run 37711737829 passed for that source (existing Core workflow, not the
+  complete experiment suite). Remote main remained
+  2d9da5549d802c27b7a47293384d3f0d59b0ff13. This state-only closeout follows
+  the verified source; do not infer its own HEAD/CI from that earlier run.
 - [PUBLISHED] Max authorized publishing this experimental branch and opening
   its external-review PR. Scope includes public clone instructions and prepared
   English X/LinkedIn copy, not posting to social networks or contacting reviewers.
@@ -238,14 +244,15 @@
 
 ## Next action
 
-Max: review the local other-machine evidence record and decide whether to
-publish this documentation update to the existing experimental branch/review
-PR. No further execution is needed for the bounded reproduction. Do not invoke
-live agents, contact reviewers, post, merge, release or expand the experiment.
+Max: review the published other-machine evidence in the existing draft PR #8,
+then choose whether to close this bounded track or authorize a separately
+scoped follow-up. No further execution is needed for this reproduction. Do not
+invoke live agents, contact reviewers, post, merge or release by default.
 
 ## Evidence
 
 - experiments/hermes-pmp/evidence/reproductions/acer-windows-20261007/REPORT.md
+- https://github.com/Mad-Max8063/project-memory-protocol-public/actions/runs/37711737829
 - experiments/hermes-pmp/evidence/reproductions/README.md
 - experiments/hermes-pmp/evidence/reproductions/import-manifest.json
 - experiments/hermes-pmp/evidence/reproductions/host-integration-checks.json
