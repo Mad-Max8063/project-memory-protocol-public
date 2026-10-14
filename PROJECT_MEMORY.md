@@ -9,13 +9,25 @@
 - Project: PMP public distribution — independent Hermes interoperability track
 - Repository: https://github.com/Mad-Max8063/project-memory-protocol-public
 - Human authority: Max / Max Devs Solutions
-- Branch: `experiment/hermes-pmp-adapter`
-- Starting revision: `2d9da5549d802c27b7a47293384d3f0d59b0ff13`
+- Branch: `experiment/pmp-windows-line-endings-20261013`
+- Starting revision: `224a67fd9cac0d5d5b257f15b2c27232b3eaa7fa`
 - Last updated: 2026-10-13
 - Last actor: Google Antigravity (logical participant; no identity attestation)
 
 ## Current state
 
+- [VERIFIED] Windows line-ending portability fix implemented via repository-wide
+  .gitattributes (* text=auto eol=lf, *.bundle binary) and verified by a dedicated
+  regression suite (tests/test_line_endings_regression.py, 4 tests passing).
+  The original issue caused verify_chain.py to fail (archive digest mismatch on
+  live-replay-20261006/replay-report.json) and test_hermes_pmp_adapter.py to fail
+  (carriage return in project_identifier) when cloned under Windows default
+  core.autocrlf=true. With .gitattributes, fresh clones under both core.autocrlf=true
+  and false check out exact repository LF bytes. Verification confirmed:
+  verify_chain exit 0 (3 bundles, 14 inputs, 6 fixture tests in 0.003 s), 7 acceptance
+  tests passed in test_pmp_replay_chain.py (24.260 s), and all 87 tests passed across
+  the full repository test suite. Core 0.2.2, profiles, and historical archives remain
+  unmodified.
 - [VERIFIED] An independent evaluation on 2026-10-13 by Google Antigravity verified
   offline continuity from earlier ChatGPT sessions at commit
   c974baf015b58e867e5fccb335a3c5df67d75089 without prior chat history or forward hints.
@@ -228,6 +240,13 @@
     The local incorporation step did not push. Max subsequently authorized
     publishing this evidence to the existing draft PR. Do not rerun live
     agents, expand the experiment, merge, release, post or contact reviewers.
+11. Enforce repository-wide LF line endings via .gitattributes (* text=auto eol=lf,
+    *.bundle binary). PMP cryptographic integrity verification relies on exact byte
+    hashes of evidence files (such as replay-report.json) and regex matching.
+    Under Windows default core.autocrlf=true, automatic conversion to CRLF caused
+    spurious verification failures. Enforcing LF at checkout preserves deterministic
+    reproducibility across all host configurations without weakening cryptographic
+    checks, altering Core 0.2.2, or modifying historical archive bundles.
 
 ## Constraints
 
@@ -253,18 +272,24 @@
 3. Preserve the completed same-host review round and corrected review docs.
    Preserve Max's subsequent other-machine console report with explicit
    provenance limits; do not repeat runs or enlarge the experiment by default.
-4. Review the CRLF line-ending proposal and prepare the independent productive
-   continuity experiment between providers without chat history.
+4. Hand off independent verification to Claude Code on a clean checkout with
+   core.autocrlf=true and false; verify offline verifier, regression suite,
+   and repository test suite without relying on chat history.
 
 ## Next action
 
-Max: review documentation branch docs/antigravity-continuity-20261013, decide
-whether to incorporate it into PR #8, and authorize the next independent
-experiment: productive continuity between providers via a new scoped development
-task. No merge to main, tag, release, deploy, or unverified live agent calls.
+Claude Code: perform independent verification of `experiment/pmp-windows-line-endings-20261013`
+from a clean checkout. Validate that `.gitattributes` enforces LF checkouts under both
+`core.autocrlf=true` and `false`. Run offline verifier (`python -B experiments/hermes-pmp/verify_chain.py --json`),
+acceptance suite (`python -B -m unittest discover -s tests -p test_pmp_replay_chain.py -v`),
+and full test discovery (87 tests, including `tests/test_line_endings_regression.py`).
+Run memory and release validators. Do not push to remote, merge, or modify PR #8.
 
 ## Evidence
 
+- .gitattributes
+- tests/test_line_endings_regression.py
+- .project-memory/sessions/windows-line-endings-fix.md
 - experiments/hermes-pmp/evidence/reproductions/google-antigravity/20261013T215241Z/REVIEW.md
 - experiments/hermes-pmp/evidence/reproductions/google-antigravity/20261013T215241Z/crlf-issue-proposal.md
 - experiments/hermes-pmp/evidence/reproductions/google-antigravity/20261013T215241Z/execution.log
