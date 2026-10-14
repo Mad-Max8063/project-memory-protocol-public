@@ -18,6 +18,7 @@ The verifier returns archived fixture commit
 | --- | --- | --- | --- | --- |
 | [Claude Code](claude-code/20261006T195333Z/REVIEW.md) | PASS, same host | 0 | 6 | 7 in 21.363 s |
 | [Google Antigravity](google-antigravity/20261006T203424Z/REVIEW.md) | PASS, same host | 0 | 6 | 7 in 21.391 s |
+| [Google Antigravity](google-antigravity/20261013T215241Z/REVIEW.md) | PASS, same host (post-LF recovery) | 0 | 6 | 7 in 26.413 s |
 
 Each folder contains `REVIEW.md`, `execution.log`, `verifier.json`, and the
 separately saved provisional `initial-reconstruction.md`. These are reviewer
@@ -88,3 +89,16 @@ Do not repeat this same-host round automatically or reinterpret reviewer
 recommendations as publication/contact authority. A future other-machine run
 requires its own bounded scope. No push, merge, release or posting occurred
 as part of this local incorporation.
+
+## Round 2026-10-13 (ChatGPT → Google Antigravity Continuity)
+
+A follow-up independent evaluation on 2026-10-13 tested cross-runtime continuity
+from `c974baf015b58e867e5fccb335a3c5df67d75089`. The initial run revealed an
+integrity failure in `verify_chain.py` caused by Windows default `core.autocrlf=true`
+converting text evidence files (`.json`) to CRLF, altering their SHA-256 byte digest.
+Binary `.bundle` archives were unaffected. Following the documented requirement of
+`core.autocrlf=false`, the files were restored to match Git's LF blobs, after which
+all 3 bundles, 14 historical inputs, 6 fixture tests, and 7 verifier acceptance tests
+passed (exit code 0). See [google-antigravity/20261013T215241Z/REVIEW.md](google-antigravity/20261013T215241Z/REVIEW.md)
+and [crlf-issue-proposal.md](google-antigravity/20261013T215241Z/crlf-issue-proposal.md).
+

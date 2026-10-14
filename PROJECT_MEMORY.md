@@ -11,11 +11,23 @@
 - Human authority: Max / Max Devs Solutions
 - Branch: `experiment/hermes-pmp-adapter`
 - Starting revision: `2d9da5549d802c27b7a47293384d3f0d59b0ff13`
-- Last updated: 2026-10-07
-- Last actor: Codex (logical participant; no identity attestation)
+- Last updated: 2026-10-13
+- Last actor: Google Antigravity (logical participant; no identity attestation)
 
 ## Current state
 
+- [VERIFIED] An independent evaluation on 2026-10-13 by Google Antigravity verified
+  offline continuity from earlier ChatGPT sessions at commit
+  c974baf015b58e867e5fccb335a3c5df67d75089 without prior chat history or forward hints.
+  The initial run failed with exit code 1 due to Windows default core.autocrlf=true
+  converting text JSON evidence to CRLF, altering raw byte digests while binary bundles
+  were unaffected. Re-running with core.autocrlf=false (matching Git LF blobs) passed
+  exit code 0: 3 bundles, 14 historical inputs, 6 fixture tests (0.002 s), and 7 acceptance
+  tests in 26.413 s. Epistemological corrections were documented: historical model runs
+  remain [DOCUMENTED, HISTORICAL], while archive byte integrity is [VERIFIED]; Hermes/Argon
+  was clarified as an operational scope exclusion. A proposed .gitattributes fix was recorded
+  in crlf-issue-proposal.md. Outcome: PASS for documentary recovery, PASS for offline
+  verification, PENDING for productive continuity.
 - [DOCUMENTED] Max reported successful offline reproduction on a separate
   ACER machine after Windows reinstall: Windows 11 Home 10.0.26300,
   Python 3.14.8, Git 2.56.0.windows.2, pinned source
@@ -241,16 +253,23 @@
 3. Preserve the completed same-host review round and corrected review docs.
    Preserve Max's subsequent other-machine console report with explicit
    provenance limits; do not repeat runs or enlarge the experiment by default.
+4. Review the CRLF line-ending proposal and prepare the independent productive
+   continuity experiment between providers without chat history.
 
 ## Next action
 
-Max: review the published other-machine evidence in the existing draft PR #8,
-then choose whether to close this bounded track or authorize a separately
-scoped follow-up. No further execution is needed for this reproduction. Do not
-invoke live agents, contact reviewers, post, merge or release by default.
+Max: review documentation branch docs/antigravity-continuity-20261013, decide
+whether to incorporate it into PR #8, and authorize the next independent
+experiment: productive continuity between providers via a new scoped development
+task. No merge to main, tag, release, deploy, or unverified live agent calls.
 
 ## Evidence
 
+- experiments/hermes-pmp/evidence/reproductions/google-antigravity/20261013T215241Z/REVIEW.md
+- experiments/hermes-pmp/evidence/reproductions/google-antigravity/20261013T215241Z/crlf-issue-proposal.md
+- experiments/hermes-pmp/evidence/reproductions/google-antigravity/20261013T215241Z/execution.log
+- experiments/hermes-pmp/evidence/reproductions/google-antigravity/20261013T215241Z/verifier.json
+- .project-memory/sessions/chatgpt-antigravity-continuity.md
 - experiments/hermes-pmp/evidence/reproductions/acer-windows-20261007/REPORT.md
 - https://github.com/Mad-Max8063/project-memory-protocol-public/actions/runs/37711737829
 - experiments/hermes-pmp/evidence/reproductions/README.md
