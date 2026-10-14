@@ -1,0 +1,114 @@
+# execution.log - PMP reproduction, runtime claude-code, run 20261006T195333Z
+# Redaction: the local Windows account name in absolute paths is replaced by %USERPROFILE% / <user>.
+# Shell: Git Bash (MINGW64) on Windows 11, driven by Claude Code. Captured output is verbatim except that redaction.
+# Lines starting with "->" summarize single-line command output inline; multi-line output is reproduced in blocks.
+
+## [1] Environment (captured 2026-10-06T19:53:33Z)
+$ uname -a  -> MINGW64_NT-10.0-26300 <hostname> 3.6.6-1cdd4371.x86_64 2026-01-15 22:20 UTC x86_64 Msys
+$ git --version  -> git version 2.53.0.windows.2
+$ python --version  -> Python 3.14.3
+$ python3 --version -> "Python was not found; run without arguments to install from the Microsoft Store..." (Windows Store alias; python is the real interpreter)
+$ python -c "import sys;print(sys.version)"  -> 3.14.3 (tags/v3.14.3:323c59a, Feb  3 2026, 16:04:56) [MSC v.1944 64 bit (AMD64)]
+$ claude --version  -> 2.1.274 (Claude Code)
+
+## [2] Clone
+# Attempt 1, destination inside the session scratch workspace (long, MSIX-virtualized AppData path):
+$ git clone --config core.autocrlf=false --single-branch --branch experiment/hermes-pmp-adapter https://github.com/Mad-Max8063/project-memory-protocol-public.git pmp-review-claude-code-20261006T195333Z
+Cloning into 'pmp-review-claude-code-20261006T195333Z'...
+%USERPROFILE%/AppData/Local/Packages/Claude_pzs8sxrjxfjjc/LocalCache/Roaming/Claude/scratch-workspaces/<...>/pmp-review-claude-code-20261006T195333Z/.git: Filename too long
+# Non-zero exit (chained command reported exit 1). A later ls of that parent showed no leftover directory.
+# Attempt 2, new short folder %USERPROFILE%/pmp-reviews (confirmed absent beforehand):
+$ cd %USERPROFILE%/pmp-reviews && git clone --config core.autocrlf=false --single-branch --branch experiment/hermes-pmp-adapter https://github.com/Mad-Max8063/project-memory-protocol-public.git pmp-review-claude-code-20261006T195333Z
+Cloning into 'pmp-review-claude-code-20261006T195333Z'...
+clone_exit=0
+
+## [3] Clean check and pin
+$ git status --porcelain   -> (empty)
+$ git rev-parse HEAD       -> 2e08ae15586955e76655f110fe424b85f1c8b121   (branch tip at clone time)
+$ git merge-base --is-ancestor 8c96e92 2e08ae1 -> exit 0 (pinned commit is an ancestor)
+$ git log --oneline 8c96e92..2e08ae1 -> 2e08ae1 docs: save cross-runtime reproduction prompt
+$ git switch --detach 8c96e926b0d28a182759c45c3a0141fa9a934eba
+HEAD is now at 8c96e92 docs: record public review and prepare English social requests
+$ git rev-parse HEAD       -> 8c96e926b0d28a182759c45c3a0141fa9a934eba
+$ git status --porcelain   -> (empty)
+
+## [4] Initial reconstruction saved outside the clone before any execution
+#     %USERPROFILE%/pmp-reviews/work-claude-code-20261006T195333Z/initial-reconstruction.md  (mtime 2026-10-06T19:54:13Z)
+
+## [6] Temp folder (outside clone): %USERPROFILE%\pmp-reviews\work-claude-code-20261006T195333Z\tmp
+$ export TEMP=<that path> TMP=<that path> TMPDIR=<that path>
+$ python -c "import tempfile;print(tempfile.gettempdir())"  -> %USERPROFILE%\pmp-reviews\work-claude-code-20261006T195333Z\tmp
+# Path.is_symlink() / Path.is_junction() for the temp dir, the clone root and every ancestor: all False.
+
+## [7] Verifier  (cwd = clone root; start 2026-10-06T19:54:43Z, end 2026-10-06T19:55:06Z)
+$ python -B experiments/hermes-pmp/verify_chain.py --json
+exit code: 0
+--- stderr (verbatim) ---
+(empty)
+--- stdout (verbatim; identical bytes saved as verifier.json) ---
+{
+  "verified": true,
+  "historical_inputs": 14,
+  "acceptance_tests": 6,
+  "next_action": "Max / dispatch host: review .project-memory/sessions/codex-after-claude.md and this canonical update, then close the bounded experiment. No implementation action remains; any further experiment requires a new scoped task.",
+  "final_commit": "5e717267e23e39a854347ade7e9efa545269c227",
+  "model_identity_certified": false,
+  "session_freshness_certified": false,
+  "test_command": [
+    "python",
+    "-I",
+    "-B",
+    "-c",
+    "import os,sys,unittest; sys.path.insert(0,os.getcwd()); suite=unittest.defaultTestLoader.loadTestsFromNames([\"test_fixture\",\"test_manifest\"]); result=unittest.TextTestRunner(verbosity=2).run(suite); sys.exit(0 if result.wasSuccessful() else 1)"
+  ],
+  "test_exit_code": 0,
+  "test_stdout": "",
+  "test_stderr": "test_normalized_labels (test_fixture.FixtureTests.test_normalized_labels) ... ok\ntest_shape_and_ids (test_fixture.FixtureTests.test_shape_and_ids) ... ok\ntest_whitespace_contract (test_fixture.FixtureTests.test_whitespace_contract) ... ok\ntest_manifest_has_no_blank_lines (test_manifest.ManifestTests.test_manifest_has_no_blank_lines) ... ok\ntest_manifest_has_two_distinct_ids (test_manifest.ManifestTests.test_manifest_has_two_distinct_ids) ... ok\ntest_manifest_matches_fixture_in_order (test_manifest.ManifestTests.test_manifest_matches_fixture_in_order) ... ok\n\n----------------------------------------------------------------------\nRan 6 tests in 0.002s\n\nOK\n",
+  "bundle_sha256": {
+    "live-replay-20261006/replay.bundle": "b729b7f2220f5e639ad9e43f205314c45055d69eab966689b0438f178398de17",
+    "claude-continuation-20261006/claude-replay.bundle": "b9c7e80bdd3c25a4aca67c43dd647fa3325f4340a9f51de5bbc7a61b9f1e03ec",
+    "claude-continuation-20261006/fresh-codex.bundle": "1a5eb32bc3cc3c240be4a0533d110d86adf7291240628defc6f9109b45324b25"
+  },
+  "scope": "fixed archived chain; offline integrity and local test verification"
+}
+--- temp folder after run: empty ---
+
+## [7b] Independent digest cross-check (extra, not part of the prescribed procedure)
+$ sha256sum <6 pinned evidence files, relative to experiments/hermes-pmp/evidence>
+$ sha256sum experiments/hermes-pmp/verify_chain.py tests/test_pmp_replay_chain.py
+b729b7f2220f5e639ad9e43f205314c45055d69eab966689b0438f178398de17 *live-replay-20261006/replay.bundle
+ade8546d585305fdccbb3061da91898e5a3ab991b8178815106faa36de134c7d *live-replay-20261006/replay-report.json
+b9c7e80bdd3c25a4aca67c43dd647fa3325f4340a9f51de5bbc7a61b9f1e03ec *claude-continuation-20261006/claude-replay.bundle
+45d6b507ffa1af8df119f2e49d34c1d84f80896df939d1e2de3f2dca01f65adc *claude-continuation-20261006/claude-report.json
+1a5eb32bc3cc3c240be4a0533d110d86adf7291240628defc6f9109b45324b25 *claude-continuation-20261006/fresh-codex.bundle
+939cb81062e442b9bb4ef0a0960dfc37c986702d25163291c39539bd2f3c589b *claude-continuation-20261006/fresh-codex.json
+5a4f25d054f468c9e51fc8c858787df0407b5cf3cc6c28cc013c369d5587f044 *experiments/hermes-pmp/verify_chain.py
+72c70f7d8134b269c3d220c3b192f44df9d56aec27e1390ead99b990cb8b6c18 *tests/test_pmp_replay_chain.py
+
+## [8] Acceptance tests  (start 2026-10-06T19:55:14Z, end 2026-10-06T19:55:37Z)
+$ python -B -m unittest discover -s tests -p test_pmp_replay_chain.py -v
+exit code: 0
+--- stdout (verbatim) ---
+(empty)
+--- stderr (verbatim) ---
+test_cli_json_usage_and_failure_exit_codes (test_pmp_replay_chain.ChainAcceptanceTests.test_cli_json_usage_and_failure_exit_codes) ... ok
+test_corrupted_bundle_rejected_before_git (test_pmp_replay_chain.ChainAcceptanceTests.test_corrupted_bundle_rejected_before_git) ... ok
+test_ignored_import_payload_rejected_without_execution (test_pmp_replay_chain.ChainAcceptanceTests.test_ignored_import_payload_rejected_without_execution) ... ok
+test_missing_archive_and_linked_inputs_rejected (test_pmp_replay_chain.ChainAcceptanceTests.test_missing_archive_and_linked_inputs_rejected) ... ok
+test_modified_report_rejected_before_git (test_pmp_replay_chain.ChainAcceptanceTests.test_modified_report_rejected_before_git) ... ok
+test_real_archive_chain_and_readonly_boundary (test_pmp_replay_chain.ChainAcceptanceTests.test_real_archive_chain_and_readonly_boundary) ... ok
+test_semantic_verifier_rejects_changed_result_and_missing_handoff (test_pmp_replay_chain.ChainAcceptanceTests.test_semantic_verifier_rejects_changed_result_and_missing_handoff) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 21.363s
+
+OK
+--- temp folder after run: empty ---
+
+## [10] Pre-report git checks (HEAD 8c96e926b0d28a182759c45c3a0141fa9a934eba)
+$ git diff --exit-code          -> (no output) exit 0
+$ git diff --cached --exit-code -> (no output) exit 0
+$ git status --porcelain        -> (empty) exit 0
+$ git status --porcelain --ignored -> (empty)   # -B left no __pycache__
+
+## [11] Post-report git checks: recorded at the end of REVIEW.md.

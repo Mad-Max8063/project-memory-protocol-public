@@ -1,0 +1,118 @@
+{
+  "timestamp": "2026-10-06T15:06:51.913559+00:00",
+  "source_hermes_commit": "d2e225b61857be0e0b79c5d28116ae6a9800f7c7",
+  "dispatch_commit": "ff595d4a4e4296c5171d10b996201755900c0cbb",
+  "claude_handoff_commit": "1993c0aa4a4b308da690e87bc5f74f6fda514d73",
+  "bundle_sha256": "b9c7e80bdd3c25a4aca67c43dd647fa3325f4340a9f51de5bbc7a61b9f1e03ec",
+  "host_verification": {
+    "timestamp": "2026-10-06T15:06:51.035019+00:00",
+    "logical_actor": "Claude",
+    "input_sha256": {
+      "AGENTS.md": "85d3af346e222799d2c44fdf855e7c19fdfe6866a52bc3a13c5719d247919712",
+      "PROJECT_MEMORY.md": "556beec33dc3b1aa943d231e4510440992b33e899df4db3272faf7cb90f47112",
+      "TASK.md": "900d37e5c3dc95b23d8a38ab91b954ef3582b68d41c51276133b7750c94088af",
+      "CLAUDE_TASK.md": "4552d72c096b6f04000910e57ee20fd33fa0827459c555b9ac424986fd00685f",
+      "fixture.json": "26d058ae8ae89073f9825099b086ce8abaa02c1ff6fa58a7491cfcacf2bf64a8",
+      "test_fixture.py": "90a355a2777d5f82610cd18cc90ec2de45a81054bbc23e6d4aaa9367bd5147e1",
+      "test_manifest.py": "ab84cb813d37faf36952d8f5b44a8a6ef1d4dcdf1a3aa33d0a50ca02f91625fc",
+      "evidence/host-verification.json": "8eed7f1972fdc50b47906db7ddbbf62c18767ba872733f8fb808faa223e266ac",
+      ".project-memory/sessions/hermes-handoff.md": "09a34a2d7ec95d2849546cfbe71be6e7ec4d66cfddb9004c8865e481c3a7dd42"
+    },
+    "labels_sha256": "e2e58a520f501f2f6b285e1a0340f708965c06c535d30dde618abb397885e88b",
+    "command": [
+      "python",
+      "-I",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      ".",
+      "-p",
+      "test_*.py",
+      "-v"
+    ],
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": "Failed to find real location of C:\\Python314\\python.exe\ntest_normalized_labels (test_fixture.FixtureTests.test_normalized_labels) ... ok\ntest_shape_and_ids (test_fixture.FixtureTests.test_shape_and_ids) ... ok\ntest_whitespace_contract (test_fixture.FixtureTests.test_whitespace_contract) ... ok\ntest_manifest_has_no_blank_lines (test_manifest.ManifestTests.test_manifest_has_no_blank_lines) ... ok\ntest_manifest_has_two_distinct_ids (test_manifest.ManifestTests.test_manifest_has_two_distinct_ids) ... ok\ntest_manifest_matches_fixture_in_order (test_manifest.ManifestTests.test_manifest_matches_fixture_in_order) ... ok\n\n----------------------------------------------------------------------\nRan 6 tests in 0.002s\n\nOK\n",
+    "tests_executed_by_model": false,
+    "source_hermes_commit": "d2e225b61857be0e0b79c5d28116ae6a9800f7c7",
+    "runtime": {
+      "model_reported": "claude-sonnet-5",
+      "tools": [],
+      "version_reported": "2.1.274",
+      "session_id": "d59668c8-dfd5-4d3e-a355-85da48f66b36",
+      "num_turns": 1,
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 5749,
+        "cache_read_input_tokens": 0,
+        "output_tokens": 751,
+        "output_tokens_details": {
+          "thinking_tokens": 259
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 5749,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "not_available",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 751,
+            "cache_read_input_tokens": 0,
+            "cache_creation_input_tokens": 5749,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 5749
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard"
+      },
+      "model_usage": {
+        "claude-haiku-4-5-20251001": {
+          "inputTokens": 4680,
+          "outputTokens": 18,
+          "cacheReadInputTokens": 0,
+          "cacheCreationInputTokens": 0,
+          "webSearchRequests": 0,
+          "costUSD": 0.00477,
+          "contextWindow": 200000,
+          "maxOutputTokens": 32000,
+          "thinkingTokens": 0,
+          "canonicalModel": "claude-haiku-4-5",
+          "provider": "firstParty",
+          "costBasis": "list"
+        },
+        "claude-sonnet-5": {
+          "inputTokens": 2,
+          "outputTokens": 751,
+          "cacheReadInputTokens": 0,
+          "cacheCreationInputTokens": 5749,
+          "webSearchRequests": 0,
+          "costUSD": 0.03051,
+          "contextWindow": 1000000,
+          "maxOutputTokens": 64000,
+          "thinkingTokens": 259,
+          "canonicalModel": "claude-sonnet-5",
+          "provider": "firstParty",
+          "costBasis": "list"
+        }
+      },
+      "estimated_api_equivalent_usd_not_a_bill": 0.03528,
+      "exit_code": 0,
+      "identity_or_freshness_certified": false,
+      "auth_method": "claude.ai",
+      "prompt_sha256": "207b07d1a8a36c725ee2efb6eac627ff88c9faf88d39c132e9b1e33f7e4a397b"
+    }
+  },
+  "fresh_codex_executed": false,
+  "model_identity_certified": false,
+  "session_freshness_certified": false
+}

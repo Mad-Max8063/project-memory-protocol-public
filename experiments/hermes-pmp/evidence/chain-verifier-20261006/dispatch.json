@@ -1,0 +1,25 @@
+{
+  "timestamp": "2026-10-06T15:30:39.493176+00:00",
+  "source_revision": "966ced18c8ea540ad73ca942531ed7e9f9e64625",
+  "packet_sha256": "3577c49d91f1efb185bd111223269eb35899c7b54169157ca00022d2ed9ca946",
+  "memory_sha256": "d3140d56dc9ce8ffd62ef83dfd381b82bd7c4c06f2b3cca4e130f65c2908192a",
+  "selected_files": [
+    "experiments/hermes-pmp/CHAIN_TASK.md",
+    "tests/test_pmp_replay_chain.py",
+    "experiments/hermes-pmp/verify_archive.py",
+    "experiments/hermes-pmp/continuation.py",
+    "experiments/hermes-pmp/seed/test_fixture.py",
+    "experiments/hermes-pmp/claude-seed/test_manifest.py",
+    "experiments/hermes-pmp/evidence/live-replay-20261006/replay-report.json",
+    "experiments/hermes-pmp/evidence/claude-continuation-20261006/claude-report.json",
+    "experiments/hermes-pmp/evidence/claude-continuation-20261006/fresh-codex.json",
+    "experiments/hermes-pmp/evidence/claude-continuation-20261006/codex-after-claude.md",
+    "PROJECT_MEMORY.md",
+    "adapter-helpers.txt",
+    "replay-helpers.txt"
+  ],
+  "allowed_output": "experiments/hermes-pmp/verify_chain.py",
+  "tools_enabled": [],
+  "automatic_retries": 0,
+  "baseline_tests": 76
+}

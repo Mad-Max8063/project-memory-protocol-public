@@ -1,0 +1,45 @@
+=== battery summary: crlf-true ===
+/pmp-rev-claude-20261013/battery.sh: line 3: bc: command not found
+memory         rc=0  0.0s
+/pmp-rev-claude-20261013/battery.sh: line 3: bc: command not found
+release        rc=0  0.0s
+/pmp-rev-claude-20261013/battery.sh: line 3: bc: command not found
+verifier       rc=0  0.0s
+/pmp-rev-claude-20261013/battery.sh: line 3: bc: command not found
+acceptance     rc=0  0.0s
+/pmp-rev-claude-20261013/battery.sh: line 3: bc: command not found
+lineend        rc=0  0.0s
+/pmp-rev-claude-20261013/battery.sh: line 3: bc: command not found
+full           rc=0  0.0s
+post-run dirty: 0
+
+=== battery summary: crlf-false ===
+/pmp-rev-claude-20261013/battery.sh: line 3: bc: command not found
+memory         rc=0  0.0s
+/pmp-rev-claude-20261013/battery.sh: line 3: bc: command not found
+release        rc=0  0.0s
+/pmp-rev-claude-20261013/battery.sh: line 3: bc: command not found
+verifier       rc=0  0.0s
+/pmp-rev-claude-20261013/battery.sh: line 3: bc: command not found
+acceptance     rc=0  0.0s
+/pmp-rev-claude-20261013/battery.sh: line 3: bc: command not found
+lineend        rc=0  0.0s
+/pmp-rev-claude-20261013/battery.sh: line 3: bc: command not found
+full           rc=0  0.0s
+post-run dirty: 0
+
+=== battery summary: control-parent ===
+/pmp-rev-claude-20261013/battery.sh: line 3: bc: command not found
+memory         rc=0  0.0s
+/pmp-rev-claude-20261013/battery.sh: line 3: bc: command not found
+release        rc=0  0.0s
+/pmp-rev-claude-20261013/battery.sh: line 3: bc: command not found
+verifier       rc=1  0.0s
+/pmp-rev-claude-20261013/battery.sh: line 3: bc: command not found
+acceptance     rc=1  0.0s
+/pmp-rev-claude-20261013/battery.sh: line 3: bc: command not found
+lineend        rc=5  0.0s
+/pmp-rev-claude-20261013/battery.sh: line 3: bc: command not found
+full           rc=1  0.0s
+post-run dirty: 0
+

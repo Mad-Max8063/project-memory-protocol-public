@@ -1,0 +1,22 @@
+{
+  "date": "2026-10-06",
+  "attempt_start_utc": "2026-10-06T15:31:10.099716+00:00",
+  "observer": "Codex host subprocess.run",
+  "cli_version_checked": "2.1.274 (Claude Code)",
+  "existing_auth_method_checked": "claude.ai",
+  "requested_model_alias": "sonnet",
+  "max_turns_requested": 1,
+  "tools_requested": [],
+  "max_estimated_usd_requested_not_a_bill": 0.50,
+  "timeout_seconds": 300,
+  "result": "subprocess.TimeoutExpired; no retained complete proposal or runtime usage receipt",
+  "host_process_exit_code": 1,
+  "automatic_retries": 0,
+  "manual_retries": 0,
+  "provider_request_count": "not established",
+  "provider_usage": "not established",
+  "billing_verified": false,
+  "new_services_or_credits_purchased": false,
+  "implementation_author": "Codex after timeout",
+  "claude_implementation_validated": false
+}

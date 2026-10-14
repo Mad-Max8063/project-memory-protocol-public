@@ -1,0 +1,85 @@
+{
+  "timestamp": "2026-10-06T14:24:35.999025+00:00",
+  "mode": "hermes",
+  "conclusion": "Hermes runtime completed; fresh Codex model review still required",
+  "baseline_commit": "4488a97dc68b7b614365d0f274edbf665e679f41",
+  "handoff_commit": "d2e225b61857be0e0b79c5d28116ae6a9800f7c7",
+  "input_memory_sha256": "9d22adc0cd8eb1adc1f1bc83c09c8e1fc4d37e57ce6c3f29555257452e5ea199",
+  "input_packet_sha256": "76e6c6ce5989a96aeefb5266db704e83063fc2afb25f6b39a93c00ac64d269ff",
+  "host_verification": {
+    "mode": "hermes",
+    "logical_actor": "Hermes",
+    "observer": "PMP bridge host",
+    "timestamp": "2026-10-06T14:24:34.579431+00:00",
+    "input_sha256": {
+      "AGENTS.md": "7d5818e4daecab3a9a8298cc574caae3260f5a7e85db806f96fee2aad6340f02",
+      "PROJECT_MEMORY.md": "9d22adc0cd8eb1adc1f1bc83c09c8e1fc4d37e57ce6c3f29555257452e5ea199",
+      "TASK.md": "900d37e5c3dc95b23d8a38ab91b954ef3582b68d41c51276133b7750c94088af",
+      "fixture.json": "25ab8440f604c66a60dfe817de21c64d350fa5f3a908017b613c437e41243bc6",
+      "test_fixture.py": "90a355a2777d5f82610cd18cc90ec2de45a81054bbc23e6d4aaa9367bd5147e1"
+    },
+    "fixture_sha256": "26d058ae8ae89073f9825099b086ce8abaa02c1ff6fa58a7491cfcacf2bf64a8",
+    "command": [
+      "python",
+      "-I",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      ".",
+      "-p",
+      "test_fixture.py",
+      "-v"
+    ],
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": "test_normalized_labels (test_fixture.FixtureTests.test_normalized_labels) ... ok\ntest_shape_and_ids (test_fixture.FixtureTests.test_shape_and_ids) ... ok\ntest_whitespace_contract (test_fixture.FixtureTests.test_whitespace_contract) ... ok\n\n----------------------------------------------------------------------\nRan 3 tests in 0.001s\n\nOK\n",
+    "tests_executed_by_model": false,
+    "model_claim": "Replacement proposed; host tests have not been run by the model."
+  },
+  "continuation": {
+    "verifier": "fresh Python process, NOT a Codex model session",
+    "mode": "hermes",
+    "logical_previous_actor": "Hermes",
+    "canonical_memory_sha256": "ad7e1e2a29dc7dccb776d471b63fe7beede1ef34f396f47cd655cdc5265cb851",
+    "next_action_recovered": "Codex: independently rerun the three acceptance tests, verify evidence hashes and record a continuation receipt; do not expand scope.",
+    "handoff_sha256": "09a34a2d7ec95d2849546cfbe71be6e7ec4d66cfddb9004c8865e481c3a7dd42",
+    "evidence_sha256": "8eed7f1972fdc50b47906db7ddbbf62c18767ba872733f8fb808faa223e266ac",
+    "command": [
+      "python",
+      "-I",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      ".",
+      "-p",
+      "test_fixture.py",
+      "-v"
+    ],
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": "test_normalized_labels (test_fixture.FixtureTests.test_normalized_labels) ... ok\ntest_shape_and_ids (test_fixture.FixtureTests.test_shape_and_ids) ... ok\ntest_whitespace_contract (test_fixture.FixtureTests.test_whitespace_contract) ... ok\n\n----------------------------------------------------------------------\nRan 3 tests in 0.001s\n\nOK\n"
+  },
+  "changed_files": [
+    ".project-memory/sessions/hermes-handoff.md",
+    "PROJECT_MEMORY.md",
+    "evidence/consumer-output.json",
+    "evidence/host-verification.json",
+    "evidence/input-pmp.json",
+    "fixture.json"
+  ],
+  "seed_exit_code": 1,
+  "seed_stdout": "",
+  "seed_stderr": "test_normalized_labels (test_fixture.FixtureTests.test_normalized_labels) ... FAIL\ntest_shape_and_ids (test_fixture.FixtureTests.test_shape_and_ids) ... ok\ntest_whitespace_contract (test_fixture.FixtureTests.test_whitespace_contract) ... FAIL\n\n======================================================================\nFAIL: test_normalized_labels (test_fixture.FixtureTests.test_normalized_labels)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"<replay-root>\\test_fixture.py\", line 17, in test_normalized_labels\n    self.assertEqual([x['label'] for x in self.value['items']],\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n                     ['Portable memory', 'Evidence chain'])\n                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: Lists differ: ['  Portable   memory  ', ' Evidence  chain '] != ['Portable memory', 'Evidence chain']\n\nFirst differing element 0:\n'  Portable   memory  '\n'Portable memory'\n\n- ['  Portable   memory  ', ' Evidence  chain ']\n?   --         --      --    -         -     -\n\n+ ['Portable memory', 'Evidence chain']\n\n======================================================================\nFAIL: test_whitespace_contract (test_fixture.FixtureTests.test_whitespace_contract)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"<replay-root>\\test_fixture.py\", line 22, in test_whitespace_contract\n    self.assertEqual(item['label'], ' '.join(item['label'].split()))\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: '  Portable   memory  ' != 'Portable memory'\n-   Portable   memory  \n? --         --      --\n+ Portable memory\n\n\n----------------------------------------------------------------------\nRan 3 tests in 0.002s\n\nFAILED (failures=2)\n",
+  "log_redaction": "Only the absolute temporary seed path is replaced by <replay-root>.",
+  "core_version": "0.2.2",
+  "incremental_paid_cost_usd": null,
+  "claims": {
+    "model_identity_certified": false,
+    "session_freshness_certified": false,
+    "real_hermes_executed": true,
+    "fresh_codex_executed": false
+  },
+  "bundle_sha256": "b729b7f2220f5e639ad9e43f205314c45055d69eab966689b0438f178398de17"
+}

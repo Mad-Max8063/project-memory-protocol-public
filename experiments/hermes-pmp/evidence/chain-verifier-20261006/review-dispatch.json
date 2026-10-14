@@ -1,0 +1,33 @@
+{
+  "timestamp": "2026-10-06T15:45:26.423684+00:00",
+  "review_revision": "d37185b33437c2d30eeee6d424f42e4614acf164",
+  "parent_revision": "966ced18c8ea540ad73ca942531ed7e9f9e64625",
+  "files": [
+    "PROJECT_MEMORY.md",
+    "experiments/hermes-pmp/CHAIN_TASK.md",
+    "experiments/hermes-pmp/verify_chain.py",
+    "tests/test_pmp_replay_chain.py",
+    "docs/experiments/replay-chain-verifier.md",
+    ".project-memory/sessions/chain-verifier-handoff.md",
+    "experiments/hermes-pmp/evidence/chain-verifier-20261006/claude-attempt.json",
+    "experiments/hermes-pmp/evidence/chain-verifier-20261006/claude-timeout.json",
+    "experiments/hermes-pmp/evidence/chain-verifier-20261006/dispatch.json",
+    "experiments/hermes-pmp/evidence/chain-verifier-20261006/host-checks.json",
+    "experiments/hermes-pmp/evidence/chain-verifier-20261006/input-pmp.json",
+    "experiments/hermes-pmp/evidence/chain-verifier-20261006/prompt.json"
+  ],
+  "file_sha256": {
+    "PROJECT_MEMORY.md": "620e62798a3e347643461fc39f13981f5421f5e2144df64a7147e39e8b96d84c",
+    "experiments/hermes-pmp/CHAIN_TASK.md": "6d72856c6c3e86f6995c06c225b8a33ce4d084be3bf2140dcbdeb845210c0937",
+    "experiments/hermes-pmp/verify_chain.py": "b372c61984a833a38b5135dcb0c86fcc14d60773e90ea2b1459bcdb1d7c67f32",
+    "tests/test_pmp_replay_chain.py": "3190dac4d42d347f73d655d53365a5da604680b8d5ab33ac660e5d9cc0fc5660",
+    "docs/experiments/replay-chain-verifier.md": "7eb94d5fbef573f309a340f0bd8e60cbbd5c6db470111aaecc0c6f3b48bcd283",
+    ".project-memory/sessions/chain-verifier-handoff.md": "7732b7070ac542309dc7895675a941dbe8b7123b9c2e9be8758a3148e64590ae",
+    "experiments/hermes-pmp/evidence/chain-verifier-20261006/claude-attempt.json": "76d731b83a1b0d829e939d55ba1ad775b7bc469a97f43bdfa628680c3871ef11",
+    "experiments/hermes-pmp/evidence/chain-verifier-20261006/claude-timeout.json": "3ff9507a14659118e827c2ca61940bc990f9d0779c077ae437b1397af5950839",
+    "experiments/hermes-pmp/evidence/chain-verifier-20261006/dispatch.json": "e61c107cf07d2792fd26a9b011d74bdbcc4a4038b5a3efce920500411271bc5b",
+    "experiments/hermes-pmp/evidence/chain-verifier-20261006/host-checks.json": "929db54e74c3fbf435c95b897ad0ec35cefd702ea7415d4e02cc63d2fea8de94",
+    "experiments/hermes-pmp/evidence/chain-verifier-20261006/input-pmp.json": "3577c49d91f1efb185bd111223269eb35899c7b54169157ca00022d2ed9ca946",
+    "experiments/hermes-pmp/evidence/chain-verifier-20261006/prompt.json": "9039d1a130159c326a0cf63563efdf97b19b0b9377971678d9cddd9715071889"
+  }
+}
