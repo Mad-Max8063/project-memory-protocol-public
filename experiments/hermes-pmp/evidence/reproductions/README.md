@@ -19,6 +19,7 @@ The verifier returns archived fixture commit
 | [Claude Code](claude-code/20261006T195333Z/REVIEW.md) | PASS, same host | 0 | 6 | 7 in 21.363 s |
 | [Google Antigravity](google-antigravity/20261006T203424Z/REVIEW.md) | PASS, same host | 0 | 6 | 7 in 21.391 s |
 | [Google Antigravity](google-antigravity/20261013T215241Z/REVIEW.md) | PASS, same host (post-LF recovery) | 0 | 6 | 7 in 26.413 s |
+| [Claude Code](claude-code/20261014T021522Z/REVIEW.md) | PASS, same host (Windows LF fix review) | 0 | 6 | 7 in 23.264 s (87/87 suite) |
 
 Each folder contains `REVIEW.md`, `execution.log`, `verifier.json`, and the
 separately saved provisional `initial-reconstruction.md`. These are reviewer
@@ -101,4 +102,29 @@ Binary `.bundle` archives were unaffected. Following the documented requirement 
 all 3 bundles, 14 historical inputs, 6 fixture tests, and 7 verifier acceptance tests
 passed (exit code 0). See [google-antigravity/20261013T215241Z/REVIEW.md](google-antigravity/20261013T215241Z/REVIEW.md)
 and [crlf-issue-proposal.md](google-antigravity/20261013T215241Z/crlf-issue-proposal.md).
+
+## Round 2026-10-14 (Windows Line Endings Portability Fix Review)
+
+An independent evaluation by Claude Code (Opus 5.5) on 2026-10-13/2026-10-14 reviewed
+commit `dbb55f5c9dbfab15bdc708d160d5285a41ca2435` on branch `experiment/pmp-windows-line-endings-20261013`
+from repository state only without prior chat history:
+
+- Verified that `.gitattributes` enforces LF checkouts in fresh clones under both
+  `core.autocrlf=true` and `core.autocrlf=false`.
+- Both fresh clone configurations passed all validation gates: memory, release candidate,
+  offline verifier (exit code 0), 7 acceptance tests, 4 regression tests, and all 87 tests
+  across the full suite.
+- Re-tested parent commit `224a67fd9cac0d5d5b257f15b2c27232b3eaa7fa` under `core.autocrlf=true`,
+  confirming exact failure reproduction (archive digest mismatch in `verify_chain.py` and carriage
+  return mismatch in `test_hermes_pmp_adapter.py`).
+- Identified that pre-existing worktrees previously checked out with CRLF can continue failing
+  after checking out `dbb55f5` because Git does not rewrite unchanged files in an existing worktree,
+  even with clean `git status`. The recommended recovery path is a fresh clean clone, avoiding manual
+  index manipulation.
+- Critical analysis of tests noted that test 4 (`test_crlf_injection_fails_digest_before_subprocess`)
+  tests evidence tampering rejection rather than the `.gitattributes` rule itself, and noted that
+  future files requiring CRLF (such as `.bat` or `.cmd`) will require explicit exceptions in `.gitattributes`.
+- Same-host evaluation boundary: independent model and session, but executed on the same Windows host.
+  See [claude-code/20261014T021522Z/REVIEW.md](claude-code/20261014T021522Z/REVIEW.md).
+
 

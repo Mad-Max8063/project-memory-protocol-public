@@ -16,6 +16,19 @@
 
 ## Current state
 
+- [VERIFIED] An independent evaluation of the Windows line-ending fix on 2026-10-13/2026-10-14
+  by Claude Code (Opus 5.5, logical reviewer, same Windows host) verified commit
+  dbb55f5c9dbfab15bdc708d160d5285a41ca2435 from repository state and Git alone without
+  prior chat history. Reviewer verified byte-identical clean checkouts under both
+  core.autocrlf=true and false (129 LF files, 0 CRLF in worktree), passing memory,
+  release candidate, offline verifier (exit 0), 7 acceptance tests, 4 regression tests,
+  and all 87 tests across the repository test suite. The parent commit 224a67f reproduced
+  the original failures under core.autocrlf=true. The review confirmed that pre-existing
+  worktrees with CRLF can retain CRLF files and fail even after pulling with clean git status;
+  the recommended recovery is a fresh clone (avoiding manual index manipulation).
+  Test 4 was confirmed to verify evidence tampering rejection rather than .gitattributes
+  enforcement directly. Scope limitation: same Windows host, no external-human or
+  multi-machine attestation. Verdict: PASS.
 - [VERIFIED] Windows line-ending portability fix implemented via repository-wide
   .gitattributes (* text=auto eol=lf, *.bundle binary) and verified by a dedicated
   regression suite (tests/test_line_endings_regression.py, 4 tests passing).
@@ -247,6 +260,13 @@
     spurious verification failures. Enforcing LF at checkout preserves deterministic
     reproducibility across all host configurations without weakening cryptographic
     checks, altering Core 0.2.2, or modifying historical archive bundles.
+12. Document migration and boundary behavior for Windows CRLF worktrees: existing
+    working trees previously checked out with CRLF do not automatically renormalize
+    unchanged files when pulling .gitattributes, and git status remains clean despite
+    failing digest checks. The canonical recovery path is a fresh clean clone, avoiding
+    manual index deletion. Test 4 in test_line_endings_regression.py guards against
+    tampered evidence files rather than exercising .gitattributes itself. Future files
+    inherently requiring CRLF (e.g. Windows batch scripts) will require explicit exceptions.
 
 ## Constraints
 
@@ -272,21 +292,22 @@
 3. Preserve the completed same-host review round and corrected review docs.
    Preserve Max's subsequent other-machine console report with explicit
    provenance limits; do not repeat runs or enlarge the experiment by default.
-4. Hand off independent verification to Claude Code on a clean checkout with
-   core.autocrlf=true and false; verify offline verifier, regression suite,
-   and repository test suite without relying on chat history.
+4. Conclude the Windows line endings portability experiment with independent review
+   incorporated, verify repository gates, and prepare recommendation for publishing
+   the experimental branch.
 
 ## Next action
 
-Claude Code: perform independent verification of `experiment/pmp-windows-line-endings-20261013`
-from a clean checkout. Validate that `.gitattributes` enforces LF checkouts under both
-`core.autocrlf=true` and `false`. Run offline verifier (`python -B experiments/hermes-pmp/verify_chain.py --json`),
-acceptance suite (`python -B -m unittest discover -s tests -p test_pmp_replay_chain.py -v`),
-and full test discovery (87 tests, including `tests/test_line_endings_regression.py`).
-Run memory and release validators. Do not push to remote, merge, or modify PR #8.
+Max: review experimental branch `experiment/pmp-windows-line-endings-20261013` (including
+commit dbb55f5 and documentary review incorporation), and authorize publishing the
+branch to origin. Do not merge to main, update PR #8, create releases, or deploy.
 
 ## Evidence
 
+- experiments/hermes-pmp/evidence/reproductions/claude-code/20261014T021522Z/REVIEW.md
+- experiments/hermes-pmp/evidence/reproductions/claude-code/20261014T021522Z/verifier.json
+- experiments/hermes-pmp/evidence/reproductions/claude-code/20261014T021522Z/execution.log
+- .project-memory/sessions/claude-portability-review.md
 - .gitattributes
 - tests/test_line_endings_regression.py
 - .project-memory/sessions/windows-line-endings-fix.md
